@@ -1,6 +1,8 @@
 
 :root {
-  --black: #101010;
+  --black: #111111;
+  --dark: #171717;
+  --dark-alt: #222222;
   --white: #f6f4ee;
   --yellow: #f4c644;
   --gray: #a7a7a7;
@@ -15,13 +17,18 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--black);
-  color: white;
+  color: var(--white);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 button,
@@ -44,11 +51,18 @@ a:focus-visible {
   outline-offset: 5px;
 }
 
-/* GŁÓWNY MECHANIZM PRZESUWANIA */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* =========================================
+   TRZY ŚWIATY / ANIMACJA
+========================================= */
 
 .website {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100dvh;
   overflow: hidden;
 }
@@ -71,203 +85,59 @@ a:focus-visible {
   scroll-behavior: smooth;
 }
 
-/* WSPÓLNE KOLORY */
+.world--acting {
+  background: var(--dark);
+  color: var(--white);
+}
 
 .world--home {
   background: var(--black);
-  color: white;
-}
-
-.world--acting {
-  background: #171717;
-  color: white;
+  color: var(--white);
 }
 
 .world--improv {
   background: var(--yellow);
-  color: #111;
+  color: var(--black);
 }
 
-/* EKRAN STARTOWY */
-
-.home-top,
-.home-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 26px 5%;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.home-top {
-  color: #999;
-}
-
-.home-heading {
-  text-align: center;
-  padding: 45px 20px 40px;
-}
-
-.home-heading > span {
-  font-size: 11px;
-  letter-spacing: 4px;
-  color: #999;
-}
-
-.home-heading h1 {
-  font-size: clamp(70px, 12vw, 160px);
-  letter-spacing: -0.09em;
-  line-height: 1;
-  margin: 18px 0;
-}
-
-.home-heading p {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 5px;
-  color: var(--yellow);
-}
-
-.choices {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
-  width: 90%;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-.choice {
-  display: block;
-  min-width: 0;
-  border: 0;
-  padding: 0;
-  color: white;
-  text-align: left;
-  overflow: hidden;
-  background: #242424;
-  transition: transform 0.3s ease;
-}
-
-.choice:hover {
-  transform: translateY(-8px);
-}
-
-.choice__image {
-  min-height: 370px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  transition: background-size 0.6s ease;
-}
-
-.choice__image span,
-.hero__visual span {
-  padding: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  line-height: 1.8;
-  text-align: center;
-  text-shadow: 0 2px 12px #000;
-}
-
-.choice__bottom {
-  padding: 25px 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-}
-
-.choice__bottom span {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.choice__bottom h2 {
-  margin: 10px 0 0;
-  font-size: clamp(22px, 3vw, 46px);
-  letter-spacing: -0.05em;
-}
-
-.choice__arrow {
-  font-size: 36px !important;
-  transition: transform 0.3s ease;
-}
-
-.choice:hover .choice__arrow {
-  transform: scale(1.3);
-}
-
-.choice--improv {
-  background: var(--yellow);
-  color: #111;
-}
-
-.home-footer {
-  color: #888;
-  padding-top: 35px;
-  padding-bottom: 35px;
-}
-
-/* ZDJĘCIA TYMCZASOWE */
-
-.acting-photo {
-  background-color: #333;
-  background-image:
-    linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.4),
-      rgba(90, 90, 90, 0.3)
-    ),
-    url("/images/aktorstwo.jpg");
-  background-position: center;
-  background-size: cover;
-  color: white;
-}
-
-.improv-photo {
-  background-color: #aa7722;
-  background-image:
-    linear-gradient(
-      135deg,
-      rgba(30, 15, 0, 0.45),
-      rgba(145, 85, 0, 0.15)
-    ),
-    url("/images/improwizacja.jpg");
-  background-position: center;
-  background-size: cover;
-  color: white;
-}
-
-/* NAWIGACJA */
+/* =========================================
+   NAWIGACJA
+========================================= */
 
 .navigation {
-  padding: 32px 5%;
+  min-height: 94px;
+  padding: 24px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 2px;
+}
+
+.nav-brand {
+  text-transform: uppercase;
 }
 
 .back-button {
   color: inherit;
+  background: transparent;
   border: 1px solid currentColor;
   border-radius: 100px;
-  background: transparent;
-  padding: 15px 22px;
+  padding: 16px 24px;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 1px;
-  transition: background 0.25s, color 0.25s;
+  white-space: nowrap;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.back-button:hover {
+  transform: translateY(-3px);
 }
 
 .world--acting .back-button:hover {
@@ -280,12 +150,164 @@ a:focus-visible {
   color: var(--yellow);
 }
 
-/* DUŻY NAGŁÓWEK PORTFOLIO */
+/* =========================================
+   EKRAN STARTOWY
+========================================= */
+
+.home-top,
+.home-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 5%;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.home-top {
+  color: #aaa;
+}
+
+.home-heading {
+  text-align: center;
+  padding: 42px 20px 45px;
+}
+
+.home-heading > span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #999;
+}
+
+.home-heading h1 {
+  font-size: clamp(56px, 10vw, 140px);
+  line-height: 0.95;
+  letter-spacing: -0.09em;
+  margin: 20px 0;
+}
+
+.home-heading p {
+  color: var(--yellow);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+
+/* =========================================
+   DWA GŁÓWNE ZDJĘCIA
+========================================= */
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  width: 90%;
+  max-width: 1350px;
+  margin: 0 auto;
+}
+
+.choice {
+  display: block;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+  text-align: left;
+  color: white;
+  background: #272727;
+  transition: transform 0.35s ease;
+}
+
+.choice:hover {
+  transform: translateY(-8px);
+}
+
+.choice__image {
+  position: relative;
+  height: clamp(300px, 36vw, 510px);
+  overflow: hidden;
+  background: #333;
+}
+
+.choice__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 50%,
+    rgba(0, 0, 0, 0.22)
+  );
+}
+
+.choice__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transition: transform 0.7s ease;
+}
+
+.choice:hover .choice__image img {
+  transform: scale(1.05);
+}
+
+.choice--acting .choice__image img {
+  filter: grayscale(100%);
+}
+
+.choice__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 26px 30px;
+}
+
+.choice__bottom span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.choice__bottom h2 {
+  margin: 10px 0 0;
+  font-size: clamp(24px, 3.5vw, 48px);
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.choice__arrow {
+  font-size: 42px !important;
+  transition: transform 0.3s ease;
+}
+
+.choice:hover .choice__arrow {
+  transform: scale(1.2);
+}
+
+.choice--improv {
+  color: #111;
+  background: var(--yellow);
+}
+
+.home-footer {
+  color: #888;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+/* =========================================
+   HERO PORTFOLIO
+========================================= */
 
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 650px;
+  min-height: 680px;
 }
 
 .hero__content {
@@ -293,188 +315,819 @@ a:focus-visible {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 70px 10%;
+  min-width: 0;
+  padding: 75px 9%;
 }
 
 .eyebrow {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 800;
   letter-spacing: 3px;
-  font-weight: 700;
+  line-height: 1.6;
 }
 
 .hero h1 {
-  font-size: clamp(65px, 9vw, 135px);
-  line-height: 0.95;
+  margin: 30px 0 35px;
+  font-size: clamp(64px, 7.2vw, 115px);
+  line-height: 0.9;
   letter-spacing: -0.09em;
-  margin: 35px 0;
   overflow-wrap: anywhere;
 }
 
-.hero p {
-  font-size: clamp(18px, 2vw, 25px);
-  line-height: 1.5;
-  margin-bottom: 40px;
-}
-
-.hero__visual {
-  min-height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.main-button {
-  display: inline-block;
-  background: white;
-  color: black;
-  padding: 18px 28px;
-  border-radius: 100px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  transition: transform 0.25s ease;
-}
-
-.main-button:hover {
-  transform: translateY(-4px);
-}
-
-.world--improv .main-button {
-  background: black;
+.hero-dot {
   color: var(--yellow);
 }
 
-/* SEKCJE PORTFOLIO */
+.hero--improv .hero-dot {
+  color: white;
+}
+
+.hero-lead {
+  max-width: 500px;
+  font-size: clamp(18px, 1.8vw, 23px);
+  line-height: 1.55;
+  margin: 0 0 36px;
+}
+
+.hero__visual {
+  position: relative;
+  min-height: 650px;
+  overflow: hidden;
+  background: #333;
+}
+
+.hero__visual img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero--acting .hero__visual img {
+  filter: grayscale(100%);
+}
+
+.hero__visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55)
+  );
+}
+
+.photo-caption {
+  position: absolute;
+  z-index: 2;
+  bottom: 25px;
+  left: 30px;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   PRZYCISKI
+========================================= */
+
+.hero-actions,
+.section-bottom-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.main-button,
+.outline-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 16px 24px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.main-button:hover,
+.outline-button:hover {
+  transform: translateY(-4px);
+}
+
+.world--acting .main-button {
+  background: white;
+  color: black;
+}
+
+.world--acting .outline-button {
+  color: white;
+  border: 1px solid white;
+}
+
+.world--improv .main-button {
+  background: #111;
+  color: var(--yellow);
+}
+
+.world--improv .outline-button {
+  color: #111;
+  border: 1px solid #111;
+}
+
+.text-link {
+  display: inline-block;
+  width: fit-content;
+  padding-bottom: 7px;
+  border-bottom: 1px solid currentColor;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  transition: opacity 0.25s;
+}
+
+.text-link:hover {
+  opacity: 0.55;
+}
+
+/* =========================================
+   SEKCJE
+========================================= */
 
 .content-section {
-  padding: 120px 8%;
-}
-
-.content-section h2 {
-  font-size: clamp(46px, 7vw, 100px);
-  line-height: 1;
-  letter-spacing: -0.07em;
-  margin: 30px 0 50px;
-}
-
-.content-section p {
-  max-width: 850px;
-  font-size: 18px;
-  line-height: 1.8;
-}
-
-.content-section .large-text {
-  max-width: 1050px;
-  font-size: clamp(24px, 3vw, 42px);
-  line-height: 1.35;
-  font-weight: 700;
+  padding: 115px 8%;
 }
 
 .world--acting .section-alt {
-  background: #222;
+  background: var(--dark-alt);
 }
 
 .world--improv .section-alt {
-  background: #e3b733;
+  background: #e8b936;
 }
 
-/* KARTY */
+.section-heading {
+  margin-bottom: 65px;
+}
 
-.cards {
+.section-heading h2 {
+  max-width: 1180px;
+  font-size: clamp(44px, 6vw, 90px);
+  line-height: 0.97;
+  letter-spacing: -0.075em;
+  margin: 25px 0;
+  overflow-wrap: anywhere;
+}
+
+.section-description {
+  max-width: 730px;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.6;
+}
+
+.intro-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 60px;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
 }
 
-.info-card {
-  min-height: 300px;
-  padding: 30px;
-  border: 1px solid currentColor;
+.large-text {
+  margin: 0;
+  font-size: clamp(25px, 3.2vw, 43px);
+  line-height: 1.28;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+}
+
+.intro-copy {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 20px;
 }
 
-.info-card > span {
-  font-size: 13px;
-  opacity: 0.6;
+.intro-copy p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.8;
 }
 
-.info-card h3 {
+/* =========================================
+   FILMOGRAFIA / TEATR
+========================================= */
+
+.credits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.credit-card {
+  min-width: 0;
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 27px;
+  border: 1px solid #4d4d4d;
+  background: #202020;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.credit-card:hover {
+  transform: translateY(-5px);
+  background: #303030;
+  border-color: #aaa;
+}
+
+.credit-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--yellow);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.credit-top span:last-child {
+  color: #777;
+}
+
+.credit-main {
+  padding: 30px 0;
+}
+
+.credit-category {
+  color: #aaa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.credit-main h3 {
+  margin: 14px 0;
+  font-size: clamp(23px, 2.5vw, 37px);
+  line-height: 1.06;
+  letter-spacing: -0.055em;
+  overflow-wrap: anywhere;
+}
+
+.credit-role {
+  margin: 0;
+  font-size: 14px;
+  color: #d0d0d0;
+  line-height: 1.5;
+}
+
+.credit-director {
+  padding-top: 18px;
+  border-top: 1px solid #4b4b4b;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.credit-director span {
+  color: #999;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.credit-director strong {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.section-bottom-links {
+  margin-top: 48px;
+}
+
+/* =========================================
+   WIZYTÓWKA I SHOWREEL
+========================================= */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.video-card {
+  min-width: 0;
+  background: #181818;
+}
+
+.video-frame,
+.special-player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #090909;
+}
+
+.video-frame iframe,
+.special-player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px;
+}
+
+.video-info h3 {
   font-size: clamp(25px, 3vw, 43px);
   letter-spacing: -0.06em;
-  margin: 60px 0 10px;
+  margin: 15px 0;
 }
 
-.info-card p {
+.video-info p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ccc;
+  margin: 0 0 25px;
+}
+
+/* =========================================
+   GALERIE
+========================================= */
+
+.photo-gallery {
+  display: grid;
+  gap: 15px;
+}
+
+.acting-gallery {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.improv-gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gallery-photo {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #333;
+}
+
+.acting-gallery .gallery-photo {
+  aspect-ratio: 4 / 5;
+}
+
+.improv-gallery .gallery-photo {
+  aspect-ratio: 4 / 3;
+  background: #bc952b;
+}
+
+.gallery-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-photo:hover img {
+  transform: scale(1.045);
+}
+
+.acting-gallery img {
+  filter: grayscale(100%);
+}
+
+.gallery-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 65%,
+    rgba(0, 0, 0, 0.75)
+  );
+}
+
+.gallery-photo figcaption {
+  position: absolute;
+  z-index: 2;
+  left: 22px;
+  bottom: 22px;
+  right: 22px;
+  display: flex;
+  gap: 18px;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.gallery-note {
+  max-width: 650px;
+  margin: 32px 0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   TOTO IMPRO / LICZBY
+========================================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.stat-card {
+  display: flex;
+  min-width: 0;
+  min-height: 200px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px;
+  background: #111;
+  color: var(--yellow);
+}
+
+.stat-card strong {
+  font-size: clamp(48px, 6vw, 95px);
+  letter-spacing: -0.09em;
+  line-height: 1;
+}
+
+.stat-card span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.5;
+}
+
+.statement {
+  margin-top: 95px;
+  max-width: 1000px;
+}
+
+.statement h3 {
+  font-size: clamp(45px, 7vw, 100px);
+  line-height: 0.97;
+  letter-spacing: -0.075em;
+  margin: 0 0 40px;
+}
+
+.statement p {
+  max-width: 760px;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.6;
+}
+
+.statement .main-button {
+  margin-top: 35px;
+}
+
+/* =========================================
+   TOTO IMPRO / SPECIAL
+========================================= */
+
+.special-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.special-copy {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.special-copy h3 {
+  margin: 0;
+  font-size: clamp(28px, 3.5vw, 52px);
+  line-height: 1.07;
+  letter-spacing: -0.06em;
+}
+
+.special-copy p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   WSPÓŁPRACA
+========================================= */
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.offer-card {
+  display: flex;
+  min-height: 350px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  background: #111;
+  color: var(--yellow);
+}
+
+.offer-card span {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.offer-card h3 {
+  margin: auto 0 20px;
+  padding-top: 45px;
+  font-size: clamp(26px, 3vw, 48px);
+  letter-spacing: -0.06em;
+}
+
+.offer-card p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   KONTAKT AKTORSKI
+========================================= */
+
+.big-email {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: clamp(23px, 4.5vw, 70px);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.15;
+  margin-bottom: 65px;
+}
+
+.big-email:hover {
+  color: var(--yellow);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.contact-card {
+  display: flex;
+  min-width: 0;
+  min-height: 280px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px;
+  border: 1px solid #555;
+  transition:
+    background 0.25s,
+    transform 0.25s;
+}
+
+.contact-card:hover {
+  background: #333;
+  transform: translateY(-4px);
+}
+
+.contact-card span {
+  color: #aaa;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.contact-card h3 {
+  margin: 30px 0 10px;
+  font-size: clamp(24px, 2.5vw, 40px);
+  letter-spacing: -0.06em;
+}
+
+.contact-card p {
+  margin: 0 0 25px;
   font-size: 15px;
   line-height: 1.6;
-  margin: 0;
+  color: #ccc;
 }
 
-/* GALERIE TYMCZASOWE */
-
-.placeholder {
-  min-height: 350px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  border: 1px dashed currentColor;
-  text-align: center;
+.contact-card strong {
+  margin-top: auto;
+  color: var(--yellow);
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-top: 50px;
+  letter-spacing: 1px;
 }
 
-/* STOPKA */
+/* =========================================
+   SOCIAL MEDIA TOTO IMPRO
+========================================= */
 
-.footer {
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.social-card {
+  display: flex;
+  min-width: 0;
+  min-height: 260px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  background: #111;
+  color: var(--yellow);
+  transition:
+    transform 0.3s,
+    background 0.3s;
+}
+
+.social-card:hover {
+  transform: translateY(-5px);
+  background: #303030;
+}
+
+.social-card span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.social-card h3 {
+  margin: auto 0 25px;
+  font-size: clamp(28px, 5vw, 65px);
+  letter-spacing: -0.07em;
+  overflow-wrap: anywhere;
+}
+
+.social-card strong {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.improv-contact {
+  padding-top: 95px;
+}
+
+.improv-contact > a {
+  display: block;
+  max-width: 100%;
+  margin: 25px 0;
+  font-size: clamp(24px, 4.5vw, 70px);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  overflow-wrap: anywhere;
+}
+
+.improv-contact p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   STOPKA
+========================================= */
+
+.portfolio-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 25px;
-  padding: 50px 8%;
+  gap: 30px;
+  padding: 45px 8%;
   border-top: 1px solid currentColor;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
 }
 
-.footer button {
+.portfolio-footer strong {
+  font-size: 24px;
+  letter-spacing: -0.05em;
+}
+
+.portfolio-footer p {
+  font-size: 12px;
+  line-height: 1.8;
+  opacity: 0.65;
+}
+
+.portfolio-footer button {
+  padding: 15px 0;
   background: transparent;
   color: inherit;
-  border: none;
+  border: 0;
+  border-bottom: 1px solid currentColor;
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: right;
 }
 
-/* TELEFONY */
+/* =========================================
+   TABLETY
+========================================= */
+
+@media (max-width: 1050px) {
+
+  .credits-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .stats-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .special-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .improv-gallery {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .offer-grid,
+  .contact-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+/* =========================================
+   TELEFONY
+========================================= */
 
 @media (max-width: 768px) {
 
-  .home-top,
-  .home-footer {
+  .navigation {
+    min-height: 78px;
+    padding: 18px 5%;
     font-size: 9px;
     letter-spacing: 1px;
-    padding: 20px;
+  }
+
+  .back-button {
+    padding: 12px;
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+
+  .home-top,
+  .home-footer {
+    padding: 20px 5%;
+    font-size: 9px;
+    letter-spacing: 1px;
   }
 
   .home-heading {
     padding: 35px 15px;
   }
 
+  .home-heading > span {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
   .home-heading h1 {
-    font-size: clamp(60px, 17vw, 95px);
+    font-size: clamp(50px, 13vw, 90px);
   }
 
   .home-heading p {
     font-size: 10px;
     letter-spacing: 2px;
+    line-height: 1.6;
   }
 
   .choices {
@@ -484,25 +1137,24 @@ a:focus-visible {
   }
 
   .choice__image {
-    min-height: 250px;
+    height: clamp(220px, 47vw, 340px);
   }
 
   .choice__bottom {
-    padding: 20px;
+    padding: 18px 20px;
   }
 
   .choice__bottom h2 {
-    font-size: 27px;
+    font-size: clamp(22px, 6vw, 32px);
   }
 
-  .navigation {
-    padding: 24px 5%;
-    font-size: 9px;
+  .choice__arrow {
+    font-size: 32px !important;
   }
 
-  .back-button {
-    padding: 12px;
-    font-size: 9px;
+  .home-footer {
+    flex-direction: column;
+    gap: 10px;
   }
 
   .hero {
@@ -514,41 +1166,158 @@ a:focus-visible {
   }
 
   .hero h1 {
-    font-size: clamp(54px, 14vw, 100px);
+    font-size: clamp(52px, 14vw, 100px);
   }
 
   .hero__visual {
-    min-height: 440px;
+    min-height: 470px;
   }
 
   .content-section {
     padding: 80px 7%;
   }
 
-  .content-section h2 {
-    font-size: clamp(42px, 11vw, 70px);
+  .section-heading {
+    margin-bottom: 45px;
   }
 
-  .cards {
+  .section-heading h2 {
+    font-size: clamp(42px, 10vw, 70px);
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .credits-grid {
     grid-template-columns: 1fr;
   }
 
-  .info-card {
+  .credit-card {
+    min-height: 285px;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-info {
+    padding: 25px;
+  }
+
+  .acting-gallery,
+  .improv-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .acting-gallery .gallery-photo {
+    aspect-ratio: 4 / 4.5;
+  }
+
+  .improv-gallery .gallery-photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .stats-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .stat-card {
+    min-height: 160px;
+    padding: 20px;
+  }
+
+  .stat-card strong {
+    font-size: clamp(40px, 11vw, 65px);
+  }
+
+  .stat-card span {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .statement {
+    margin-top: 65px;
+  }
+
+  .statement h3 {
+    font-size: clamp(44px, 10vw, 70px);
+  }
+
+  .offer-grid,
+  .contact-grid,
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-card {
+    min-height: 250px;
+  }
+
+  .contact-card {
     min-height: 230px;
   }
 
-  .info-card h3 {
-    margin-top: 35px;
+  .social-card {
+    min-height: 220px;
   }
 
-  .footer {
+  .social-card h3 {
+    font-size: clamp(32px, 10vw, 56px);
+  }
+
+  .improv-contact {
+    padding-top: 65px;
+  }
+
+  .portfolio-footer {
+    padding: 40px 7%;
     flex-direction: column;
     align-items: flex-start;
   }
 
+  .portfolio-footer button {
+    text-align: left;
+  }
+
 }
 
+/* =========================================
+   BARDZO MAŁE TELEFONY
+========================================= */
+
+@media (max-width: 380px) {
+
+  .nav-brand {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+
+  .back-button {
+    font-size: 8px;
+    padding: 11px 9px;
+  }
+
+  .hero h1 {
+    font-size: 51px;
+  }
+
+  .main-button,
+  .outline-button {
+    font-size: 10px;
+    padding: 14px 17px;
+  }
+
+}
+
+/* =========================================
+   OGRANICZENIE ANIMACJI
+========================================= */
+
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -556,4 +1325,5 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
+
 }
