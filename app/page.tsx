@@ -20,18 +20,22 @@ const offsets: Record<World, string> = {
   improv: "-200vw",
 };
 
-/* =========================================
+/* =====================================
    LINKI
-========================================= */
+===================================== */
 
 const LINKS = {
   wizytowka: "https://youtu.be/iZn3et4MSko",
   showreel: "https://youtu.be/-v35sackaag",
 
-  instagram: "https://www.instagram.com/syczalke/",
-  email: "mailto:hubertsycz@gmail.com",
+  instagram:
+    "https://www.instagram.com/syczalke/",
 
-  agencja: "https://abewu.pl/aktor/hubert-sycz",
+  email:
+    "mailto:hubertsycz@gmail.com",
+
+  agencja:
+    "https://abewu.pl/aktor/hubert-sycz",
 
   filmmakers:
     "https://www.filmmakers.eu/pl/actors/hubert-sycz",
@@ -42,7 +46,8 @@ const LINKS = {
   special:
     "https://www.youtube.com/watch?v=J_HRMuctBGQ",
 
-  totoWWW: "https://www.totoimpro.com/pl",
+  totoWWW:
+    "https://www.totoimpro.com/pl",
 
   totoInstagram:
     "https://www.instagram.com/totoimpro/",
@@ -57,33 +62,27 @@ const LINKS = {
     "mailto:totoimprov@gmail.com",
 };
 
-/* =========================================
-   ZDJĘCIA HUBERTA
-========================================= */
+/* =====================================
+   TWOJE ZDJĘCIA
+===================================== */
 
 const PHOTO = {
   acting: "/images/aktorstwo.jpg",
-
-  acting2: "/images/aktorstwo.jpg",
-
   improv: "/images/improwizacja.jpg",
 
   actingFallback:
     "https://i.ytimg.com/vi/iZn3et4MSko/hqdefault.jpg",
 
-  actingFallback2:
-    "https://i.ytimg.com/vi/-v35sackaag/hqdefault.jpg",
-
   improvFallback:
     "https://i.ytimg.com/vi/J_HRMuctBGQ/hqdefault.jpg",
 };
 
-/* =========================================
+/* =====================================
    FILMOGRAFIA
 
-   Nowsze produkcje wymagające potwierdzenia
-   reżyserii mają pole director pominięte.
-========================================= */
+   Brak reżysera oznacza, że dane
+   wymagają uzupełnienia.
+===================================== */
 
 const filmography: Credit[] = [
   {
@@ -109,7 +108,6 @@ const filmography: Credit[] = [
     title: "KOMISARZ ALEX",
     category: "Serial",
     role: "Kuba",
-    director: "Reżyseria zbiorowa",
   },
   {
     year: "2025",
@@ -132,7 +130,6 @@ const filmography: Credit[] = [
     title: "OJCIEC MATEUSZ",
     category: "Serial",
     role: "Andrzej Kostrzewa",
-    director: "Reżyseria zbiorowa",
   },
   {
     year: "2024",
@@ -163,20 +160,17 @@ const filmography: Credit[] = [
     title: "CHYŁKA. INWIGILACJA",
     category: "Serial",
     role: "Prawnik",
-    director: "Łukasz Palkowski, Marek Wróbel",
   },
   {
     year: "2021",
     title: "CIEŃ",
     category: "Serial",
     role: 'Znajomy „Szczura”',
-    director: "Mariusz Wojaczek",
   },
   {
     year: "2021",
     title: "KOLCZYK",
     category: "Etiuda szkolna",
-    director: "Yilin Yuan",
   },
   {
     year: "2021",
@@ -190,34 +184,29 @@ const filmography: Credit[] = [
     title: "BARWY SZCZĘŚCIA",
     category: "Serial",
     role: "Emil Kwiatkowski",
-    director: "Reżyseria zbiorowa",
   },
   {
     year: "2020",
     title: "PÓŁ ŻARTEM, PÓŁ IMPRO",
     category: "Serial",
     role: "Hubert",
-    director: "Michał Michalski",
   },
   {
     year: "2019",
     title: "KOMISARZ ALEX",
     category: "Serial",
     role: "Kelner",
-    director: "Reżyseria zbiorowa",
   },
   {
     year: "2018",
     title: "BYŁO MIŁO",
     category: "Film krótkometrażowy",
-    director: "Marcin Em",
   },
   {
     year: "2018",
     title: "DRUGA SZANSA",
     category: "Serial, sezon 5",
     role: "Basista",
-    director: "Tomasz Szafrański",
   },
   {
     year: "2018",
@@ -230,21 +219,18 @@ const filmography: Credit[] = [
     year: "2018",
     title: "TORY",
     category: "Film krótkometrażowy",
-    director: "Paweł Siedlik",
   },
   {
     year: "2017",
     title: "DRUGA SZANSA",
     category: "Serial, sezon 4",
     role: "Gitarzysta",
-    director: "Michał Gazda, Jan P. Matuszyński",
   },
   {
     year: "2017",
     title: "DRUGA SZANSA",
     category: "Serial, sezon 3",
     role: "Gitarzysta",
-    director: "Tomasz Szafrański",
   },
   {
     year: "2014",
@@ -254,9 +240,9 @@ const filmography: Credit[] = [
   },
 ];
 
-/* =========================================
+/* =====================================
    TEATR
-========================================= */
+===================================== */
 
 const theatre: Credit[] = [
   {
@@ -289,36 +275,25 @@ const theatre: Credit[] = [
   },
 ];
 
-/* =========================================
-   GALERIA IMPROWIZACYJNA
-========================================= */
+/* =====================================
+   ZDJĘCIA IMPRO
 
-const totoGallery = [
+   Na razie wyłącznie Twoje zdjęcie.
+   Pełną galerię dodamy po przesłaniu
+   kolejnych fotografii.
+===================================== */
+
+const improvGallery = [
   {
-    src: "/images/improwizacja.jpg",
-    fallback: PHOTO.improvFallback,
+    src: PHOTO.improv,
     alt: "Hubert Sycz podczas spektaklu improwizowanego",
-    title: "HUBERT / IMPRO",
-  },
-  {
-    src:
-      "https://www.totoimpro.com/gallery/toto-impro-spektakl-02.jpg",
-    fallback: PHOTO.improv,
-    alt: "TOTO IMPRO podczas spektaklu",
-    title: "TOTO IMPRO / SPEKTAKL",
-  },
-  {
-    src:
-      "https://i.ytimg.com/vi/J_HRMuctBGQ/hqdefault.jpg",
-    fallback: PHOTO.improv,
-    alt: "Kadr z TOTO IMPRO Special",
-    title: "TOTO IMPRO / SPECIAL",
+    title: "HUBERT SYCZ / NA SCENIE",
   },
 ];
 
-/* =========================================
-   KOMPONENTY POMOCNICZE
-========================================= */
+/* =====================================
+   KOMPONENT ZDJĘCIA
+===================================== */
 
 function SmartImage({
   src,
@@ -348,6 +323,10 @@ function SmartImage({
   );
 }
 
+/* =====================================
+   LINK ZEWNĘTRZNY
+===================================== */
+
 function ExternalLink({
   href,
   children,
@@ -369,6 +348,10 @@ function ExternalLink({
   );
 }
 
+/* =====================================
+   NAGŁÓWKI SEKCJI
+===================================== */
+
 function SectionHeader({
   number,
   title,
@@ -380,7 +363,9 @@ function SectionHeader({
 }) {
   return (
     <div className="section-heading">
-      <span className="eyebrow">{number}</span>
+      <span className="eyebrow">
+        {number}
+      </span>
 
       <h2>{title}</h2>
 
@@ -392,6 +377,10 @@ function SectionHeader({
     </div>
   );
 }
+
+/* =====================================
+   KAFELKI FILMOGRAFII
+===================================== */
 
 function CreditCard({
   credit,
@@ -427,17 +416,20 @@ function CreditCard({
 
       </div>
 
-      <div className="credit-director">
-        <span>REŻYSERIA</span>
-
-        <strong>
-          {credit.director ?? "Do uzupełnienia"}
-        </strong>
-      </div>
+      {credit.director && (
+        <div className="credit-director">
+          <span>REŻYSERIA</span>
+          <strong>{credit.director}</strong>
+        </div>
+      )}
 
     </article>
   );
 }
+
+/* =====================================
+   KAFELKI WIDEO
+===================================== */
 
 function VideoCard({
   id,
@@ -462,7 +454,6 @@ function VideoCard({
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          referrerPolicy="strict-origin-when-cross-origin"
         />
       </div>
 
@@ -489,6 +480,125 @@ function VideoCard({
   );
 }
 
+/* =====================================
+   IKONY SOCIAL MEDIA
+===================================== */
+
+type SocialName =
+  | "instagram"
+  | "facebook"
+  | "tiktok"
+  | "website";
+
+function SocialIcon({
+  name,
+}: {
+  name: SocialName;
+}) {
+  if (name === "instagram") {
+    return (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <rect
+          x="2"
+          y="2"
+          width="20"
+          height="20"
+          rx="5"
+        />
+        <circle cx="12" cy="12" r="4" />
+        <circle
+          cx="18"
+          cy="6"
+          r="1"
+          fill="currentColor"
+          stroke="none"
+        />
+      </svg>
+    );
+  }
+
+  if (name === "facebook") {
+    return (
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M22 12a10 10 0 1 0-11.56 9.88V14.9H7.9V12h2.54V9.8c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.9h-2.33v7A10 10 0 0 0 22 12Z" />
+      </svg>
+    );
+  }
+
+  if (name === "tiktok") {
+    return (
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M16.7 2h-3.1v13.4a3.1 3.1 0 1 1-2.7-3.08V9.1a6.3 6.3 0 1 0 5.8 6.3V8.55a8 8 0 0 0 4.7 1.5V6.9A4.7 4.7 0 0 1 16.7 2Z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" />
+
+      <path d="M3 12h18" />
+
+      <path d="M12 3c3 3 4.5 6 4.5 9S15 18 12 21" />
+
+      <path d="M12 3c-3 3-4.5 6-4.5 9S9 18 12 21" />
+    </svg>
+  );
+}
+
+function SocialLink({
+  href,
+  name,
+  label,
+}: {
+  href: string;
+  name: SocialName;
+  label: string;
+}) {
+  return (
+    <ExternalLink
+      href={href}
+      className="social-icon-link"
+    >
+      <span className="social-icon-graphic">
+        <SocialIcon name={name} />
+      </span>
+
+      <span className="social-icon-label">
+        {label}
+      </span>
+    </ExternalLink>
+  );
+}
+
+/* =====================================
+   STOPKA
+===================================== */
+
 function Footer({
   onBack,
   variant,
@@ -498,6 +608,12 @@ function Footer({
 }) {
   return (
     <footer className="portfolio-footer">
+
+      {variant === "improv" && (
+        <button onClick={onBack}>
+          ← WRÓĆ DO WYBORU
+        </button>
+      )}
 
       <div>
         <strong>HUBERT SYCZ.</strong>
@@ -509,22 +625,21 @@ function Footer({
         </p>
       </div>
 
-      <button onClick={onBack}>
-        {variant === "acting"
-          ? "WRÓĆ DO WYBORU →"
-          : "← WRÓĆ DO WYBORU"}
-      </button>
+      {variant === "acting" && (
+        <button onClick={onBack}>
+          WRÓĆ DO WYBORU →
+        </button>
+      )}
 
     </footer>
   );
 }
 
-/* =========================================
+/* =====================================
    STRONA GŁÓWNA
-========================================= */
+===================================== */
 
 export default function HomePage() {
-
   const [world, setWorld] =
     useState<World>("home");
 
@@ -535,7 +650,6 @@ export default function HomePage() {
   }
 
   useEffect(() => {
-
     function handleKey(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setWorld("home");
@@ -553,11 +667,9 @@ export default function HomePage() {
         handleKey
       );
     };
-
   }, []);
 
   useEffect(() => {
-
     const panel = document.getElementById(
       `panel-${world}`
     );
@@ -565,7 +677,6 @@ export default function HomePage() {
     if (panel) {
       panel.scrollTop = 0;
     }
-
   }, [world]);
 
   return (
@@ -586,9 +697,9 @@ export default function HomePage() {
         }
       >
 
-        {/* =================================
+        {/* ============================
             AKTORSTWO
-        ================================= */}
+        ============================ */}
 
         <section
           className="world world--acting"
@@ -609,8 +720,6 @@ export default function HomePage() {
             </button>
 
           </nav>
-
-          {/* HERO AKTORSTWO */}
 
           <header className="hero hero--acting">
 
@@ -716,7 +825,7 @@ export default function HomePage() {
 
           </section>
 
-          {/* WIZYTÓWKA / SHOWREEL */}
+          {/* WIDEO */}
 
           <section className="content-section section-alt">
 
@@ -834,7 +943,7 @@ export default function HomePage() {
                 <SmartImage
                   src={PHOTO.acting}
                   fallback={PHOTO.actingFallback}
-                  alt="Hubert Sycz – portret aktorski"
+                  alt="Hubert Sycz – portret"
                 />
 
                 <figcaption>
@@ -846,8 +955,8 @@ export default function HomePage() {
               <figure className="gallery-photo gallery-photo--detail">
 
                 <SmartImage
-                  src={PHOTO.acting2}
-                  fallback={PHOTO.actingFallback2}
+                  src={PHOTO.acting}
+                  fallback={PHOTO.actingFallback}
                   alt="Hubert Sycz – drugi kadr portretu"
                 />
 
@@ -861,7 +970,6 @@ export default function HomePage() {
 
             <p className="gallery-note">
               Więcej zdjęć castingowych
-              i aktualnych materiałów
               znajduje się na stronie mojej agencji.
             </p>
 
@@ -874,7 +982,7 @@ export default function HomePage() {
 
           </section>
 
-          {/* KONTAKT */}
+          {/* KONTAKT AKTORSKI */}
 
           <section className="content-section section-alt contact-section">
 
@@ -965,9 +1073,9 @@ export default function HomePage() {
         </section>
 
 
-        {/* =================================
+        {/* ============================
             EKRAN STARTOWY
-        ================================= */}
+        ============================ */}
 
         <section
           className="world world--home"
@@ -1004,12 +1112,10 @@ export default function HomePage() {
 
           <div className="choices">
 
-            {/* AKTORSTWO */}
-
             <button
               className="choice choice--acting"
               onClick={() => move("acting")}
-              aria-label="Przejdź do portfolio aktorskiego"
+              aria-label="Przejdź do aktorstwa"
             >
 
               <div className="choice__image">
@@ -1037,12 +1143,10 @@ export default function HomePage() {
 
             </button>
 
-            {/* IMPROWIZACJA */}
-
             <button
               className="choice choice--improv"
               onClick={() => move("improv")}
-              aria-label="Przejdź do portfolio improwizacyjnego"
+              aria-label="Przejdź do improwizacji"
             >
 
               <div className="choice__image">
@@ -1050,7 +1154,7 @@ export default function HomePage() {
                 <SmartImage
                   src={PHOTO.improv}
                   fallback={PHOTO.improvFallback}
-                  alt="Hubert Sycz podczas improwizacji"
+                  alt="Hubert Sycz na scenie"
                 />
 
               </div>
@@ -1074,22 +1178,18 @@ export default function HomePage() {
 
           <div className="home-footer">
 
-            <span>
-              WYBIERZ SWÓJ ŚWIAT
-            </span>
+            <span>WYBIERZ SWÓJ ŚWIAT</span>
 
-            <span>
-              © HUBERT SYCZ 2026
-            </span>
+            <span>© HUBERT SYCZ 2026</span>
 
           </div>
 
         </section>
 
 
-        {/* =================================
+        {/* ============================
             IMPROWIZACJA
-        ================================= */}
+        ============================ */}
 
         <section
           className="world world--improv"
@@ -1118,7 +1218,7 @@ export default function HomePage() {
             <div className="hero__content">
 
               <span className="eyebrow">
-                AKTOR / IMPROWIZATOR / MENADŻER
+                IMPROWIZATOR / AKTOR / MENADŻER
               </span>
 
               <h1>
@@ -1130,10 +1230,9 @@ export default function HomePage() {
               </h1>
 
               <p className="hero-lead">
-                Tu i teraz.
-                Bez scenariusza.
-                Z publicznością, muzyką
-                i nieograniczoną wyobraźnią.
+                Tworzę historie na scenie.
+                Poza nią organizuję miejsca,
+                w których mogą się wydarzyć.
               </p>
 
               <div className="hero-actions">
@@ -1142,14 +1241,14 @@ export default function HomePage() {
                   href="#improv-about"
                   className="main-button"
                 >
-                  POZNAJ TOTO IMPRO ↓
+                  POZNAJ MNIE ↓
                 </a>
 
                 <ExternalLink
                   href={LINKS.special}
                   className="outline-button"
                 >
-                  ZOBACZ SPECIAL ↗
+                  ZOBACZ MNIE NA SCENIE ↗
                 </ExternalLink>
 
               </div>
@@ -1161,18 +1260,18 @@ export default function HomePage() {
               <SmartImage
                 src={PHOTO.improv}
                 fallback={PHOTO.improvFallback}
-                alt="Hubert Sycz na scenie TOTO IMPRO"
+                alt="Hubert Sycz podczas spektaklu improwizowanego"
               />
 
               <span className="photo-caption">
-                HUBERT SYCZ / IMPRO LIVE
+                HUBERT SYCZ / LIVE
               </span>
 
             </div>
 
           </header>
 
-          {/* O MNIE */}
+          {/* WPROWADZENIE */}
 
           <section
             className="content-section"
@@ -1180,48 +1279,66 @@ export default function HomePage() {
           >
 
             <SectionHeader
-              number="01 / IMPROWIZACJA"
-              title="TWORZĘ HISTORIE NA ŻYWO."
+              number="01 / KIM JESTEM"
+              title="NA SCENIE I ZA KULISAMI."
+              description="Dwie role. Jedna pasja do tworzenia wydarzeń, których nie da się powtórzyć."
             />
 
-            <div className="intro-grid">
+            <div className="role-grid">
 
-              <p className="large-text">
-                Jestem improwizatorem
-                i menadżerem TOTO IMPRO —
-                zespołu, z którym tworzymy
-                muzyczno-komediowe spektakle
-                improwizowane.
-              </p>
+              <article className="role-card">
 
-              <div className="intro-copy">
+                <span className="eyebrow">
+                  01 / NA SCENIE
+                </span>
+
+                <h3>
+                  IMPROWIZATOR.
+                </h3>
 
                 <p>
-                  Na scenie interesuje mnie
-                  kontakt z drugim człowiekiem,
-                  spontaniczność i odwaga
-                  podążania za nieoczekiwanym.
+                  Występuję w spektaklach
+                  improwizowanych, tworzę
+                  postacie i historie razem
+                  z innymi aktorami oraz
+                  publicznością.
                 </p>
 
                 <p>
-                  Jako menadżer odpowiadam
-                  za rozwój TOTO IMPRO,
-                  organizację ogólnopolskich
-                  tras i współpracę
-                  z teatrami, domami kultury,
-                  festiwalami oraz partnerami
-                  biznesowymi.
+                  Interesuje mnie spontaniczność,
+                  kontakt z drugim człowiekiem
+                  i nieograniczone możliwości
+                  opowiadania historii.
+                </p>
+
+              </article>
+
+              <article className="role-card">
+
+                <span className="eyebrow">
+                  02 / ZA KULISAMI
+                </span>
+
+                <h3>
+                  MENADŻER.
+                </h3>
+
+                <p>
+                  Jestem menadżerem TOTO IMPRO.
+                  Organizuję ogólnopolskie
+                  trasy spektakli i rozwijam
+                  działalność zespołu.
                 </p>
 
                 <p>
-                  Łączę działalność artystyczną
-                  z produkcją i organizacją
-                  wydarzeń, dbając o to,
-                  by improwizacja docierała
-                  do publiczności w całej Polsce.
+                  Współpracuję z teatrami,
+                  ośrodkami kultury,
+                  festiwalami i partnerami
+                  przy tworzeniu wydarzeń
+                  dla publiczności w całej Polsce.
                 </p>
 
-              </div>
+              </article>
 
             </div>
 
@@ -1233,35 +1350,34 @@ export default function HomePage() {
 
             <SectionHeader
               number="02 / TOTO IMPRO"
-              title="200 SPEKTAKLI. TYSIĄCE HISTORII."
-              description="Autorskie muzyczno-komediowe show, które powstaje na żywo z udziałem publiczności."
+              title="200+ SPEKTAKLI. KAŻDY INNY."
+              description="Muzyka, komedia i historie, które powstają na żywo. Bez scenariusza i bez możliwości powtórki."
             />
 
             <div className="stats-grid">
 
               <div className="stat-card">
                 <strong>200+</strong>
-                <span>SPEKTAKLI</span>
+                <span>ZAGRANYCH SPEKTAKLI</span>
               </div>
 
               <div className="stat-card">
-                <strong>60</strong>
-                <span>SCEN</span>
+                <strong>LIVE</strong>
+                <span>HISTORIE TWORZONE NA ŻYWO</span>
               </div>
 
               <div className="stat-card">
-                <strong>45</strong>
-                <span>MIAST</span>
-              </div>
-
-              <div className="stat-card">
-                <strong>43</strong>
-                <span>INSTYTUCJE KULTURY</span>
+                <strong>PL</strong>
+                <span>OGÓLNOPOLSKIE TRASY</span>
               </div>
 
             </div>
 
             <div className="statement">
+
+              <span className="eyebrow">
+                Z WARSZAWY NA SCENY W CAŁEJ POLSCE
+              </span>
 
               <h3>
                 NIE JEDEN TEATR.
@@ -1270,26 +1386,24 @@ export default function HomePage() {
               </h3>
 
               <p>
-                Organizuję i współtworzę
-                ogólnopolskie trasy TOTO IMPRO.
-                Regularnie występujemy
-                w teatrach, ośrodkach kultury,
-                na festiwalach i wydarzeniach
-                specjalnych.
+                Z TOTO IMPRO podróżuję
+                po Polsce, występując
+                w teatrach, domach kultury
+                i na festiwalach.
               </p>
 
               <p>
-                Za nami ponad 200 spektakli.
-                Każdy z nich był inny —
-                bo każda publiczność
-                stworzyła z nami nową historię.
+                Jako menadżer współtworzę
+                trasy zespołu, prowadzę
+                współpracę z organizatorami
+                i rozwijam kolejne projekty.
               </p>
 
               <ExternalLink
                 href={LINKS.totoWWW}
                 className="main-button"
               >
-                ODWIEDŹ TOTO IMPRO ↗
+                POZNAJ TOTO IMPRO ↗
               </ExternalLink>
 
             </div>
@@ -1301,9 +1415,9 @@ export default function HomePage() {
           <section className="content-section">
 
             <SectionHeader
-              number="03 / TOTO IMPRO SPECIAL"
-              title="ZOBACZ NAS W AKCJI."
-              description="Materiał specjalny TOTO IMPRO."
+              number="03 / ZOBACZ MNIE NA SCENIE"
+              title="TEGO NIE DA SIĘ OPISAĆ."
+              description="Zobacz, jak wygląda improwizacja, kiedy historia powstaje na oczach publiczności."
             />
 
             <div className="special-layout">
@@ -1316,7 +1430,6 @@ export default function HomePage() {
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
-                  referrerPolicy="strict-origin-when-cross-origin"
                 />
 
               </div>
@@ -1324,7 +1437,7 @@ export default function HomePage() {
               <div className="special-copy">
 
                 <span className="eyebrow">
-                  KOMEDIA / MUZYKA / IMPRO
+                  TOTO IMPRO / SPECIAL
                 </span>
 
                 <h3>
@@ -1336,16 +1449,16 @@ export default function HomePage() {
 
                 <p>
                   Każde przedstawienie
-                  TOTO IMPRO powstaje na żywo,
-                  bez gotowego scenariusza,
-                  dzięki sugestiom publiczności.
+                  powstaje na żywo dzięki
+                  pomysłom i sugestiom
+                  publiczności.
                 </p>
 
                 <ExternalLink
                   href={LINKS.special}
                   className="main-button"
                 >
-                  OBEJRZYJ SPECIAL ↗
+                  OBEJRZYJ NA YOUTUBE ↗
                 </ExternalLink>
 
               </div>
@@ -1354,39 +1467,33 @@ export default function HomePage() {
 
           </section>
 
-          {/* GALERIA SPEKTAKLOWA */}
+          {/* GALERIA */}
 
           <section className="content-section section-alt">
 
             <SectionHeader
-              number="04 / GALERIA SPEKTAKLOWA"
-              title="ŻYWE EMOCJE. PRAWDZIWA SCENA."
-              description="Kadry z występów i materiałów TOTO IMPRO."
+              number="04 / GALERIA"
+              title="TU I TERAZ."
+              description="Momenty uchwycone podczas występów. Wkrótce więcej zdjęć z moich spektakli."
             />
 
             <div className="photo-gallery improv-gallery">
 
-              {totoGallery.map((photo, index) => (
+              {improvGallery.map((photo) => (
 
                 <figure
                   className="gallery-photo"
-                  key={index}
+                  key={photo.src}
                 >
 
-                  <SmartImage
+                  <img
                     src={photo.src}
-                    fallback={photo.fallback}
                     alt={photo.alt}
+                    loading="lazy"
                   />
 
                   <figcaption>
-
-                    <span>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-
                     {photo.title}
-
                   </figcaption>
 
                 </figure>
@@ -1395,16 +1502,11 @@ export default function HomePage() {
 
             </div>
 
-            <div className="section-bottom-links">
-
-              <ExternalLink
-                href={LINKS.totoWWW}
-                className="main-button"
-              >
-                WIĘCEJ ZDJĘĆ TOTO IMPRO ↗
-              </ExternalLink>
-
-            </div>
+            <p className="gallery-note">
+              Galerię będę rozbudowywać
+              o zdjęcia ze spektakli
+              i ogólnopolskich tras.
+            </p>
 
           </section>
 
@@ -1414,54 +1516,86 @@ export default function HomePage() {
 
             <SectionHeader
               number="05 / WSPÓŁPRACA"
-              title="SPOTKAJMY SIĘ NA SCENIE."
-              description="Improwizacja dla publiczności, teatrów, instytucji kultury i firm."
+              title="ZRÓBMY COŚ RAZEM."
+              description="Szukasz spektaklu dla swojej publiczności albo partnera do projektu artystycznego? Porozmawiajmy."
             />
 
             <div className="offer-grid">
 
               <article className="offer-card">
 
-                <span>01</span>
+                <span>01 / SPEKTAKLE</span>
 
-                <h3>SPEKTAKLE</h3>
+                <h3>
+                  SPOTKAJMY SIĘ NA SCENIE.
+                </h3>
 
                 <p>
-                  Muzyczno-komediowe
-                  przedstawienia improwizowane
-                  tworzone na żywo.
+                  Spektakle improwizowane
+                  dla teatrów, domów kultury
+                  i festiwali.
                 </p>
 
               </article>
 
               <article className="offer-card">
 
-                <span>02</span>
+                <span>02 / PRODUKCJA</span>
 
-                <h3>TRASY</h3>
+                <h3>
+                  STWÓRZMY WYDARZENIE.
+                </h3>
 
                 <p>
-                  Ogólnopolskie trasy teatralne
-                  i współpraca z instytucjami
-                  kultury.
+                  Współpraca przy organizacji
+                  wydarzeń, tras i projektów
+                  artystycznych.
                 </p>
 
               </article>
 
               <article className="offer-card">
 
-                <span>03</span>
+                <span>03 / EVENTY</span>
 
-                <h3>EVENTY</h3>
+                <h3>
+                  COŚ SPECJALNEGO DLA WAS.
+                </h3>
 
                 <p>
-                  Wydarzenia firmowe,
-                  festiwale i spektakle
-                  przygotowywane pod konkretną
-                  publiczność.
+                  Improwizacja i komedia
+                  na wydarzenia firmowe
+                  oraz okazje specjalne.
                 </p>
 
               </article>
+
+            </div>
+
+            <div className="booking-cta">
+
+              <div>
+                <span className="eyebrow">
+                  MASZ POMYSŁ NA WSPÓŁPRACĘ?
+                </span>
+
+                <h3>
+                  NAPISZ DO MNIE.
+                </h3>
+
+                <p>
+                  Chętnie porozmawiam
+                  o spektaklach, trasach
+                  i nowych projektach.
+                </p>
+              </div>
+
+              <a
+                href={LINKS.email}
+                className="main-button"
+              >
+                SKONTAKTUJ SIĘ ZE MNĄ ↗
+              </a>
 
             </div>
 
@@ -1469,85 +1603,58 @@ export default function HomePage() {
 
           {/* SOCIAL MEDIA */}
 
-          <section className="content-section section-alt contact-section">
+          <section className="content-section section-alt social-section">
 
             <SectionHeader
-              number="06 / TOTO IMPRO ONLINE"
-              title="BĄDŹ Z NAMI NA BIEŻĄCO."
-              description="Spektakle, fragmenty występów i kulisy ogólnopolskiej trasy."
+              number="06 / ZOSTAŃMY W KONTAKCIE"
+              title="ZNAJDŹ NAS W SIECI."
+              description="Aktualne spektakle, fragmenty improwizacji i kulisy naszych tras."
             />
 
-            <div className="social-grid">
+            <div className="social-icons">
 
-              <ExternalLink
+              <SocialLink
                 href={LINKS.totoInstagram}
-                className="social-card"
-              >
+                name="instagram"
+                label="Instagram"
+              />
 
-                <span>01 / FOLLOW</span>
-
-                <h3>INSTAGRAM</h3>
-
-                <strong>@TOTOIMPRO ↗</strong>
-
-              </ExternalLink>
-
-              <ExternalLink
+              <SocialLink
                 href={LINKS.totoFacebook}
-                className="social-card"
-              >
+                name="facebook"
+                label="Facebook"
+              />
 
-                <span>02 / FOLLOW</span>
-
-                <h3>FACEBOOK</h3>
-
-                <strong>TOTO IMPRO ↗</strong>
-
-              </ExternalLink>
-
-              <ExternalLink
+              <SocialLink
                 href={LINKS.totoTikTok}
-                className="social-card"
-              >
+                name="tiktok"
+                label="TikTok"
+              />
 
-                <span>03 / FOLLOW</span>
-
-                <h3>TIKTOK</h3>
-
-                <strong>@TOTO.IMPRO ↗</strong>
-
-              </ExternalLink>
-
-              <ExternalLink
+              <SocialLink
                 href={LINKS.totoWWW}
-                className="social-card"
-              >
-
-                <span>04 / ZOBACZ</span>
-
-                <h3>WWW</h3>
-
-                <strong>TOTOIMPRO.COM ↗</strong>
-
-              </ExternalLink>
+                name="website"
+                label="WWW"
+              />
 
             </div>
 
             <div className="improv-contact">
 
               <span className="eyebrow">
-                BOOKING / TRASY / WSPÓŁPRACA
+                KONTAKT / BOOKING / WSPÓŁPRACA
               </span>
 
-              <a href={LINKS.totoEmail}>
-                TOTOIMPROV@GMAIL.COM ↗
+              <a href={LINKS.email}>
+                HUBERTSYCZ@GMAIL.COM ↗
               </a>
 
               <p>
-                Osobisty kontakt:{" "}
+                Kontakt z TOTO IMPRO:
+                {" "}
 
-                <a href={LINKS.email}>
-                  hubertsycz@gmail.com
+                <a href={LINKS.totoEmail}>
+                  totoimprov@gmail.com
                 </a>
               </p>
 
