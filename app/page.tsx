@@ -4,6 +4,10 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
+/* =========================================
+   TYPY I NAWIGACJA
+========================================= */
+
 type World = "acting" | "home" | "improv";
 
 type Credit = {
@@ -14,19 +18,29 @@ type Credit = {
   director?: string;
 };
 
+type GalleryPhoto = {
+  src: string;
+  alt: string;
+  title: string;
+  size?: "wide" | "tall" | "normal";
+};
+
 const offsets: Record<World, string> = {
   acting: "0vw",
   home: "-100vw",
   improv: "-200vw",
 };
 
-/* =====================================
-   LINKI
-===================================== */
+/* =========================================
+   WSZYSTKIE LINKI
+========================================= */
 
 const LINKS = {
-  wizytowka: "https://youtu.be/iZn3et4MSko",
-  showreel: "https://youtu.be/-v35sackaag",
+  wizytowka:
+    "https://youtu.be/iZn3et4MSko",
+
+  showreel:
+    "https://youtu.be/-v35sackaag",
 
   instagram:
     "https://www.instagram.com/syczalke/",
@@ -62,27 +76,23 @@ const LINKS = {
     "mailto:totoimprov@gmail.com",
 };
 
-/* =====================================
-   TWOJE ZDJĘCIA
-===================================== */
+/* =========================================
+   ZDJĘCIA GŁÓWNE
+
+   DOKŁADNIE ORYGINALNE NAZWY PLIKÓW
+========================================= */
 
 const PHOTO = {
-  acting: "/images/aktorstwo.jpg",
-  improv: "/images/improwizacja.jpg",
+  acting:
+    "/images/aktorstwo.jpg",
 
-  actingFallback:
-    "https://i.ytimg.com/vi/iZn3et4MSko/hqdefault.jpg",
-
-  improvFallback:
-    "https://i.ytimg.com/vi/J_HRMuctBGQ/hqdefault.jpg",
+  improv:
+    "/images/improwizacja(1).jpg",
 };
 
-/* =====================================
-   FILMOGRAFIA
-
-   Brak reżysera oznacza, że dane
-   wymagają uzupełnienia.
-===================================== */
+/* =========================================
+   FILMOGRAFIA HUBERTA
+========================================= */
 
 const filmography: Credit[] = [
   {
@@ -240,9 +250,9 @@ const filmography: Credit[] = [
   },
 ];
 
-/* =====================================
+/* =========================================
    TEATR
-===================================== */
+========================================= */
 
 const theatre: Credit[] = [
   {
@@ -275,57 +285,163 @@ const theatre: Credit[] = [
   },
 ];
 
-/* =====================================
-   ZDJĘCIA IMPRO
+/* =========================================
+   GALERIA IMPROWIZACJI
 
-   Na razie wyłącznie Twoje zdjęcie.
-   Pełną galerię dodamy po przesłaniu
-   kolejnych fotografii.
-===================================== */
+   GŁÓWNE ZDJĘCIE:
+   improwizacja(1).jpg
 
-const improvGallery = [
+   POZOSTAŁE 9 ZDJĘĆ:
+   GALERIA SPEKTAKLOWA
+
+   NAZWY IDENTYCZNE JAK PRZESŁANE PLIKI
+========================================= */
+
+const improvGallery: GalleryPhoto[] = [
   {
-    src: PHOTO.improv,
-    alt: "Hubert Sycz podczas spektaklu improwizowanego",
-    title: "HUBERT SYCZ / NA SCENIE",
+    src:
+      "/images/wefilm-3.10.25-michalew-95(1).jpg",
+
+    alt:
+      "Hubert Sycz występuje z zespołem podczas spektaklu TOTO IMPRO",
+
+    title:
+      "TOTO IMPRO / NA SCENIE",
+
+    size: "tall",
+  },
+
+  {
+    src:
+      "/images/IMG_9754(1).jpg",
+
+    alt:
+      "Hubert Sycz podczas improwizacji w niebieskim świetle scenicznym",
+
+    title:
+      "HUBERT SYCZ / LIVE",
+
+    size: "normal",
+  },
+
+  {
+    src:
+      "/images/IMG_0283(1).jpg",
+
+    alt:
+      "Hubert Sycz podczas spektaklu improwizowanego",
+
+    title:
+      "IMPROWIZACJA / TU I TERAZ",
+
+    size: "normal",
+  },
+
+  {
+    src:
+      "/images/TOTO-18(1).jpg",
+
+    alt:
+      "Hubert Sycz podczas spektaklu TOTO IMPRO",
+
+    title:
+      "TOTO IMPRO / SPEKTAKL",
+
+    size: "normal",
+  },
+
+  {
+    src:
+      "/images/TOTO-50(1).jpg",
+
+    alt:
+      "Hubert Sycz występuje na scenie TOTO IMPRO",
+
+    title:
+      "TOTO IMPRO / TRASA",
+
+    size: "normal",
+  },
+
+  {
+    src:
+      "/images/TOTO-69(1).jpg",
+
+    alt:
+      "Hubert Sycz podczas sceny improwizowanej z innym aktorem",
+
+    title:
+      "SCENA / PARTNERSTWO",
+
+    size: "wide",
+  },
+
+  {
+    src:
+      "/images/TOTO-85(1).jpg",
+
+    alt:
+      "Hubert Sycz podczas improwizacji na scenie",
+
+    title:
+      "HUBERT SYCZ / PERFORMANCE",
+
+    size: "tall",
+  },
+
+  {
+    src:
+      "/images/651790701_1355531853268890_9203031069442217826_n(1).jpg",
+
+    alt:
+      "Hubert Sycz podczas spektaklu w czerwonym świetle scenicznym",
+
+    title:
+      "ŚWIATŁO / EMOCJE / IMPRO",
+
+    size: "wide",
+  },
+
+  {
+    src:
+      "/images/669587663_1500092202115847_7734198665696874300_n(1).jpg",
+
+    alt:
+      "Hubert Sycz podczas występu TOTO IMPRO",
+
+    title:
+      "TOTO IMPRO / LIVE",
+
+    size: "normal",
   },
 ];
 
-/* =====================================
+/* =========================================
    KOMPONENT ZDJĘCIA
-===================================== */
+========================================= */
 
 function SmartImage({
   src,
-  fallback,
   alt,
   className = "",
 }: {
   src: string;
-  fallback: string;
   alt: string;
   className?: string;
 }) {
-  const [current, setCurrent] = useState(src);
-
   return (
     <img
-      src={current}
+      src={src}
       alt={alt}
       className={className}
       loading="lazy"
-      onError={() => {
-        if (current !== fallback) {
-          setCurrent(fallback);
-        }
-      }}
     />
   );
 }
 
-/* =====================================
+/* =========================================
    LINK ZEWNĘTRZNY
-===================================== */
+========================================= */
 
 function ExternalLink({
   href,
@@ -348,9 +464,9 @@ function ExternalLink({
   );
 }
 
-/* =====================================
+/* =========================================
    NAGŁÓWKI SEKCJI
-===================================== */
+========================================= */
 
 function SectionHeader({
   number,
@@ -363,6 +479,7 @@ function SectionHeader({
 }) {
   return (
     <div className="section-heading">
+
       <span className="eyebrow">
         {number}
       </span>
@@ -374,13 +491,14 @@ function SectionHeader({
           {description}
         </p>
       )}
+
     </div>
   );
 }
 
-/* =====================================
+/* =========================================
    KAFELKI FILMOGRAFII
-===================================== */
+========================================= */
 
 function CreditCard({
   credit,
@@ -393,11 +511,13 @@ function CreditCard({
     <article className="credit-card">
 
       <div className="credit-top">
+
         <span>{credit.year}</span>
 
         <span>
           {String(index + 1).padStart(2, "0")}
         </span>
+
       </div>
 
       <div className="credit-main">
@@ -418,8 +538,15 @@ function CreditCard({
 
       {credit.director && (
         <div className="credit-director">
-          <span>REŻYSERIA</span>
-          <strong>{credit.director}</strong>
+
+          <span>
+            REŻYSERIA
+          </span>
+
+          <strong>
+            {credit.director}
+          </strong>
+
         </div>
       )}
 
@@ -427,9 +554,9 @@ function CreditCard({
   );
 }
 
-/* =====================================
+/* =========================================
    KAFELKI WIDEO
-===================================== */
+========================================= */
 
 function VideoCard({
   id,
@@ -448,6 +575,7 @@ function VideoCard({
     <article className="video-card">
 
       <div className="video-frame">
+
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${id}`}
           title={title}
@@ -455,6 +583,7 @@ function VideoCard({
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         />
+
       </div>
 
       <div className="video-info">
@@ -480,9 +609,9 @@ function VideoCard({
   );
 }
 
-/* =====================================
+/* =========================================
    IKONY SOCIAL MEDIA
-===================================== */
+========================================= */
 
 type SocialName =
   | "instagram"
@@ -513,7 +642,13 @@ function SocialIcon({
           height="20"
           rx="5"
         />
-        <circle cx="12" cy="12" r="4" />
+
+        <circle
+          cx="12"
+          cy="12"
+          r="4"
+        />
+
         <circle
           cx="18"
           cy="6"
@@ -559,6 +694,7 @@ function SocialIcon({
       strokeLinejoin="round"
       aria-hidden="true"
     >
+
       <circle cx="12" cy="12" r="9" />
 
       <path d="M3 12h18" />
@@ -566,6 +702,7 @@ function SocialIcon({
       <path d="M12 3c3 3 4.5 6 4.5 9S15 18 12 21" />
 
       <path d="M12 3c-3 3-4.5 6-4.5 9S9 18 12 21" />
+
     </svg>
   );
 }
@@ -584,6 +721,7 @@ function SocialLink({
       href={href}
       className="social-icon-link"
     >
+
       <span className="social-icon-graphic">
         <SocialIcon name={name} />
       </span>
@@ -591,13 +729,14 @@ function SocialLink({
       <span className="social-icon-label">
         {label}
       </span>
+
     </ExternalLink>
   );
 }
 
-/* =====================================
+/* =========================================
    STOPKA
-===================================== */
+========================================= */
 
 function Footer({
   onBack,
@@ -616,13 +755,17 @@ function Footer({
       )}
 
       <div>
-        <strong>HUBERT SYCZ.</strong>
+
+        <strong>
+          HUBERT SYCZ.
+        </strong>
 
         <p>
           Aktorstwo / Improwizacja
           <br />
           © 2026
         </p>
+
       </div>
 
       {variant === "acting" && (
@@ -635,15 +778,16 @@ function Footer({
   );
 }
 
-/* =====================================
-   STRONA GŁÓWNA
-===================================== */
+/* =========================================
+   GŁÓWNY KOMPONENT STRONY
+========================================= */
 
 export default function HomePage() {
   const [world, setWorld] =
     useState<World>("home");
 
-  const reduceMotion = useReducedMotion();
+  const reduceMotion =
+    useReducedMotion();
 
   function move(destination: World) {
     setWorld(destination);
@@ -697,9 +841,9 @@ export default function HomePage() {
         }
       >
 
-        {/* ============================
+        {/* =================================
             AKTORSTWO
-        ============================ */}
+        ================================= */}
 
         <section
           className="world world--acting"
@@ -720,6 +864,8 @@ export default function HomePage() {
             </button>
 
           </nav>
+
+          {/* HERO AKTORSTWO */}
 
           <header className="hero hero--acting">
 
@@ -766,7 +912,6 @@ export default function HomePage() {
 
               <SmartImage
                 src={PHOTO.acting}
-                fallback={PHOTO.actingFallback}
                 alt="Hubert Sycz – zdjęcie aktorskie"
               />
 
@@ -825,7 +970,7 @@ export default function HomePage() {
 
           </section>
 
-          {/* WIDEO */}
+          {/* WIZYTÓWKA I SHOWREEL */}
 
           <section className="content-section section-alt">
 
@@ -942,8 +1087,7 @@ export default function HomePage() {
 
                 <SmartImage
                   src={PHOTO.acting}
-                  fallback={PHOTO.actingFallback}
-                  alt="Hubert Sycz – portret"
+                  alt="Hubert Sycz – portret aktorski"
                 />
 
                 <figcaption>
@@ -956,8 +1100,7 @@ export default function HomePage() {
 
                 <SmartImage
                   src={PHOTO.acting}
-                  fallback={PHOTO.actingFallback}
-                  alt="Hubert Sycz – drugi kadr portretu"
+                  alt="Hubert Sycz – portret"
                 />
 
                 <figcaption>
@@ -1073,9 +1216,9 @@ export default function HomePage() {
         </section>
 
 
-        {/* ============================
+        {/* =================================
             EKRAN STARTOWY
-        ============================ */}
+        ================================= */}
 
         <section
           className="world world--home"
@@ -1112,6 +1255,8 @@ export default function HomePage() {
 
           <div className="choices">
 
+            {/* AKTORSTWO */}
+
             <button
               className="choice choice--acting"
               onClick={() => move("acting")}
@@ -1122,7 +1267,6 @@ export default function HomePage() {
 
                 <SmartImage
                   src={PHOTO.acting}
-                  fallback={PHOTO.actingFallback}
                   alt="Hubert Sycz – aktorstwo"
                 />
 
@@ -1143,6 +1287,8 @@ export default function HomePage() {
 
             </button>
 
+            {/* IMPROWIZACJA */}
+
             <button
               className="choice choice--improv"
               onClick={() => move("improv")}
@@ -1153,8 +1299,7 @@ export default function HomePage() {
 
                 <SmartImage
                   src={PHOTO.improv}
-                  fallback={PHOTO.improvFallback}
-                  alt="Hubert Sycz na scenie"
+                  alt="Hubert Sycz podczas spektaklu improwizowanego"
                 />
 
               </div>
@@ -1178,18 +1323,22 @@ export default function HomePage() {
 
           <div className="home-footer">
 
-            <span>WYBIERZ SWÓJ ŚWIAT</span>
+            <span>
+              WYBIERZ SWÓJ ŚWIAT
+            </span>
 
-            <span>© HUBERT SYCZ 2026</span>
+            <span>
+              © HUBERT SYCZ 2026
+            </span>
 
           </div>
 
         </section>
 
 
-        {/* ============================
+        {/* =================================
             IMPROWIZACJA
-        ============================ */}
+        ================================= */}
 
         <section
           className="world world--improv"
@@ -1259,8 +1408,7 @@ export default function HomePage() {
 
               <SmartImage
                 src={PHOTO.improv}
-                fallback={PHOTO.improvFallback}
-                alt="Hubert Sycz podczas spektaklu improwizowanego"
+                alt="Hubert Sycz podczas improwizacji"
               />
 
               <span className="photo-caption">
@@ -1271,7 +1419,7 @@ export default function HomePage() {
 
           </header>
 
-          {/* WPROWADZENIE */}
+          {/* KIM JESTEM */}
 
           <section
             className="content-section"
@@ -1300,8 +1448,8 @@ export default function HomePage() {
                   Występuję w spektaklach
                   improwizowanych, tworzę
                   postacie i historie razem
-                  z innymi aktorami oraz
-                  publicznością.
+                  z innymi aktorami
+                  oraz publicznością.
                 </p>
 
                 <p>
@@ -1357,18 +1505,33 @@ export default function HomePage() {
             <div className="stats-grid">
 
               <div className="stat-card">
+
                 <strong>200+</strong>
-                <span>ZAGRANYCH SPEKTAKLI</span>
+
+                <span>
+                  ZAGRANYCH SPEKTAKLI
+                </span>
+
               </div>
 
               <div className="stat-card">
+
                 <strong>LIVE</strong>
-                <span>HISTORIE TWORZONE NA ŻYWO</span>
+
+                <span>
+                  HISTORIE TWORZONE NA ŻYWO
+                </span>
+
               </div>
 
               <div className="stat-card">
+
                 <strong>PL</strong>
-                <span>OGÓLNOPOLSKIE TRASY</span>
+
+                <span>
+                  OGÓLNOPOLSKIE TRASY
+                </span>
+
               </div>
 
             </div>
@@ -1467,33 +1630,40 @@ export default function HomePage() {
 
           </section>
 
-          {/* GALERIA */}
+          {/* GALERIA IMPROWIZACJI */}
 
           <section className="content-section section-alt">
 
             <SectionHeader
-              number="04 / GALERIA"
+              number="04 / GALERIA SPEKTAKLOWA"
               title="TU I TERAZ."
-              description="Momenty uchwycone podczas występów. Wkrótce więcej zdjęć z moich spektakli."
+              description="Dziewięć kadrów z moich spektakli. Różne sceny, różne historie i emocje, które wydarzyły się tylko raz."
             />
 
-            <div className="photo-gallery improv-gallery">
+            <div className="improv-gallery">
 
-              {improvGallery.map((photo) => (
+              {improvGallery.map((photo, index) => (
 
                 <figure
-                  className="gallery-photo"
+                  className={`improv-gallery-item improv-gallery-item--${photo.size || "normal"}`}
                   key={photo.src}
                 >
 
-                  <img
+                  <SmartImage
                     src={photo.src}
                     alt={photo.alt}
-                    loading="lazy"
                   />
 
                   <figcaption>
-                    {photo.title}
+
+                    <span className="gallery-number">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <span>
+                      {photo.title}
+                    </span>
+
                   </figcaption>
 
                 </figure>
@@ -1501,12 +1671,6 @@ export default function HomePage() {
               ))}
 
             </div>
-
-            <p className="gallery-note">
-              Galerię będę rozbudowywać
-              o zdjęcia ze spektakli
-              i ogólnopolskich tras.
-            </p>
 
           </section>
 
@@ -1524,7 +1688,9 @@ export default function HomePage() {
 
               <article className="offer-card">
 
-                <span>01 / SPEKTAKLE</span>
+                <span>
+                  01 / SPEKTAKLE
+                </span>
 
                 <h3>
                   SPOTKAJMY SIĘ NA SCENIE.
@@ -1540,7 +1706,9 @@ export default function HomePage() {
 
               <article className="offer-card">
 
-                <span>02 / PRODUKCJA</span>
+                <span>
+                  02 / PRODUKCJA
+                </span>
 
                 <h3>
                   STWÓRZMY WYDARZENIE.
@@ -1556,7 +1724,9 @@ export default function HomePage() {
 
               <article className="offer-card">
 
-                <span>03 / EVENTY</span>
+                <span>
+                  03 / EVENTY
+                </span>
 
                 <h3>
                   COŚ SPECJALNEGO DLA WAS.
@@ -1572,29 +1742,33 @@ export default function HomePage() {
 
             </div>
 
+            {/* BOOKING TOTO IMPRO */}
+
             <div className="booking-cta">
 
               <div>
+
                 <span className="eyebrow">
                   MASZ POMYSŁ NA WSPÓŁPRACĘ?
                 </span>
 
                 <h3>
-                  NAPISZ DO MNIE.
+                  NAPISZ DO TOTO IMPRO.
                 </h3>
 
                 <p>
-                  Chętnie porozmawiam
+                  Chętnie porozmawiamy
                   o spektaklach, trasach
                   i nowych projektach.
                 </p>
+
               </div>
 
               <a
-                href={LINKS.email}
+                href={LINKS.totoEmail}
                 className="main-button"
               >
-                SKONTAKTUJ SIĘ ZE MNĄ ↗
+                NAPISZ DO NAS ↗
               </a>
 
             </div>
@@ -1639,23 +1813,22 @@ export default function HomePage() {
 
             </div>
 
+            {/* GŁÓWNY KONTAKT IMPRO */}
+
             <div className="improv-contact">
 
               <span className="eyebrow">
                 KONTAKT / BOOKING / WSPÓŁPRACA
               </span>
 
-              <a href={LINKS.email}>
-                HUBERTSYCZ@GMAIL.COM ↗
+              <a href={LINKS.totoEmail}>
+                TOTOIMPROV@GMAIL.COM ↗
               </a>
 
               <p>
-                Kontakt z TOTO IMPRO:
-                {" "}
-
-                <a href={LINKS.totoEmail}>
-                  totoimprov@gmail.com
-                </a>
+                W sprawie spektakli,
+                ogólnopolskich tras
+                i organizacji wydarzeń.
               </p>
 
             </div>
