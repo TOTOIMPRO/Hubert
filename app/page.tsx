@@ -4,10 +4,6 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
-/* =========================================
-   TYPY I NAWIGACJA
-========================================= */
-
 type World = "acting" | "home" | "improv";
 
 type Credit = {
@@ -32,7 +28,7 @@ const offsets: Record<World, string> = {
 };
 
 /* =========================================
-   WSZYSTKIE LINKI
+   LINKI HUBERTA I TOTO IMPRO
 ========================================= */
 
 const LINKS = {
@@ -79,19 +75,117 @@ const LINKS = {
 /* =========================================
    ZDJĘCIA GŁÓWNE
 
-   DOKŁADNIE ORYGINALNE NAZWY PLIKÓW
+   ZACHOWUJEMY ORYGINALNE NAZWY
 ========================================= */
 
 const PHOTO = {
   acting:
-    "/images/aktorstwo.jpg",
+    "/images/HUBERT  fot Zimakiewicz (20).jpg",
 
   improv:
     "/images/improwizacja(1).jpg",
 };
 
 /* =========================================
-   FILMOGRAFIA HUBERTA
+   GALERIA AKTORSKA
+
+   WSZYSTKIE 8 PRZESŁANYCH ZDJĘĆ
+
+   PIERWSZE = GŁÓWNE ZDJĘCIE
+========================================= */
+
+const actingGallery: GalleryPhoto[] = [
+  {
+    src:
+      "/images/HUBERT  fot Zimakiewicz (20).jpg",
+
+    alt:
+      "Hubert Sycz siedzący w białej koszuli na fotelu",
+
+    title:
+      "HUBERT SYCZ / PORTRET",
+  },
+
+  {
+    src:
+      "/images/IMG_0074-01-kopia.jpeg",
+
+    alt:
+      "Hubert Sycz w brązowej skórzanej kurtce",
+
+    title:
+      "HUBERT SYCZ / PORTFOLIO",
+  },
+
+  {
+    src:
+      "/images/H.Sycz..jpg",
+
+    alt:
+      "Hubert Sycz w jasnej koszuli na białym tle",
+
+    title:
+      "HUBERT SYCZ / PORTRET",
+  },
+
+  {
+    src:
+      "/images/_MG_8790.jpg",
+
+    alt:
+      "Hubert Sycz w jasnej koszuli na brązowym tle",
+
+    title:
+      "HUBERT SYCZ / SESJA",
+  },
+
+  {
+    src:
+      "/images/HUBERT  fot Zimakiewicz (37)-2.jpg",
+
+    alt:
+      "Hubert Sycz w czarnym golfie na krześle",
+
+    title:
+      "HUBERT SYCZ / PORTRET",
+  },
+
+  {
+    src:
+      "/images/HUBERT  fot Zimakiewicz (29).jpg",
+
+    alt:
+      "Hubert Sycz w białym podkoszulku na stołku",
+
+    title:
+      "HUBERT SYCZ / PORTFOLIO",
+  },
+
+  {
+    src:
+      "/images/HUBERT  fot Zimakiewicz (6).jpg",
+
+    alt:
+      "Hubert Sycz w białej koszulce na czarnym tle",
+
+    title:
+      "HUBERT SYCZ / SYLWETKA",
+  },
+
+  {
+    src:
+      "/images/HUBERT  fot Zimakiewicz (4).jpg",
+
+    alt:
+      "Hubert Sycz w białej koszulce oparty o stołek",
+
+    title:
+      "HUBERT SYCZ / PORTRET",
+  },
+];
+
+/* =========================================
+   FILMOGRAFIA
 ========================================= */
 
 const filmography: Credit[] = [
@@ -288,13 +382,7 @@ const theatre: Credit[] = [
 /* =========================================
    GALERIA IMPROWIZACJI
 
-   GŁÓWNE ZDJĘCIE:
-   improwizacja(1).jpg
-
-   POZOSTAŁE 9 ZDJĘĆ:
-   GALERIA SPEKTAKLOWA
-
-   NAZWY IDENTYCZNE JAK PRZESŁANE PLIKI
+   BEZ ZMIAN WZGLĘDEM POPRZEDNIEJ WERSJI
 ========================================= */
 
 const improvGallery: GalleryPhoto[] = [
@@ -303,7 +391,7 @@ const improvGallery: GalleryPhoto[] = [
       "/images/wefilm-3.10.25-michalew-95(1).jpg",
 
     alt:
-      "Hubert Sycz występuje z zespołem podczas spektaklu TOTO IMPRO",
+      "Hubert Sycz podczas występu zespołowego",
 
     title:
       "TOTO IMPRO / NA SCENIE",
@@ -316,7 +404,7 @@ const improvGallery: GalleryPhoto[] = [
       "/images/IMG_9754(1).jpg",
 
     alt:
-      "Hubert Sycz podczas improwizacji w niebieskim świetle scenicznym",
+      "Hubert Sycz w niebieskim świetle scenicznym",
 
     title:
       "HUBERT SYCZ / LIVE",
@@ -342,7 +430,7 @@ const improvGallery: GalleryPhoto[] = [
       "/images/TOTO-18(1).jpg",
 
     alt:
-      "Hubert Sycz podczas spektaklu TOTO IMPRO",
+      "Hubert Sycz na scenie",
 
     title:
       "TOTO IMPRO / SPEKTAKL",
@@ -355,7 +443,7 @@ const improvGallery: GalleryPhoto[] = [
       "/images/TOTO-50(1).jpg",
 
     alt:
-      "Hubert Sycz występuje na scenie TOTO IMPRO",
+      "Hubert Sycz podczas występu TOTO IMPRO",
 
     title:
       "TOTO IMPRO / TRASA",
@@ -368,7 +456,7 @@ const improvGallery: GalleryPhoto[] = [
       "/images/TOTO-69(1).jpg",
 
     alt:
-      "Hubert Sycz podczas sceny improwizowanej z innym aktorem",
+      "Hubert Sycz z innym aktorem",
 
     title:
       "SCENA / PARTNERSTWO",
@@ -381,7 +469,7 @@ const improvGallery: GalleryPhoto[] = [
       "/images/TOTO-85(1).jpg",
 
     alt:
-      "Hubert Sycz podczas improwizacji na scenie",
+      "Hubert Sycz podczas improwizacji",
 
     title:
       "HUBERT SYCZ / PERFORMANCE",
@@ -394,7 +482,7 @@ const improvGallery: GalleryPhoto[] = [
       "/images/651790701_1355531853268890_9203031069442217826_n(1).jpg",
 
     alt:
-      "Hubert Sycz podczas spektaklu w czerwonym świetle scenicznym",
+      "Hubert Sycz podczas spektaklu w czerwonym świetle",
 
     title:
       "ŚWIATŁO / EMOCJE / IMPRO",
@@ -539,9 +627,7 @@ function CreditCard({
       {credit.director && (
         <div className="credit-director">
 
-          <span>
-            REŻYSERIA
-          </span>
+          <span>REŻYSERIA</span>
 
           <strong>
             {credit.director}
@@ -701,7 +787,7 @@ function SocialIcon({
 
       <path d="M12 3c3 3 4.5 6 4.5 9S15 18 12 21" />
 
-      <path d="M12 3c-3 3-4.5 6-4.5 9S9 18 12 21" />
+      <path d="M12 3c-3 3-4.5-6-4.5 9S9 18 12 21" />
 
     </svg>
   );
@@ -779,7 +865,7 @@ function Footer({
 }
 
 /* =========================================
-   GŁÓWNY KOMPONENT STRONY
+   GŁÓWNA STRONA
 ========================================= */
 
 export default function HomePage() {
@@ -865,7 +951,7 @@ export default function HomePage() {
 
           </nav>
 
-          {/* HERO AKTORSTWO */}
+          {/* GŁÓWNE ZDJĘCIE AKTORSKIE */}
 
           <header className="hero hero--acting">
 
@@ -912,7 +998,7 @@ export default function HomePage() {
 
               <SmartImage
                 src={PHOTO.acting}
-                alt="Hubert Sycz – zdjęcie aktorskie"
+                alt="Hubert Sycz siedzący w białej koszuli na fotelu"
               />
 
               <span className="photo-caption">
@@ -1071,56 +1157,56 @@ export default function HomePage() {
 
           </section>
 
-          {/* GALERIA AKTORSKA */}
+          {/* =================================
+              NOWA GALERIA AKTORSKA
+              8 TWOICH ZDJĘĆ
+          ================================= */}
 
           <section className="content-section">
 
             <SectionHeader
-              number="05 / GALERIA"
-              title="ZDJĘCIA AKTORSKIE."
-              description="Portrety i materiały aktorskie."
+              number="05 / GALERIA AKTORSKA"
+              title="RÓŻNE OBLICZA. JEDEN AKTOR."
+              description="Moje aktualne zdjęcia portretowe i castingowe."
             />
 
             <div className="photo-gallery acting-gallery">
 
-              <figure className="gallery-photo">
+              {actingGallery.map((photo, index) => (
 
-                <SmartImage
-                  src={PHOTO.acting}
-                  alt="Hubert Sycz – portret aktorski"
-                />
+                <figure
+                  className="gallery-photo"
+                  key={photo.src}
+                >
 
-                <figcaption>
-                  HUBERT SYCZ / PORTFOLIO
-                </figcaption>
+                  <SmartImage
+                    src={photo.src}
+                    alt={photo.alt}
+                  />
 
-              </figure>
+                  <figcaption>
+                    {String(index + 1).padStart(2, "0")}
+                    {" / "}
+                    {photo.title}
+                  </figcaption>
 
-              <figure className="gallery-photo gallery-photo--detail">
+                </figure>
 
-                <SmartImage
-                  src={PHOTO.acting}
-                  alt="Hubert Sycz – portret"
-                />
-
-                <figcaption>
-                  HUBERT SYCZ / PORTRET
-                </figcaption>
-
-              </figure>
+              ))}
 
             </div>
 
             <p className="gallery-note">
-              Więcej zdjęć castingowych
-              znajduje się na stronie mojej agencji.
+              Więcej materiałów aktorskich
+              znajduje się również na stronie
+              mojej agencji.
             </p>
 
             <ExternalLink
               href={LINKS.agencja}
               className="outline-button"
             >
-              ZDJĘCIA W ABEWU ↗
+              ZOBACZ PROFIL W ABEWU ↗
             </ExternalLink>
 
           </section>
@@ -1267,7 +1353,7 @@ export default function HomePage() {
 
                 <SmartImage
                   src={PHOTO.acting}
-                  alt="Hubert Sycz – aktorstwo"
+                  alt="Hubert Sycz – portfolio aktorskie"
                 />
 
               </div>
@@ -1299,7 +1385,7 @@ export default function HomePage() {
 
                 <SmartImage
                   src={PHOTO.improv}
-                  alt="Hubert Sycz podczas spektaklu improwizowanego"
+                  alt="Hubert Sycz podczas improwizacji"
                 />
 
               </div>
@@ -1360,7 +1446,7 @@ export default function HomePage() {
 
           </nav>
 
-          {/* HERO IMPRO */}
+          {/* GŁÓWNE ZDJĘCIE IMPRO */}
 
           <header className="hero hero--improv">
 
@@ -1408,7 +1494,7 @@ export default function HomePage() {
 
               <SmartImage
                 src={PHOTO.improv}
-                alt="Hubert Sycz podczas improwizacji"
+                alt="Hubert Sycz podczas spektaklu improwizowanego"
               />
 
               <span className="photo-caption">
@@ -1630,14 +1716,14 @@ export default function HomePage() {
 
           </section>
 
-          {/* GALERIA IMPROWIZACJI */}
+          {/* GALERIA IMPRO */}
 
           <section className="content-section section-alt">
 
             <SectionHeader
               number="04 / GALERIA SPEKTAKLOWA"
               title="TU I TERAZ."
-              description="Dziewięć kadrów z moich spektakli. Różne sceny, różne historie i emocje, które wydarzyły się tylko raz."
+              description="Kadry z moich spektakli. Różne sceny, różne historie i emocje, które wydarzyły się tylko raz."
             />
 
             <div className="improv-gallery">
@@ -1813,7 +1899,7 @@ export default function HomePage() {
 
             </div>
 
-            {/* GŁÓWNY KONTAKT IMPRO */}
+            {/* KONTAKT IMPRO */}
 
             <div className="improv-contact">
 
