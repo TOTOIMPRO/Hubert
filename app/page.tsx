@@ -43,6 +43,7 @@ const LINKS = {
   filmmakers: "https://www.filmmakers.eu/pl/actors/hubert-sycz",
   filmpolski: "https://filmpolski.pl/fp/index.php?osoba=11134038",
   special: "https://www.youtube.com/watch?v=J_HRMuctBGQ",
+
   totoWWW: "https://www.totoimpro.com/pl",
   totoInstagram: "https://www.instagram.com/totoimpro/",
   totoFacebook:
@@ -72,9 +73,9 @@ const actingGallery: Photo[] = [
     position: "50% 20%",
   },
 
-  /* NOWE ZDJĘCIE — TRZECIE W GALERII */
+  /* TRZECIE ZDJĘCIE — POPRAWNA NAZWA Z DWOMA SPACJAMI */
   {
-    src: "/images/HUBERT fot Zimakiewicz (24)-2.jpg",
+    src: "/images/HUBERT  fot Zimakiewicz (24)-2.jpg",
     alt: "Hubert Sycz - zdjęcie aktorskie",
     position: "50% 18%",
   },
@@ -113,6 +114,14 @@ const actingGallery: Photo[] = [
 
 /* =====================================
    GALERIA IMPROWIZACJI
+
+   OSTATNI RZĄD:
+   1. CZERWONE PIONOWE
+   2. NIEBIESKIE ZE SCENY
+   3. CZERWONY CIEŃ
+
+   DWIE PIERWSZE FOTOGRAFIE W OSTATNIM
+   RZĘDZIE MAJĄ WŁASNE KADROWANIE.
 ===================================== */
 
 const improvGallery: Photo[] = [
@@ -122,49 +131,51 @@ const improvGallery: Photo[] = [
     position: "50% 45%",
   },
   {
-    src: "/images/TOTO-18.jpg",
-    alt: "Hubert Sycz na scenie podczas spektaklu TOTO IMPRO",
-    position: "50% 42%",
+    src: "/images/TOTO-50.jpg",
+    alt: "Hubert Sycz na scenie TOTO IMPRO",
+    position: "50% 45%",
   },
   {
     src: "/images/IMG_0283.jpg",
-    alt: "Hubert Sycz na scenie",
-    position: "42% 40%",
-  },
-  {
-    src: "/images/TOTO-50.jpg",
     alt: "Hubert Sycz podczas spektaklu improwizowanego",
-    position: "48% 42%",
+    position: "38% 44%",
   },
   {
     src: "/images/TOTO-69.jpg",
+    alt: "Hubert Sycz podczas występu TOTO IMPRO",
+    position: "52% 44%",
+  },
+  {
+    src: "/images/TOTO-85.jpg",
     alt: "Hubert Sycz z zespołem TOTO IMPRO",
-    position: "58% 42%",
+    position: "55% 44%",
   },
   {
     src:
       "/images/669587663_1500092202115847_7734198665696874300_n.jpg",
-    alt: "Hubert Sycz podczas improwizacji",
-    position: "50% 42%",
+    alt: "Hubert Sycz podczas spektaklu",
+    position: "50% 44%",
   },
 
-  /* PIONOWE — PRZYCINANE NA TWARZ */
+  /* LEWE DOLNE — PIONOWE CZERWONE */
   {
     src: "/images/wefilm-3.10.25-michalew-95.jpg",
     alt: "Hubert Sycz podczas spektaklu TOTO IMPRO",
-    position: "50% 23%",
+    position: "50% 40%",
   },
+
+  /* ZDJĘCIE PO JEGO PRAWEJ — HUBERT PRZESUNIĘTY DO CENTRUM */
   {
-    src: "/images/TOTO-85.jpg",
-    alt: "Hubert Sycz podczas spektaklu improwizowanego",
-    position: "50% 24%",
+    src: "/images/TOTO-18.jpg",
+    alt: "Hubert Sycz na scenie",
+    position: "31% 50%",
   },
 
   {
     src:
       "/images/651790701_1355531853268890_9203031069442217826_n.jpg",
     alt: "Hubert Sycz w czerwonym świetle scenicznym",
-    position: "28% 42%",
+    position: "28% 50%",
   },
 ];
 
@@ -244,7 +255,6 @@ const filmography: FilmYear[] = [
         title: "STEFANEK",
         category: "Etiuda szkolna",
         role: "Lekarz",
-        director: "Maciej Herzog",
       },
     ],
   },
@@ -256,7 +266,6 @@ const filmography: FilmYear[] = [
         title: "DELICJE",
         category: "Etiuda szkolna",
         role: "Oskar",
-        director: "Bartosz Izdebski",
       },
     ],
   },
@@ -282,7 +291,6 @@ const filmography: FilmYear[] = [
         title: "CUDAK",
         category: "Film fabularny",
         role: "Henio",
-        director: "Anna Kazejak",
       },
     ],
   },
@@ -330,7 +338,6 @@ const filmography: FilmYear[] = [
         title: "NINA",
         category: "Film fabularny",
         role: "Chłopak na placu",
-        director: "Olga Chajdas",
       },
       {
         title: "TORY",
@@ -361,7 +368,6 @@ const filmography: FilmYear[] = [
       {
         title: "JEZIORAK",
         category: "Film fabularny",
-        director: "Michał Otłowski",
       },
     ],
   },
@@ -505,7 +511,8 @@ function SectionHeader({
 }
 
 /* =====================================
-   FILMOGRAFIA
+   FILMOGRAFIA — BEZ LICZBY PRODUKCJI
+   I BEZ REŻYSERII
 ===================================== */
 
 function FilmYearTable({
@@ -519,14 +526,6 @@ function FilmYearTable({
         <strong className="film-year-number">
           {group.year}
         </strong>
-
-        <span className="film-year-count">
-          {group.credits.length}{" "}
-          {group.credits.length ===
-          1
-            ? "PRODUKCJA"
-            : "PRODUKCJE"}
-        </span>
       </div>
 
       <div className="film-table-wrap">
@@ -536,7 +535,6 @@ function FilmYearTable({
               <th>PRODUKCJA</th>
               <th>RODZAJ</th>
               <th>ROLA</th>
-              <th>REŻYSERIA</th>
             </tr>
           </thead>
 
@@ -561,11 +559,6 @@ function FilmYearTable({
 
                   <td>
                     {credit.role ||
-                      "—"}
-                  </td>
-
-                  <td>
-                    {credit.director ||
                       "—"}
                   </td>
                 </tr>
@@ -610,7 +603,10 @@ function TheatreCard({
 
       {credit.director && (
         <p>
-          <span>REŻYSERIA</span>
+          <span>
+            REŻYSERIA
+          </span>
+
           {credit.director}
         </p>
       )}
@@ -687,7 +683,9 @@ function VideoCard({
           {label}
         </span>
 
-        <h3>{title}</h3>
+        <h3>
+          {title}
+        </h3>
 
         <ExternalLink
           href={href}
@@ -701,7 +699,7 @@ function VideoCard({
 }
 
 /* =====================================
-   IKONY SOCIAL MEDIA
+   SOCIAL MEDIA
 ===================================== */
 
 function InstagramIcon() {
@@ -903,7 +901,7 @@ function Footer({
 }
 
 /* =====================================
-   CAŁA STRONA
+   STRONA
 ===================================== */
 
 export default function HomePage() {
@@ -945,11 +943,12 @@ export default function HomePage() {
       handleKey
     );
 
-    return () =>
+    return () => {
       window.removeEventListener(
         "keydown",
         handleKey
       );
+    };
   }, []);
 
   useEffect(() => {
@@ -967,20 +966,16 @@ export default function HomePage() {
     <div className="website">
       <motion.main
         className="track"
-
-        /* OD PIERWSZEJ KLATKI EKRAN WYBORU */
         initial={{
           x:
             "-100vw",
         }}
-
         animate={{
           x:
             offsets[
               world
             ],
         }}
-
         transition={
           reduceMotion
             ? {
@@ -1009,7 +1004,6 @@ export default function HomePage() {
           className="world world--acting"
           id="panel-acting"
         >
-
           <nav className="navigation">
             <span>
               HUBERT SYCZ / ACTOR
@@ -1075,8 +1069,6 @@ export default function HomePage() {
             </div>
           </header>
 
-          {/* O MNIE */}
-
           <section className="content-section">
             <SectionHeader
               title="CZEŚĆ. JESTEM HUBERT."
@@ -1116,8 +1108,6 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* WIZYTÓWKA + SHOWREEL */}
-
           <section className="content-section section-alt">
             <SectionHeader
               title="PRZED KAMERĄ."
@@ -1145,8 +1135,6 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* GALERIA OD RAZU POD WIDEO */}
-
           <section className="content-section">
             <SectionHeader
               title="RÓŻNE OBLICZA. JEDEN AKTOR."
@@ -1171,8 +1159,6 @@ export default function HomePage() {
               </ExternalLink>
             </div>
           </section>
-
-          {/* FILMOGRAFIA */}
 
           <section
             className="content-section section-alt"
@@ -1221,8 +1207,6 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* TEATR */}
-
           <section className="content-section">
             <SectionHeader
               title="SCENA JEST MOIM DOMEM."
@@ -1245,8 +1229,6 @@ export default function HomePage() {
               )}
             </div>
           </section>
-
-          {/* KONTAKT */}
 
           <section className="content-section section-alt">
             <SectionHeader
@@ -1333,7 +1315,7 @@ export default function HomePage() {
         </section>
 
         {/* =================================
-            EKRAN WYBORU
+            WYBÓR
         ================================= */}
 
         <section
@@ -1483,7 +1465,7 @@ export default function HomePage() {
                 <br />
                 JEST
                 <br />
-                NAPISANE.
+                NAPISANE
               </h1>
 
               <p className="hero-lead">
@@ -1522,16 +1504,14 @@ export default function HomePage() {
             </div>
           </header>
 
-          {/* =================================
-              1. NA SCENIE I ZA KULISAMI
-          ================================= */}
+          {/* 1. NA SCENIE I ZA KULISAMI */}
 
           <section
             className="content-section"
             id="improv-about"
           >
             <SectionHeader
-              title="NA SCENIE I ZA KULISAMI."
+              title="NA SCENIE I ZA KULISAMI"
               description="Gram, tworzę i organizuję — na scenie jako improwizator, poza nią jako menadżer TOTO IMPRO."
             />
 
@@ -1542,7 +1522,7 @@ export default function HomePage() {
                 </span>
 
                 <h3>
-                  IMPROWIZATOR.
+                  IMPROWIZATOR
                 </h3>
 
                 <p>
@@ -1565,7 +1545,7 @@ export default function HomePage() {
                 </span>
 
                 <h3>
-                  MENADŻER.
+                  MENADŻER
                 </h3>
 
                 <p>
@@ -1584,13 +1564,11 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* =================================
-              2. SPECIAL
-          ================================= */}
+          {/* 2. SPECIAL */}
 
           <section className="content-section section-alt">
             <SectionHeader
-              title="TOTO IMPRO SPECIAL."
+              title="TOTO IMPRO SPECIAL"
               description="Zobacz mnie na scenie w pełnym spektaklu."
             />
 
@@ -1607,9 +1585,9 @@ export default function HomePage() {
 
               <div className="special-copy">
                 <h3>
-                  JEDEN WIECZÓR.
+                  JEDEN WIECZÓR
                   <br />
-                  HISTORIA TWORZONA NA ŻYWO.
+                  HISTORIA TWORZONA NA ŻYWO
                 </h3>
 
                 <p>
@@ -1630,14 +1608,12 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* =================================
-              3. PONAD 200 SPEKTAKLI
-          ================================= */}
+          {/* 3. SPEKTAKLE */}
 
           <section className="content-section improv-achievements">
             <SectionHeader
               compact
-              title="PONAD 200 SPEKTAKLI W TRZY LATA."
+              title="PONAD 200 SPEKTAKLI W TRZY LATA"
               description="Jako menadżer TOTO IMPRO zorganizowałem ogólnopolskie trasy, dzięki którym weszliśmy we współpracę z kilkudziesięcioma instytucjami kultury, teatrami, klubami i lokalami w całej Polsce. Łącznie zagraliśmy ponad 200 spektakli w ciągu trzech lat."
             />
 
@@ -1695,13 +1671,11 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* =================================
-              4. GALERIA
-          ================================= */}
+          {/* 4. GALERIA */}
 
           <section className="content-section section-alt improv-gallery-section">
             <SectionHeader
-              title="TU I TERAZ."
+              title="TU I TERAZ"
               description="Kadry z moich spektakli. Każda historia wydarzyła się tylko raz."
             />
 
@@ -1713,14 +1687,12 @@ export default function HomePage() {
             />
           </section>
 
-          {/* =================================
-              5. ZRÓBMY COŚ RAZEM
-          ================================= */}
+          {/* 5. WSPÓŁPRACA */}
 
           <section className="content-section improv-collaboration">
             <SectionHeader
               compact
-              title="ZRÓBMY COŚ RAZEM."
+              title="ZRÓBMY COŚ RAZEM"
               description="Możemy dopasować formę improwizacji do miejsca, wydarzenia i publiczności."
             />
 
@@ -1731,7 +1703,9 @@ export default function HomePage() {
                 </span>
 
                 <h3>
-                  WASZA SCENA. NASZA HISTORIA.
+                  WASZA SCENA
+                  <br />
+                  NASZA HISTORIA
                 </h3>
 
                 <p>
@@ -1748,7 +1722,7 @@ export default function HomePage() {
                 </span>
 
                 <h3>
-                  WIECZÓR, KTÓREGO NIE DA SIĘ POWTÓRZYĆ.
+                  WIECZÓR, KTÓREGO NIE DA SIĘ POWTÓRZYĆ
                 </h3>
 
                 <p>
@@ -1765,7 +1739,7 @@ export default function HomePage() {
                 </span>
 
                 <h3>
-                  IMPROWIZACJI MOŻE SPRÓBOWAĆ KAŻDY.
+                  IMPROWIZACJI MOŻE SPRÓBOWAĆ KAŻDY
                 </h3>
 
                 <p>
@@ -1802,13 +1776,11 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* =================================
-              6. SOCIAL MEDIA + KONTAKT
-          ================================= */}
+          {/* 6. SOCIAL MEDIA */}
 
           <section className="content-section section-alt social-section">
             <SectionHeader
-              title="ZNAJDŹ NAS W SIECI."
+              title="ZNAJDŹ NAS W SIECI"
               description="Aktualne spektakle, fragmenty improwizacji i kulisy naszych tras."
             />
 
