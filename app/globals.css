@@ -2,10 +2,8 @@
   --black: #111111;
   --dark: #171717;
   --dark-alt: #222222;
-
   --white: #f6f4ee;
   --gray: #a7a7a7;
-
   --gold: #d9bd72;
   --gold-dark: #a58b50;
   --cream: #eee2c3;
@@ -237,7 +235,7 @@ a:focus-visible {
 }
 
 /* =====================================
-   EKRAN WYBORU
+   EKRAN STARTOWY
 ===================================== */
 
 .home-top,
@@ -991,7 +989,7 @@ a:focus-visible {
 }
 
 /* =====================================
-   GALERIE
+   GALERIA
 ===================================== */
 
 .gallery-grid {
@@ -1004,11 +1002,6 @@ a:focus-visible {
   margin:
     0 auto;
 }
-
-/*
- * GALERIA AKTORSKA:
- * PORTRETOWA
- */
 
 .gallery-grid--acting {
   grid-template-columns:
@@ -1027,11 +1020,6 @@ a:focus-visible {
     14px;
 }
 
-/*
- * GALERIA IMPRO:
- * ZWARTA I POZIOMA
- */
-
 .gallery-grid--improv {
   grid-template-columns:
     repeat(
@@ -1046,7 +1034,7 @@ a:focus-visible {
     1180px;
 
   gap:
-    8px;
+    6px;
 }
 
 .gallery-item {
@@ -1069,18 +1057,15 @@ a:focus-visible {
     4 / 5;
 }
 
-/*
- * WSZYSTKIE IMPRO MAJĄ TEN SAM,
- * ZWARTY POZIOMY KADR.
- *
- * DWA PIONOWE SĄ DZIĘKI TEMU
- * PRZYCINANE.
- */
-
 .gallery-grid--improv
 .gallery-item {
+  /*
+   * TROCHĘ WYŻSZY KADR NIŻ WCZEŚNIEJ.
+   * DZIĘKI TEMU PIONOWE ZDJĘCIA
+   * NIE SĄ TAK AGRESYWNIE PRZYCINANE.
+   */
   aspect-ratio:
-    3 / 2;
+    4 / 3;
 
   background:
     #d7ca9f;
@@ -1095,9 +1080,6 @@ a:focus-visible {
 
   object-fit:
     cover;
-
-  transform:
-    none;
 
   transition:
     transform
@@ -1206,13 +1188,7 @@ a:focus-visible {
     flex;
 
   align-items:
-    end;
-
-  justify-content:
-    space-between;
-
-  gap:
-    24px;
+    center;
 
   padding:
     26px 28px;
@@ -1237,23 +1213,6 @@ a:focus-visible {
 
   letter-spacing:
     -0.055em;
-}
-
-.film-year-count {
-  color:
-    #999;
-
-  font-size:
-    10px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    1.5px;
-
-  padding-bottom:
-    6px;
 }
 
 .film-table-wrap {
@@ -1336,12 +1295,17 @@ tbody tr:hover {
     #292929;
 }
 
+/*
+ * TYLKO 3 KOLUMNY:
+ * PRODUKCJA / RODZAJ / ROLA
+ */
+
 .film-table
 th:nth-child(1),
 .film-table
 td:nth-child(1) {
   width:
-    34%;
+    45%;
 }
 
 .film-table
@@ -1349,7 +1313,7 @@ th:nth-child(2),
 .film-table
 td:nth-child(2) {
   width:
-    23%;
+    30%;
 }
 
 .film-table
@@ -1357,15 +1321,7 @@ th:nth-child(3),
 .film-table
 td:nth-child(3) {
   width:
-    19%;
-}
-
-.film-table
-th:nth-child(4),
-.film-table
-td:nth-child(4) {
-  width:
-    24%;
+    25%;
 }
 
 .film-title {
@@ -1791,6 +1747,11 @@ strong.stat-word {
 
 /* =====================================
    ZRÓBMY COŚ RAZEM
+
+   WAŻNE:
+   TYTUŁY WIĘKSZE
+   + OPIS KAŻDEGO ZACZYNA SIĘ
+   NA TEJ SAMEJ WYSOKOŚCI
 ===================================== */
 
 .improv-collaboration {
@@ -1816,20 +1777,30 @@ strong.stat-word {
 
   gap:
     12px;
+
+  align-items:
+    stretch;
 }
 
 .offer-card {
   display:
-    flex;
+    grid;
+
+  /*
+   * WIERSZ 1 = MAŁA NAZWA
+   * WIERSZ 2 = TYTUŁ O STAŁEJ WYSOKOŚCI
+   * WIERSZ 3 = OPIS
+   *
+   * DZIĘKI TEMU WSZYSTKIE OPISY
+   * ZACZYNAJĄ SIĘ NA TYM SAMYM POZIOMIE.
+   */
+  grid-template-rows:
+    auto
+    210px
+    1fr;
 
   min-height:
-    340px;
-
-  flex-direction:
-    column;
-
-  justify-content:
-    space-between;
+    440px;
 
   padding:
     30px;
@@ -1841,7 +1812,7 @@ strong.stat-word {
     var(--cream);
 }
 
-.offer-card span {
+.offer-card > span {
   color:
     var(--gold);
 
@@ -1856,35 +1827,56 @@ strong.stat-word {
 }
 
 .offer-card h3 {
-  margin:
-    auto 0 20px;
+  align-self:
+    end;
 
-  padding-top:
-    38px;
+  margin:
+    0;
+
+  padding:
+    32px 0 25px;
 
   font-size:
     clamp(
-      25px,
-      2.7vw,
-      40px
+      32px,
+      3vw,
+      48px
     );
 
   line-height:
-    1.06;
+    0.98;
 
   letter-spacing:
-    -0.055em;
+    -0.06em;
+
+  overflow-wrap:
+    anywhere;
 }
 
 .offer-card p {
+  align-self:
+    start;
+
   margin:
     0;
+
+  padding-top:
+    24px;
+
+  border-top:
+    1px solid
+    rgba(
+      238,
+      226,
+      195,
+      0.25
+    );
 
   font-size:
     16px;
 
   line-height:
-    1.65;
+    1.68;
 }
 
 .booking-cta {
@@ -2378,6 +2370,13 @@ strong.stat-word {
       );
   }
 
+  .offer-card {
+    grid-template-rows:
+      auto
+      195px
+      1fr;
+  }
+
   .booking-cta {
     flex-direction:
       column;
@@ -2585,14 +2584,9 @@ strong.stat-word {
       42px;
   }
 
-  .film-year-count {
-    font-size:
-      8px;
-  }
-
   .film-table {
     min-width:
-      690px;
+      620px;
   }
 
   .film-table th {
@@ -2648,6 +2642,37 @@ strong.stat-word {
       150px;
   }
 
+  /*
+   * NA TELEFONIE NIE POTRZEBUJEMY
+   * SZTYWNEJ WYSOKOŚCI TYTUŁÓW,
+   * BO KAFELKI SĄ JEDEN POD DRUGIM.
+   */
+
+  .offer-card {
+    grid-template-rows:
+      auto
+      auto
+      auto;
+
+    min-height:
+      0;
+  }
+
+  .offer-card h3 {
+    padding-top:
+      48px;
+
+    padding-bottom:
+      28px;
+
+    font-size:
+      clamp(
+        34px,
+        9vw,
+        48px
+      );
+  }
+
   .booking-cta {
     padding:
       30px;
@@ -2696,7 +2721,7 @@ strong.stat-word {
 }
 
 /* =====================================
-   BARDZO MAŁY TELEFON
+   MAŁY TELEFON
 ===================================== */
 
 @media
