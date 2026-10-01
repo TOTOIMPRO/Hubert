@@ -10,9 +10,9 @@
   --ink: #25231e;
 }
 
-/* =====================================
+/* =========================================================
    RESET
-===================================== */
+========================================================= */
 
 * {
   box-sizing: border-box;
@@ -22,7 +22,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-
   width: 100%;
   min-height: 100%;
 }
@@ -33,7 +32,6 @@ html {
 
 body {
   background: var(--black);
-
   color: var(--white);
 
   font-family:
@@ -41,8 +39,7 @@ body {
     Helvetica,
     sans-serif;
 
-  -webkit-font-smoothing:
-    antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
 button,
@@ -66,24 +63,18 @@ img {
 
 button:focus-visible,
 a:focus-visible {
-  outline:
-    3px solid
-    var(--gold);
-
-  outline-offset:
-    5px;
+  outline: 3px solid var(--gold);
+  outline-offset: 5px;
 }
 
-/* =====================================
-   TRZY EKRANY
-===================================== */
+/* =========================================================
+   TRZY ŚWIATY
+========================================================= */
 
 .website {
   position: relative;
-
   width: 100%;
   height: 100dvh;
-
   overflow: hidden;
 }
 
@@ -93,18 +84,14 @@ a:focus-visible {
   width: 300vw;
   height: 100dvh;
 
-  transform:
-    translateX(-100vw);
-
-  will-change:
-    transform;
+  transform: translateX(-100vw);
+  will-change: transform;
 }
 
 .world {
   position: relative;
 
-  flex:
-    0 0 100vw;
+  flex: 0 0 100vw;
 
   width: 100vw;
   height: 100dvh;
@@ -112,98 +99,59 @@ a:focus-visible {
   overflow-x: hidden;
   overflow-y: auto;
 
-  overscroll-behavior:
-    contain;
-
-  scroll-behavior:
-    smooth;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
 }
 
 .world--acting {
-  background:
-    var(--dark);
-
-  color:
-    var(--white);
+  background: var(--dark);
+  color: var(--white);
 }
 
 .world--home {
-  background:
-    var(--black);
-
-  color:
-    var(--white);
+  background: var(--black);
+  color: var(--white);
 }
 
 .world--improv {
-  background:
-    var(--gold);
-
-  color:
-    var(--ink);
+  background: var(--gold);
+  color: var(--ink);
 }
 
-/* =====================================
+/* =========================================================
    NAWIGACJA
-===================================== */
+========================================================= */
 
 .navigation {
-  min-height:
-    94px;
+  min-height: 94px;
 
-  display:
-    flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  justify-content:
-    space-between;
+  gap: 20px;
 
-  align-items:
-    center;
+  padding: 24px 5%;
 
-  gap:
-    20px;
-
-  padding:
-    24px 5%;
-
-  font-size:
-    11px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    2px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
 .back-button {
-  color:
-    inherit;
+  color: inherit;
+  background: transparent;
 
-  background:
-    transparent;
+  border: 1px solid currentColor;
+  border-radius: 100px;
 
-  border:
-    1px solid
-    currentColor;
+  padding: 16px 24px;
 
-  border-radius:
-    100px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
 
-  padding:
-    16px 24px;
-
-  font-size:
-    11px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    1px;
-
-  white-space:
-    nowrap;
+  white-space: nowrap;
 
   transition:
     background 0.25s,
@@ -212,2162 +160,1729 @@ a:focus-visible {
 }
 
 .back-button:hover {
-  transform:
-    translateY(-3px);
+  transform: translateY(-3px);
 }
 
-.world--acting
-.back-button:hover {
-  background:
-    white;
-
-  color:
-    black;
+.world--acting .back-button:hover {
+  background: white;
+  color: black;
 }
 
-.world--improv
-.back-button:hover {
-  background:
-    var(--ink);
-
-  color:
-    var(--cream);
+.world--improv .back-button:hover {
+  background: var(--ink);
+  color: var(--cream);
 }
 
-/* =====================================
-   EKRAN STARTOWY
-===================================== */
+/* =========================================================
+   EKRAN WYBORU
+========================================================= */
 
 .home-top,
 .home-footer {
-  display:
-    flex;
+  display: flex;
+  justify-content: space-between;
 
-  justify-content:
-    space-between;
+  gap: 20px;
 
-  gap:
-    20px;
+  padding: 28px 5%;
 
-  padding:
-    28px 5%;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
 
-  font-size:
-    11px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    2px;
-
-  color:
-    #aaa;
+  color: #aaa;
 }
 
 .home-heading {
-  text-align:
-    center;
-
-  padding:
-    42px 20px 45px;
+  text-align: center;
+  padding: 42px 20px 45px;
 }
 
 .home-heading > span {
-  font-size:
-    11px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    4px;
-
-  color:
-    #aaa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #aaa;
 }
 
 .home-heading h1 {
-  font-size:
-    clamp(
-      56px,
-      10vw,
-      140px
-    );
+  margin: 20px 0;
 
-  line-height:
-    0.95;
+  font-size: clamp(56px, 10vw, 140px);
+  line-height: 0.95;
 
-  letter-spacing:
-    -0.09em;
-
-  margin:
-    20px 0;
+  letter-spacing: -0.09em;
 }
 
 .home-heading p {
-  color:
-    var(--gold);
+  color: var(--gold);
 
-  font-size:
-    12px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    4px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 4px;
 }
 
 .choices {
-  display:
-    grid;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(
-        0,
-        1fr
-      )
-    );
+  gap: 20px;
 
-  gap:
-    20px;
+  width: 90%;
+  max-width: 1350px;
 
-  width:
-    90%;
-
-  max-width:
-    1350px;
-
-  margin:
-    0 auto;
+  margin: 0 auto;
 }
 
 .choice {
-  display:
-    block;
+  display: block;
 
-  min-width:
-    0;
+  min-width: 0;
 
-  padding:
-    0;
+  padding: 0;
 
-  border:
-    0;
+  border: 0;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
-  text-align:
-    left;
+  text-align: left;
 
-  color:
-    white;
+  color: white;
+  background: #272727;
 
-  background:
-    #272727;
-
-  transition:
-    transform
-    0.35s ease;
+  transition: transform 0.35s ease;
 }
 
 .choice:hover {
-  transform:
-    translateY(-8px);
+  transform: translateY(-8px);
 }
 
 .choice-image {
-  position:
-    relative;
+  position: relative;
 
-  height:
-    clamp(
-      300px,
-      36vw,
-      510px
-    );
+  height: clamp(300px, 36vw, 510px);
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
-  background:
-    #333;
+  background: #333;
 }
 
 .choice-image img {
-  width:
-    100%;
+  width: 100%;
+  height: 100%;
 
-  height:
-    100%;
+  object-fit: cover;
 
-  object-fit:
-    cover;
-
-  transition:
-    transform
-    0.7s ease;
+  transition: transform 0.7s ease;
 }
 
-.choice:hover
-.choice-image img {
-  transform:
-    scale(1.035);
+.choice:hover .choice-image img {
+  transform: scale(1.035);
 }
 
-.choice--acting
-.choice-image img {
-  filter:
-    grayscale(100%);
-
-  object-position:
-    50% 12% !important;
+.choice--acting .choice-image img {
+  filter: grayscale(100%);
+  object-position: 50% 8% !important;
 }
 
-.choice--improv
-.choice-image img {
-  filter:
-    none;
-
-  object-position:
-    50% 24% !important;
+.choice--improv .choice-image img {
+  filter: none;
+  object-position: 50% 24% !important;
 }
 
 .choice-bottom {
-  display:
-    flex;
+  display: flex;
 
-  align-items:
-    center;
+  align-items: center;
+  justify-content: space-between;
 
-  justify-content:
-    space-between;
+  gap: 15px;
 
-  gap:
-    15px;
-
-  padding:
-    26px 30px;
+  padding: 26px 30px;
 }
 
 .choice-bottom span {
-  font-size:
-    11px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    2px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
 .choice-bottom h2 {
-  margin:
-    10px 0 0;
+  margin: 10px 0 0;
 
-  font-size:
-    clamp(
-      24px,
-      3.5vw,
-      48px
-    );
+  font-size: clamp(24px, 3.5vw, 48px);
 
-  letter-spacing:
-    -0.06em;
-
-  line-height:
-    1;
+  letter-spacing: -0.06em;
+  line-height: 1;
 }
 
 .choice-arrow {
-  font-size:
-    42px !important;
+  font-size: 42px !important;
 }
 
 .choice--improv {
-  color:
-    var(--ink);
-
-  background:
-    var(--gold);
+  color: var(--ink);
+  background: var(--gold);
 }
 
-/* =====================================
-   HERO
-===================================== */
-
-.hero {
-  display:
-    grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  min-height:
-    680px;
-}
-
-.hero-content {
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    flex-start;
-
-  justify-content:
-    center;
-
-  min-width:
-    0;
-
-  padding:
-    75px 9%;
-}
-
-.eyebrow,
-.video-label {
-  display:
-    block;
-
-  font-size:
-    11px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    3px;
-
-  line-height:
-    1.6;
-}
-
-.hero h1 {
-  margin:
-    30px 0 35px;
-
-  font-size:
-    clamp(
-      64px,
-      7.2vw,
-      115px
-    );
-
-  line-height:
-    0.9;
-
-  letter-spacing:
-    -0.09em;
-
-  overflow-wrap:
-    anywhere;
-}
-
-.hero-lead {
-  max-width:
-    500px;
-
-  font-size:
-    clamp(
-      19px,
-      1.9vw,
-      24px
-    );
-
-  line-height:
-    1.5;
-
-  margin:
-    0 0 36px;
-}
-
-.hero-visual {
-  position:
-    relative;
-
-  min-height:
-    650px;
-
-  overflow:
-    hidden;
-
-  background:
-    #333;
-}
-
-.hero-visual img {
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  width:
-    100%;
-
-  height:
-    100%;
-
-  object-fit:
-    cover;
-}
-
-.hero--acting
-.hero-visual img {
-  filter:
-    grayscale(100%);
-
-  object-position:
-    50% 12% !important;
-}
-
-.hero--improv
-.hero-visual img {
-  filter:
-    none;
-
-  object-position:
-    50% 24% !important;
-}
-
-/* =====================================
-   PRZYCISKI
-===================================== */
+/* =========================================================
+   OGÓLNE PRZYCISKI
+========================================================= */
 
 .hero-actions,
 .section-bottom-links {
-  display:
-    flex;
+  display: flex;
+  flex-wrap: wrap;
 
-  flex-wrap:
-    wrap;
+  align-items: center;
 
-  align-items:
-    center;
-
-  gap:
-    12px;
+  gap: 12px;
 }
 
 .main-button,
 .outline-button {
-  display:
-    inline-flex;
+  display: inline-flex;
 
-  align-items:
-    center;
+  align-items: center;
+  justify-content: center;
 
-  justify-content:
-    center;
+  min-height: 50px;
 
-  min-height:
-    50px;
+  padding: 16px 24px;
 
-  padding:
-    16px 24px;
+  border-radius: 100px;
 
-  border-radius:
-    100px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
 
-  font-size:
-    11px;
+  text-align: center;
 
-  font-weight:
-    800;
-
-  letter-spacing:
-    1px;
-
-  text-align:
-    center;
-
-  transition:
-    transform
-    0.25s;
+  transition: transform 0.25s;
 }
 
 .main-button:hover,
 .outline-button:hover {
-  transform:
-    translateY(-4px);
+  transform: translateY(-4px);
 }
 
-.world--acting
-.main-button {
-  background:
-    white;
-
-  color:
-    black;
+.world--acting .main-button {
+  background: white;
+  color: black;
 }
 
-.world--acting
-.outline-button {
-  color:
-    white;
-
-  border:
-    1px solid
-    white;
+.world--acting .outline-button {
+  color: white;
+  border: 1px solid white;
 }
 
-.world--improv
-.main-button {
-  background:
-    var(--ink);
-
-  color:
-    var(--cream);
+.world--improv .main-button {
+  background: var(--ink);
+  color: var(--cream);
 }
 
-.world--improv
-.outline-button {
-  color:
-    var(--ink);
-
-  border:
-    1px solid
-    var(--ink);
+.world--improv .outline-button {
+  color: var(--ink);
+  border: 1px solid var(--ink);
 }
 
 .text-link {
-  display:
-    inline-block;
+  display: inline-block;
 
-  width:
-    fit-content;
+  width: fit-content;
 
-  padding-bottom:
-    7px;
+  padding-bottom: 7px;
 
-  border-bottom:
-    1px solid
-    currentColor;
+  border-bottom: 1px solid currentColor;
 
-  font-size:
-    12px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    1px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 
-/* =====================================
+/* =========================================================
+   NOWY HERO AKTORSKI
+========================================================= */
+
+.actor-hero {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+
+  min-height: calc(100dvh - 94px);
+
+  background: #111111;
+}
+
+.actor-hero-copy {
+  display: flex;
+
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 70px 9%;
+
+  min-width: 0;
+}
+
+.eyebrow,
+.video-label {
+  display: block;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  line-height: 1.6;
+}
+
+.actor-hero-copy h1 {
+  margin: 25px 0 30px;
+
+  font-size: clamp(75px, 8.8vw, 145px);
+
+  line-height: 0.82;
+
+  letter-spacing: -0.09em;
+}
+
+.actor-hero-description {
+  max-width: 560px;
+
+  margin: 0 0 28px;
+
+  font-size: clamp(18px, 1.7vw, 23px);
+
+  line-height: 1.55;
+}
+
+.actor-representation {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  margin: 0 0 34px;
+
+  padding: 14px 0;
+
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+}
+
+.actor-representation span {
+  color: #999;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.actor-representation a {
+  color: var(--gold);
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.actor-hero-photo {
+  position: relative;
+
+  min-height: 680px;
+
+  overflow: hidden;
+
+  background: #222;
+}
+
+.actor-hero-photo img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: 50% 8% !important;
+
+  filter: grayscale(100%);
+}
+
+/* =========================================================
+   CASTING STRIP
+========================================================= */
+
+.casting-strip {
+  display: grid;
+
+  grid-template-columns:
+    0.7fr
+    1.5fr
+    0.9fr
+    0.9fr;
+
+  background: var(--gold);
+  color: var(--ink);
+
+  border-top: 1px solid var(--gold);
+}
+
+.casting-strip > div {
+  min-height: 125px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  padding: 25px;
+
+  border-right: 1px solid rgba(37, 35, 30, 0.3);
+}
+
+.casting-strip > div:last-child {
+  border-right: 0;
+}
+
+.casting-strip span {
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.6px;
+}
+
+.casting-strip strong,
+.casting-strip a {
+  font-size: clamp(15px, 1.5vw, 22px);
+
+  line-height: 1.1;
+
+  font-weight: 800;
+
+  letter-spacing: -0.035em;
+}
+
+/* =========================================================
+   ZWYKŁY HERO IMPRO
+========================================================= */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  min-height: 680px;
+}
+
+.hero-content {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: center;
+
+  min-width: 0;
+
+  padding: 75px 9%;
+}
+
+.hero h1 {
+  margin: 30px 0 35px;
+
+  font-size: clamp(64px, 7.2vw, 115px);
+
+  line-height: 0.9;
+
+  letter-spacing: -0.09em;
+
+  overflow-wrap: anywhere;
+}
+
+.hero-lead {
+  max-width: 500px;
+
+  margin: 0 0 36px;
+
+  font-size: clamp(19px, 1.9vw, 24px);
+
+  line-height: 1.5;
+}
+
+.hero-visual {
+  position: relative;
+
+  min-height: 650px;
+
+  overflow: hidden;
+
+  background: #333;
+}
+
+.hero-visual img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.hero--improv .hero-visual img {
+  object-position: 50% 24% !important;
+}
+
+/* =========================================================
    SEKCJE
-===================================== */
+========================================================= */
 
 .content-section {
-  padding:
-    105px 8%;
+  padding: 105px 8%;
 }
 
-.world--acting
-.section-alt {
-  background:
-    var(--dark-alt);
+.world--acting .section-alt {
+  background: var(--dark-alt);
 }
 
-.world--improv
-.section-alt {
-  background:
-    var(--cream);
+.world--improv .section-alt {
+  background: var(--cream);
 }
 
 .section-heading {
-  margin-bottom:
-    58px;
+  margin-bottom: 58px;
 }
 
 .section-heading h2 {
-  max-width:
-    1180px;
+  max-width: 1180px;
 
-  font-size:
-    clamp(
-      42px,
-      5.5vw,
-      82px
-    );
+  margin: 0 0 22px;
 
-  line-height:
-    0.99;
+  font-size: clamp(42px, 5.5vw, 82px);
 
-  letter-spacing:
-    -0.07em;
+  line-height: 0.99;
 
-  margin:
-    0 0 22px;
+  letter-spacing: -0.07em;
 
-  overflow-wrap:
-    anywhere;
+  overflow-wrap: anywhere;
 }
 
 .section-heading--compact h2 {
-  font-size:
-    clamp(
-      34px,
-      4vw,
-      58px
-    );
+  max-width: 980px;
 
-  letter-spacing:
-    -0.055em;
+  font-size: clamp(34px, 4vw, 58px);
 
-  max-width:
-    980px;
+  letter-spacing: -0.055em;
 }
 
 .section-description {
-  max-width:
-    820px;
+  max-width: 820px;
 
-  font-size:
-    clamp(
-      17px,
-      1.7vw,
-      21px
-    );
+  margin: 0;
 
-  line-height:
-    1.62;
+  font-size: clamp(17px, 1.7vw, 21px);
 
-  margin:
-    0;
+  line-height: 1.62;
 }
 
-.intro-grid {
-  display:
-    grid;
+/* =========================================================
+   SHOWREEL
+========================================================= */
 
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:
-    70px;
+.actor-showreel-section {
+  padding-top: 85px;
 }
-
-.large-text {
-  margin:
-    0;
-
-  font-size:
-    clamp(
-      25px,
-      3.2vw,
-      43px
-    );
-
-  line-height:
-    1.3;
-
-  letter-spacing:
-    -0.035em;
-
-  font-weight:
-    800;
-}
-
-.intro-copy {
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    flex-start;
-
-  gap:
-    20px;
-}
-
-.intro-copy p {
-  margin:
-    0;
-
-  font-size:
-    18px;
-
-  line-height:
-    1.75;
-}
-
-/* =====================================
-   WIDEO
-===================================== */
 
 .video-grid {
-  display:
-    grid;
+  display: grid;
 
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(
-        0,
-        1fr
-      )
-    );
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  gap:
-    20px;
+  gap: 20px;
 }
 
 .video-card {
-  min-width:
-    0;
+  min-width: 0;
 
-  background:
-    #181818;
+  background: #181818;
 }
 
 .video-frame,
 .special-player {
-  width:
-    100%;
+  width: 100%;
 
-  aspect-ratio:
-    16 / 9;
+  aspect-ratio: 16 / 9;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
-  background:
-    #090909;
+  background: #090909;
 }
 
 .video-frame iframe,
 .special-player iframe {
-  display:
-    block;
+  display: block;
 
-  width:
-    100%;
+  width: 100%;
+  height: 100%;
 
-  height:
-    100%;
-
-  border:
-    0;
+  border: 0;
 }
 
 .video-info {
-  padding:
-    32px;
+  padding: 28px 30px;
 }
 
 .video-label {
-  color:
-    #aaa;
+  color: #aaa;
 
-  letter-spacing:
-    2px;
+  letter-spacing: 2px;
 }
 
 .video-info h3 {
-  font-size:
-    clamp(
-      25px,
-      3vw,
-      43px
-    );
+  margin: 15px 0 25px;
 
-  letter-spacing:
-    -0.06em;
+  font-size: clamp(25px, 3vw, 43px);
 
-  margin:
-    15px 0 25px;
+  letter-spacing: -0.06em;
 }
 
-/* =====================================
-   GALERIA
-===================================== */
+/* =========================================================
+   WYBRANE ROLE
+========================================================= */
+
+.selected-credits {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.selected-credit {
+  min-height: 330px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 27px;
+
+  border: 1px solid #474747;
+
+  background: #202020;
+
+  transition:
+    transform 0.25s,
+    background 0.25s;
+}
+
+.selected-credit:hover {
+  transform: translateY(-5px);
+
+  background: #292929;
+}
+
+.selected-credit-year {
+  color: var(--gold);
+
+  font-size: 34px;
+  font-weight: 800;
+
+  letter-spacing: -0.05em;
+}
+
+.selected-credit > span {
+  margin-top: 55px;
+
+  color: #888;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.selected-credit h3 {
+  margin: 12px 0 25px;
+
+  font-size: clamp(22px, 2.1vw, 34px);
+
+  line-height: 1.03;
+
+  letter-spacing: -0.055em;
+}
+
+.selected-credit p {
+  margin: auto 0 0;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #444;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  line-height: 1.5;
+}
+
+.selected-credit p small {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #888;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+/* =========================================================
+   GALERIE
+========================================================= */
 
 .gallery-grid {
-  display:
-    grid;
+  display: grid;
 
-  width:
-    100%;
+  width: 100%;
 
-  margin:
-    0 auto;
+  margin: 0 auto;
 }
 
 .gallery-grid--acting {
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(
-        0,
-        1fr
-      )
-    );
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
-  max-width:
-    1050px;
+  max-width: 1050px;
 
-  gap:
-    14px;
+  gap: 12px;
 }
 
 .gallery-grid--improv {
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(
-        0,
-        1fr
-      )
-    );
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
-  max-width:
-    1180px;
+  max-width: 1180px;
 
-  gap:
-    6px;
+  gap: 6px;
 }
 
 .gallery-item {
-  position:
-    relative;
+  position: relative;
 
-  margin:
-    0;
+  margin: 0;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
-  background:
-    #303030;
+  background: #303030;
 }
 
-.gallery-grid--acting
-.gallery-item {
-  aspect-ratio:
-    4 / 5;
+.gallery-grid--acting .gallery-item {
+  aspect-ratio: 4 / 5;
 }
 
-.gallery-grid--improv
-.gallery-item {
-  /*
-   * TROCHĘ WYŻSZY KADR NIŻ WCZEŚNIEJ.
-   * DZIĘKI TEMU PIONOWE ZDJĘCIA
-   * NIE SĄ TAK AGRESYWNIE PRZYCINANE.
-   */
-  aspect-ratio:
-    4 / 3;
+.gallery-grid--improv .gallery-item {
+  aspect-ratio: 4 / 3;
 
-  background:
-    #d7ca9f;
+  background: #d7ca9f;
 }
 
 .gallery-item img {
-  width:
-    100%;
+  width: 100%;
+  height: 100%;
 
-  height:
-    100%;
+  object-fit: cover;
 
-  object-fit:
-    cover;
-
-  transition:
-    transform
-    0.35s ease;
+  transition: transform 0.35s ease;
 }
 
 .gallery-item:hover img {
-  transform:
-    scale(1.02);
+  transform: scale(1.02);
 }
 
 .improv-gallery-section {
-  padding-top:
-    90px;
-
-  padding-bottom:
-    90px;
+  padding-top: 90px;
+  padding-bottom: 90px;
 }
 
 .image-error {
-  display:
-    flex;
+  display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
-  align-items:
-    center;
+  align-items: center;
+  justify-content: center;
 
-  justify-content:
-    center;
+  gap: 12px;
 
-  gap:
-    12px;
+  width: 100%;
+  height: 100%;
 
-  width:
-    100%;
+  min-height: 200px;
 
-  height:
-    100%;
+  padding: 20px;
 
-  min-height:
-    200px;
+  background: #303030;
 
-  padding:
-    20px;
+  color: white;
 
-  background:
-    #303030;
+  text-align: center;
 
-  color:
-    white;
-
-  text-align:
-    center;
-
-  font-size:
-    13px;
+  font-size: 13px;
 }
 
 .image-error small {
-  max-width:
-    100%;
+  max-width: 100%;
 
-  font-size:
-    11px;
+  color: var(--gold);
 
-  color:
-    var(--gold);
+  font-size: 11px;
 
-  overflow-wrap:
-    anywhere;
+  overflow-wrap: anywhere;
 }
 
 .section-bottom-links {
-  margin-top:
-    48px;
+  margin-top: 48px;
 }
 
-/* =====================================
+/* =========================================================
+   O MNIE
+========================================================= */
+
+.actor-about-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 70px;
+}
+
+.large-text {
+  margin: 0;
+
+  font-size: clamp(25px, 3.2vw, 43px);
+
+  line-height: 1.3;
+
+  letter-spacing: -0.035em;
+
+  font-weight: 800;
+}
+
+.intro-copy {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 20px;
+}
+
+.intro-copy p {
+  margin: 0;
+
+  font-size: 18px;
+
+  line-height: 1.75;
+}
+
+/* =========================================================
    FILMOGRAFIA
-===================================== */
+========================================================= */
 
 .film-years {
-  display:
-    flex;
+  display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
-  gap:
-    28px;
+  gap: 28px;
 }
 
 .film-year-card {
-  border:
-    1px solid
-    #4d4d4d;
+  border: 1px solid #4d4d4d;
 
-  background:
-    #202020;
+  background: #202020;
 }
 
 .film-year-head {
-  display:
-    flex;
+  display: flex;
+  align-items: center;
 
-  align-items:
-    center;
+  padding: 26px 28px;
 
-  padding:
-    26px 28px;
-
-  border-bottom:
-    1px solid
-    #4d4d4d;
+  border-bottom: 1px solid #4d4d4d;
 }
 
 .film-year-number {
-  color:
-    var(--gold);
+  color: var(--gold);
 
-  font-size:
-    48px;
+  font-size: 48px;
+  font-weight: 800;
 
-  font-weight:
-    800;
+  line-height: 0.9;
 
-  line-height:
-    0.9;
-
-  letter-spacing:
-    -0.055em;
+  letter-spacing: -0.055em;
 }
 
 .film-table-wrap {
-  width:
-    100%;
+  width: 100%;
 
-  overflow-x:
-    auto;
+  overflow-x: auto;
 }
 
 .film-table {
-  width:
-    100%;
+  width: 100%;
 
-  border-collapse:
-    collapse;
+  border-collapse: collapse;
 
-  table-layout:
-    fixed;
+  table-layout: fixed;
 }
 
 .film-table th {
-  padding:
-    15px 22px;
+  padding: 15px 22px;
 
-  color:
-    #888;
+  color: #888;
 
-  font-size:
-    9px;
+  font-size: 9px;
+  font-weight: 800;
 
-  font-weight:
-    800;
+  letter-spacing: 1.6px;
 
-  letter-spacing:
-    1.6px;
+  text-align: left;
 
-  text-align:
-    left;
-
-  border-bottom:
-    1px solid
-    #3d3d3d;
+  border-bottom: 1px solid #3d3d3d;
 }
 
 .film-table td {
-  padding:
-    21px 22px;
+  padding: 21px 22px;
 
-  vertical-align:
-    top;
+  vertical-align: top;
 
-  font-size:
-    14px;
+  font-size: 14px;
 
-  line-height:
-    1.5;
+  line-height: 1.5;
 
-  border-bottom:
-    1px solid
-    #373737;
+  border-bottom: 1px solid #373737;
 }
 
-.film-table
-tbody tr:last-child td {
-  border-bottom:
-    0;
+.film-table tbody tr:last-child td {
+  border-bottom: 0;
 }
 
-.film-table
-tbody tr {
-  transition:
-    background
-    0.25s ease;
+.film-table tbody tr {
+  transition: background 0.25s ease;
 }
 
-.film-table
-tbody tr:hover {
-  background:
-    #292929;
+.film-table tbody tr:hover {
+  background: #292929;
 }
 
-/*
- * TYLKO 3 KOLUMNY:
- * PRODUKCJA / RODZAJ / ROLA
- */
-
-.film-table
-th:nth-child(1),
-.film-table
-td:nth-child(1) {
-  width:
-    45%;
+.film-table th:nth-child(1),
+.film-table td:nth-child(1) {
+  width: 45%;
 }
 
-.film-table
-th:nth-child(2),
-.film-table
-td:nth-child(2) {
-  width:
-    30%;
+.film-table th:nth-child(2),
+.film-table td:nth-child(2) {
+  width: 30%;
 }
 
-.film-table
-th:nth-child(3),
-.film-table
-td:nth-child(3) {
-  width:
-    25%;
+.film-table th:nth-child(3),
+.film-table td:nth-child(3) {
+  width: 25%;
 }
 
 .film-title {
-  font-size:
-    18px !important;
+  font-size: 18px !important;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    -0.025em;
+  letter-spacing: -0.025em;
 }
 
-/* =====================================
+/* =========================================================
    TEATR
-===================================== */
+========================================================= */
 
 .theatre-grid {
-  display:
-    grid;
+  display: grid;
 
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(
-        0,
-        1fr
-      )
-    );
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  gap:
-    15px;
+  gap: 15px;
 }
 
 .theatre-card {
-  min-height:
-    330px;
+  min-height: 330px;
 
-  display:
-    flex;
+  display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
+  align-items: flex-start;
 
-  align-items:
-    flex-start;
+  padding: 30px;
 
-  padding:
-    30px;
+  background: #202020;
 
-  background:
-    #202020;
-
-  border:
-    1px solid
-    #4d4d4d;
+  border: 1px solid #4d4d4d;
 }
 
 .theatre-year {
-  color:
-    var(--gold);
+  margin-bottom: 34px;
 
-  font-size:
-    22px;
+  color: var(--gold);
 
-  font-weight:
-    800;
-
-  margin-bottom:
-    34px;
+  font-size: 22px;
+  font-weight: 800;
 }
 
 .credit-category {
-  color:
-    #aaa;
+  color: #aaa;
 
-  font-size:
-    10px;
+  font-size: 10px;
+  font-weight: 800;
 
-  font-weight:
-    800;
+  letter-spacing: 1.5px;
 
-  letter-spacing:
-    1.5px;
-
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
 
 .theatre-card h3 {
-  margin:
-    13px 0 35px;
+  margin: 13px 0 35px;
 
-  font-size:
-    clamp(
-      28px,
-      3vw,
-      45px
-    );
+  font-size: clamp(28px, 3vw, 45px);
 
-  line-height:
-    1.05;
+  line-height: 1.05;
 
-  letter-spacing:
-    -0.055em;
+  letter-spacing: -0.055em;
 }
 
 .theatre-card p {
-  margin:
-    auto 0 0;
+  width: 100%;
 
-  padding-top:
-    18px;
+  margin: auto 0 0;
 
-  width:
-    100%;
+  padding-top: 18px;
 
-  border-top:
-    1px solid
-    #444;
+  border-top: 1px solid #444;
 
-  font-size:
-    14px;
+  font-size: 14px;
 
-  line-height:
-    1.5;
+  line-height: 1.5;
 }
 
 .theatre-card p + p {
-  margin-top:
-    15px;
+  margin-top: 15px;
 }
 
 .theatre-card p span {
-  display:
-    block;
+  display: block;
 
-  color:
-    #999;
+  margin-bottom: 7px;
 
-  font-size:
-    9px;
+  color: #999;
 
-  font-weight:
-    800;
+  font-size: 9px;
+  font-weight: 800;
 
-  letter-spacing:
-    1.5px;
-
-  margin-bottom:
-    7px;
+  letter-spacing: 1.5px;
 }
 
-/* =====================================
-   NA SCENIE / ZA KULISAMI
-===================================== */
+/* =========================================================
+   SKILLS
+========================================================= */
 
-.role-grid {
-  display:
-    grid;
+.skills-grid {
+  display: grid;
 
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(
-        0,
-        1fr
-      )
-    );
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
-  gap:
-    20px;
+  gap: 12px;
 }
 
-.role-card {
-  display:
-    flex;
+.skill-card {
+  min-height: 320px;
 
-  flex-direction:
-    column;
+  display: flex;
 
-  min-height:
-    390px;
+  flex-direction: column;
 
-  padding:
-    42px;
+  padding: 30px;
 
-  background:
-    var(--ink);
+  border: 1px solid #505050;
 
-  color:
-    var(--cream);
+  background: #191919;
 }
 
-.role-card
-.eyebrow {
-  color:
-    var(--gold);
+.skill-card > span {
+  color: var(--gold);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
 }
 
-.role-card h3 {
-  margin:
-    46px 0 24px;
+.skill-card h3 {
+  margin: auto 0 20px;
 
-  font-size:
-    clamp(
-      35px,
-      4vw,
-      58px
-    );
+  padding-top: 50px;
 
-  line-height:
-    1;
+  font-size: clamp(28px, 3.1vw, 48px);
 
-  letter-spacing:
-    -0.065em;
+  line-height: 1;
+
+  letter-spacing: -0.06em;
 }
 
-.role-card p {
-  max-width:
-    560px;
+.skill-card p {
+  margin: 0;
 
-  font-size:
-    18px;
+  padding-top: 18px;
 
-  line-height:
-    1.65;
+  border-top: 1px solid #444;
 
-  color:
-    #f1eadb;
+  color: #ccc;
+
+  font-size: 15px;
+
+  line-height: 1.65;
 }
 
-/* =====================================
-   SPECIAL
-===================================== */
+/* =========================================================
+   MOST AKTORSTWO -> IMPRO
+========================================================= */
 
-.special-layout {
-  display:
-    grid;
+.actor-improv-teaser {
+  display: flex;
 
-  grid-template-columns:
-    1.3fr 0.7fr;
+  justify-content: space-between;
+  align-items: flex-end;
 
-  gap:
-    45px;
+  gap: 50px;
 
-  align-items:
-    center;
+  padding: 90px 8%;
+
+  background: var(--gold);
+
+  color: var(--ink);
 }
 
-.special-copy {
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    flex-start;
-
-  gap:
-    22px;
+.actor-improv-teaser > div {
+  max-width: 770px;
 }
 
-.special-copy h3 {
-  margin:
-    0;
+.actor-improv-teaser span {
+  display: block;
 
-  font-size:
-    clamp(
-      28px,
-      3.5vw,
-      52px
-    );
+  margin-bottom: 25px;
 
-  line-height:
-    1.07;
+  font-size: 10px;
+  font-weight: 800;
 
-  letter-spacing:
-    -0.06em;
+  letter-spacing: 2px;
 }
 
-.special-copy p {
-  margin:
-    0;
+.actor-improv-teaser h2 {
+  margin: 0 0 25px;
 
-  font-size:
-    18px;
+  font-size: clamp(48px, 6vw, 90px);
 
-  line-height:
-    1.65;
+  line-height: 0.91;
+
+  letter-spacing: -0.075em;
 }
 
-/* =====================================
-   200+ SPEKTAKLI
-===================================== */
+.actor-improv-teaser p {
+  max-width: 550px;
 
-.improv-achievements {
-  padding-top:
-    92px;
+  margin: 0;
 
-  padding-bottom:
-    92px;
+  font-size: 18px;
+
+  line-height: 1.6;
 }
 
-.improv-achievements
-.section-description {
-  max-width:
-    940px;
+.actor-improv-button {
+  flex-shrink: 0;
+
+  padding: 18px 24px;
+
+  border: 1px solid var(--ink);
+  border-radius: 100px;
+
+  background: var(--ink);
+  color: var(--cream);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
 }
 
-.stats-grid {
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(
-        0,
-        1fr
-      )
-    );
-
-  gap:
-    12px;
-}
-
-.stats-grid--compact {
-  max-width:
-    1050px;
-}
-
-.stat-card {
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  justify-content:
-    space-between;
-
-  min-height:
-    185px;
-
-  padding:
-    28px;
-
-  background:
-    var(--ink);
-
-  color:
-    var(--cream);
-}
-
-.stat-card strong {
-  font-size:
-    clamp(
-      42px,
-      5vw,
-      72px
-    );
-
-  letter-spacing:
-    -0.08em;
-
-  line-height:
-    1;
-
-  color:
-    var(--gold);
-}
-
-.stat-card
-strong.stat-word {
-  font-size:
-    clamp(
-      24px,
-      2.7vw,
-      40px
-    );
-
-  letter-spacing:
-    -0.055em;
-
-  line-height:
-    1.05;
-}
-
-.stat-card span {
-  font-size:
-    11px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    1.4px;
-
-  line-height:
-    1.5;
-}
-
-.achievement-copy {
-  max-width:
-    820px;
-
-  margin-top:
-    42px;
-}
-
-.achievement-copy p {
-  margin:
-    0 0 30px;
-
-  font-size:
-    18px;
-
-  line-height:
-    1.7;
-}
-
-/* =====================================
-   ZRÓBMY COŚ RAZEM
-
-   WAŻNE:
-   TYTUŁY WIĘKSZE
-   + OPIS KAŻDEGO ZACZYNA SIĘ
-   NA TEJ SAMEJ WYSOKOŚCI
-===================================== */
-
-.improv-collaboration {
-  padding-top:
-    92px;
-
-  padding-bottom:
-    92px;
-}
-
-.offer-grid {
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(
-        0,
-        1fr
-      )
-    );
-
-  gap:
-    12px;
-
-  align-items:
-    stretch;
-}
-
-.offer-card {
-  display:
-    grid;
-
-  /*
-   * WIERSZ 1 = MAŁA NAZWA
-   * WIERSZ 2 = TYTUŁ O STAŁEJ WYSOKOŚCI
-   * WIERSZ 3 = OPIS
-   *
-   * DZIĘKI TEMU WSZYSTKIE OPISY
-   * ZACZYNAJĄ SIĘ NA TYM SAMYM POZIOMIE.
-   */
-  grid-template-rows:
-    auto
-    210px
-    1fr;
-
-  min-height:
-    440px;
-
-  padding:
-    30px;
-
-  background:
-    var(--ink);
-
-  color:
-    var(--cream);
-}
-
-.offer-card > span {
-  color:
-    var(--gold);
-
-  font-size:
-    11px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    1.4px;
-}
-
-.offer-card h3 {
-  align-self:
-    end;
-
-  margin:
-    0;
-
-  padding:
-    32px 0 25px;
-
-  font-size:
-    clamp(
-      32px,
-      3vw,
-      48px
-    );
-
-  line-height:
-    0.98;
-
-  letter-spacing:
-    -0.06em;
-
-  overflow-wrap:
-    anywhere;
-}
-
-.offer-card p {
-  align-self:
-    start;
-
-  margin:
-    0;
-
-  padding-top:
-    24px;
-
-  border-top:
-    1px solid
-    rgba(
-      238,
-      226,
-      195,
-      0.25
-    );
-
-  font-size:
-    16px;
-
-  line-height:
-    1.68;
-}
-
-.booking-cta {
-  display:
-    flex;
-
-  justify-content:
-    space-between;
-
-  align-items:
-    center;
-
-  gap:
-    35px;
-
-  margin-top:
-    42px;
-
-  padding:
-    38px;
-
-  background:
-    var(--ink);
-
-  color:
-    var(--cream);
-}
-
-.booking-cta h3 {
-  margin:
-    0 0 14px;
-
-  font-size:
-    clamp(
-      30px,
-      3.6vw,
-      50px
-    );
-
-  line-height:
-    1;
-
-  letter-spacing:
-    -0.06em;
-}
-
-.booking-cta p {
-  max-width:
-    620px;
-
-  margin:
-    0;
-
-  font-size:
-    16px;
-
-  line-height:
-    1.65;
-}
-
-.world--improv
-.booking-cta
-.main-button {
-  background:
-    var(--gold);
-
-  color:
-    var(--ink);
-
-  flex-shrink:
-    0;
-}
-
-/* =====================================
+/* =========================================================
    KONTAKT AKTORSKI
-===================================== */
+========================================================= */
 
 .big-email {
-  display:
-    block;
+  display: block;
 
-  width:
-    fit-content;
+  width: fit-content;
 
-  max-width:
-    100%;
+  max-width: 100%;
 
-  overflow-wrap:
-    anywhere;
+  margin-bottom: 65px;
 
-  font-size:
-    clamp(
-      23px,
-      4.5vw,
-      70px
-    );
+  overflow-wrap: anywhere;
 
-  font-weight:
-    800;
+  font-size: clamp(23px, 4.5vw, 70px);
 
-  letter-spacing:
-    -0.055em;
+  font-weight: 800;
 
-  line-height:
-    1.15;
+  letter-spacing: -0.055em;
 
-  margin-bottom:
-    65px;
+  line-height: 1.15;
 }
 
 .contact-grid {
-  display:
-    grid;
+  display: grid;
 
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(
-        0,
-        1fr
-      )
-    );
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
-  gap:
-    15px;
+  gap: 15px;
 }
 
 .contact-card {
-  display:
-    flex;
+  display: flex;
 
-  min-height:
-    250px;
+  min-height: 250px;
 
-  flex-direction:
-    column;
+  flex-direction: column;
+  align-items: flex-start;
 
-  align-items:
-    flex-start;
+  padding: 28px;
 
-  padding:
-    28px;
-
-  border:
-    1px solid
-    #555;
+  border: 1px solid #555;
 }
 
 .contact-card span {
-  color:
-    #aaa;
+  color: #aaa;
 
-  font-size:
-    10px;
+  font-size: 10px;
+  font-weight: 800;
 
-  font-weight:
-    800;
-
-  letter-spacing:
-    2px;
+  letter-spacing: 2px;
 }
 
 .contact-card h3 {
-  margin:
-    30px 0 10px;
+  margin: 30px 0 10px;
 
-  font-size:
-    clamp(
-      24px,
-      2.5vw,
-      40px
-    );
+  font-size: clamp(24px, 2.5vw, 40px);
 
-  letter-spacing:
-    -0.06em;
+  letter-spacing: -0.06em;
 }
 
 .contact-card strong {
-  margin-top:
-    auto;
+  margin-top: auto;
 
-  color:
-    var(--gold);
+  color: var(--gold);
 
-  font-size:
-    12px;
+  font-size: 12px;
 
-  letter-spacing:
-    1px;
+  letter-spacing: 1px;
 }
 
-/* =====================================
-   SOCIAL MEDIA + KONTAKT IMPRO
-===================================== */
+/* =========================================================
+   IMPRO: NA SCENIE / ZA KULISAMI
+========================================================= */
+
+.role-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.role-card {
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 390px;
+
+  padding: 42px;
+
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.role-card .eyebrow {
+  color: var(--gold);
+}
+
+.role-card h3 {
+  margin: 46px 0 24px;
+
+  font-size: clamp(35px, 4vw, 58px);
+
+  line-height: 1;
+
+  letter-spacing: -0.065em;
+}
+
+.role-card p {
+  max-width: 560px;
+
+  color: #f1eadb;
+
+  font-size: 18px;
+
+  line-height: 1.65;
+}
+
+/* =========================================================
+   IMPRO SPECIAL
+========================================================= */
+
+.special-layout {
+  display: grid;
+
+  grid-template-columns: 1.3fr 0.7fr;
+
+  gap: 45px;
+
+  align-items: center;
+}
+
+.special-copy {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 22px;
+}
+
+.special-copy h3 {
+  margin: 0;
+
+  font-size: clamp(28px, 3.5vw, 52px);
+
+  line-height: 1.07;
+
+  letter-spacing: -0.06em;
+}
+
+.special-copy p {
+  margin: 0;
+
+  font-size: 18px;
+
+  line-height: 1.65;
+}
+
+/* =========================================================
+   IMPRO STATS
+========================================================= */
+
+.improv-achievements {
+  padding-top: 92px;
+  padding-bottom: 92px;
+}
+
+.improv-achievements .section-description {
+  max-width: 940px;
+}
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.stats-grid--compact {
+  max-width: 1050px;
+}
+
+.stat-card {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 185px;
+
+  padding: 28px;
+
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.stat-card strong {
+  color: var(--gold);
+
+  font-size: clamp(42px, 5vw, 72px);
+
+  line-height: 1;
+
+  letter-spacing: -0.08em;
+}
+
+.stat-card strong.stat-word {
+  font-size: clamp(24px, 2.7vw, 40px);
+
+  line-height: 1.05;
+
+  letter-spacing: -0.055em;
+}
+
+.stat-card span {
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+
+  line-height: 1.5;
+}
+
+.achievement-copy {
+  max-width: 820px;
+
+  margin-top: 42px;
+}
+
+.achievement-copy p {
+  margin: 0 0 30px;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   ZRÓBMY COŚ RAZEM
+========================================================= */
+
+.improv-collaboration {
+  padding-top: 92px;
+  padding-bottom: 92px;
+}
+
+.offer-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+
+  align-items: stretch;
+}
+
+.offer-card {
+  display: grid;
+
+  grid-template-rows:
+    auto
+    220px
+    1fr;
+
+  min-height: 450px;
+
+  padding: 30px;
+
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.offer-card > span {
+  color: var(--gold);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+.offer-card h3 {
+  align-self: end;
+
+  margin: 0;
+
+  padding: 32px 0 25px;
+
+  font-size: clamp(34px, 3.2vw, 51px);
+
+  line-height: 0.96;
+
+  letter-spacing: -0.06em;
+
+  overflow-wrap: anywhere;
+}
+
+.offer-card p {
+  align-self: start;
+
+  margin: 0;
+
+  padding-top: 24px;
+
+  border-top: 1px solid rgba(238, 226, 195, 0.25);
+
+  font-size: 16px;
+
+  line-height: 1.68;
+}
+
+.booking-cta {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 35px;
+
+  margin-top: 42px;
+
+  padding: 38px;
+
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.booking-cta h3 {
+  margin: 0 0 14px;
+
+  font-size: clamp(30px, 3.6vw, 50px);
+
+  line-height: 1;
+
+  letter-spacing: -0.06em;
+}
+
+.booking-cta p {
+  max-width: 620px;
+
+  margin: 0;
+
+  font-size: 16px;
+
+  line-height: 1.65;
+}
+
+.world--improv .booking-cta .main-button {
+  flex-shrink: 0;
+
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* =========================================================
+   SOCIAL IMPRO
+========================================================= */
 
 .social-section {
-  text-align:
-    center;
+  padding-top: 92px;
 
-  padding-top:
-    92px;
+  text-align: center;
 }
 
-.social-section
-.section-heading {
-  display:
-    flex;
+.social-section .section-heading {
+  display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
-  align-items:
-    center;
+  align-items: center;
 }
 
 .social-icons {
-  display:
-    flex;
+  display: flex;
 
-  justify-content:
-    center;
+  justify-content: center;
 
-  flex-wrap:
-    wrap;
+  flex-wrap: wrap;
 
-  gap:
-    28px;
+  gap: 28px;
 
-  margin:
-    48px auto 78px;
+  margin: 48px auto 78px;
 }
 
 .social-link {
-  display:
-    flex;
+  display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
+  align-items: center;
 
-  align-items:
-    center;
+  gap: 14px;
 
-  gap:
-    14px;
+  width: 135px;
 
-  width:
-    135px;
-
-  font-size:
-    13px;
-
-  font-weight:
-    800;
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .social-symbol {
-  display:
-    flex;
+  display: flex;
 
-  align-items:
-    center;
+  align-items: center;
+  justify-content: center;
 
-  justify-content:
-    center;
+  width: 118px;
+  height: 118px;
 
-  width:
-    118px;
+  border-radius: 22px;
 
-  height:
-    118px;
+  background: var(--ink);
+  color: var(--gold);
 
-  border-radius:
-    22px;
-
-  background:
-    var(--ink);
-
-  color:
-    var(--gold);
-
-  transition:
-    transform
-    0.3s;
+  transition: transform 0.3s;
 }
 
-.social-link:hover
-.social-symbol {
-  transform:
-    translateY(-7px);
+.social-link:hover .social-symbol {
+  transform: translateY(-7px);
 }
 
 .social-symbol svg {
-  width:
-    55%;
-
-  height:
-    55%;
+  width: 55%;
+  height: 55%;
 }
 
 .improv-contact {
-  padding-top:
-    58px;
+  padding-top: 58px;
 
-  border-top:
-    1px solid
-    rgba(
-      37,
-      35,
-      30,
-      0.3
-    );
+  border-top: 1px solid rgba(37, 35, 30, 0.3);
 
-  text-align:
-    center;
+  text-align: center;
 }
 
 .improv-contact h3 {
-  margin:
-    0 0 20px;
+  margin: 0 0 20px;
 
-  font-size:
-    14px;
+  font-size: 14px;
 
-  letter-spacing:
-    1.8px;
+  letter-spacing: 1.8px;
 }
 
 .improv-contact > a {
-  display:
-    block;
+  display: block;
 
-  max-width:
-    100%;
+  max-width: 100%;
 
-  margin:
-    20px 0;
+  margin: 20px 0;
 
-  font-size:
-    clamp(
-      24px,
-      4vw,
-      62px
-    );
+  overflow-wrap: anywhere;
 
-  font-weight:
-    800;
+  font-size: clamp(24px, 4vw, 62px);
 
-  letter-spacing:
-    -0.055em;
+  font-weight: 800;
 
-  overflow-wrap:
-    anywhere;
+  letter-spacing: -0.055em;
 }
 
 .improv-contact p {
-  margin:
-    0;
+  margin: 0;
 
-  font-size:
-    16px;
+  font-size: 16px;
 
-  line-height:
-    1.6;
+  line-height: 1.6;
 }
 
-/* =====================================
+/* =========================================================
    STOPKA
-===================================== */
+========================================================= */
 
 .portfolio-footer {
-  display:
-    flex;
+  display: flex;
 
-  justify-content:
-    space-between;
+  justify-content: space-between;
+  align-items: center;
 
-  align-items:
-    center;
+  gap: 30px;
 
-  gap:
-    30px;
+  padding: 45px 8%;
 
-  padding:
-    45px 8%;
-
-  border-top:
-    1px solid
-    currentColor;
+  border-top: 1px solid currentColor;
 }
 
 .portfolio-footer strong {
-  font-size:
-    24px;
+  font-size: 24px;
 
-  letter-spacing:
-    -0.05em;
+  letter-spacing: -0.05em;
 }
 
 .portfolio-footer p {
-  font-size:
-    12px;
+  font-size: 12px;
 
-  line-height:
-    1.8;
+  line-height: 1.8;
 
-  opacity:
-    0.75;
+  opacity: 0.75;
 }
 
 .portfolio-footer button {
-  padding:
-    15px 0;
+  padding: 15px 0;
 
-  background:
-    transparent;
+  background: transparent;
+  color: inherit;
 
-  color:
-    inherit;
+  border: 0;
+  border-bottom: 1px solid currentColor;
 
-  border:
-    0;
+  font-size: 12px;
+  font-weight: 800;
 
-  border-bottom:
-    1px solid
-    currentColor;
-
-  font-size:
-    12px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    1px;
+  letter-spacing: 1px;
 }
 
-/* =====================================
+/* =========================================================
    TABLET
-===================================== */
+========================================================= */
 
-@media
-(max-width: 1050px) {
+@media (max-width: 1100px) {
+  .selected-credits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .casting-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .casting-strip > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .casting-strip > div:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(37, 35, 30, 0.3);
+  }
 
   .theatre-grid {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
   }
 
   .gallery-grid--acting {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(
-          0,
-          1fr
-        )
-      );
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    max-width:
-      700px;
+    max-width: 700px;
   }
 
   .gallery-grid--improv {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(
-          0,
-          1fr
-        )
-      );
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    max-width:
-      760px;
+    max-width: 760px;
   }
 
   .special-layout {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
   }
 
   .offer-grid,
-  .contact-grid {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(
-          0,
-          1fr
-        )
-      );
+  .contact-grid,
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .offer-card {
@@ -2376,277 +1891,208 @@ strong.stat-word {
       195px
       1fr;
   }
-
-  .booking-cta {
-    flex-direction:
-      column;
-
-    align-items:
-      flex-start;
-  }
 }
 
-/* =====================================
+/* =========================================================
    TELEFON
-===================================== */
+========================================================= */
 
-@media
-(max-width: 768px) {
-
+@media (max-width: 768px) {
   .navigation {
-    min-height:
-      78px;
+    min-height: 78px;
 
-    padding:
-      18px 5%;
+    padding: 18px 5%;
 
-    font-size:
-      9px;
+    font-size: 9px;
 
-    letter-spacing:
-      1px;
+    letter-spacing: 1px;
   }
 
   .back-button {
-    padding:
-      12px;
+    padding: 12px;
 
-    font-size:
-      9px;
+    font-size: 9px;
 
-    letter-spacing:
-      0;
+    letter-spacing: 0;
   }
 
   .home-top,
   .home-footer {
-    padding:
-      20px 5%;
+    padding: 20px 5%;
 
-    font-size:
-      9px;
+    font-size: 9px;
 
-    letter-spacing:
-      1px;
+    letter-spacing: 1px;
   }
 
   .home-heading {
-    padding:
-      35px 15px;
+    padding: 35px 15px;
   }
 
   .home-heading h1 {
-    font-size:
-      clamp(
-        50px,
-        13vw,
-        90px
-      );
+    font-size: clamp(50px, 13vw, 90px);
   }
 
   .home-heading p {
-    font-size:
-      10px;
+    font-size: 10px;
 
-    letter-spacing:
-      2px;
+    letter-spacing: 2px;
 
-    line-height:
-      1.6;
+    line-height: 1.6;
   }
 
   .choices {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
-    width:
-      90%;
+    width: 90%;
 
-    gap:
-      16px;
+    gap: 16px;
   }
 
   .choice-image {
-    height:
-      clamp(
-        220px,
-        47vw,
-        340px
-      );
+    height: clamp(220px, 47vw, 340px);
   }
 
-  .choice--acting
-  .choice-image img {
-    object-position:
-      50% 10% !important;
+  .choice--acting .choice-image img {
+    object-position: 50% 6% !important;
   }
 
   .choice-bottom {
-    padding:
-      18px 20px;
+    padding: 18px 20px;
   }
 
   .choice-bottom h2 {
-    font-size:
-      clamp(
-        22px,
-        6vw,
-        32px
-      );
+    font-size: clamp(22px, 6vw, 32px);
   }
 
   .choice-arrow {
-    font-size:
-      32px !important;
+    font-size: 32px !important;
   }
 
-  .hero {
-    grid-template-columns:
-      1fr;
+  /* ACTOR HERO */
+
+  .actor-hero {
+    grid-template-columns: 1fr;
   }
 
-  .hero-content {
-    padding:
-      65px 7%;
+  .actor-hero-copy {
+    padding: 60px 7%;
   }
 
-  .hero h1 {
-    font-size:
-      clamp(
-        52px,
-        14vw,
-        100px
-      );
+  .actor-hero-copy h1 {
+    font-size: clamp(67px, 20vw, 110px);
   }
 
-  .hero-visual {
-    min-height:
-      470px;
+  .actor-hero-photo {
+    min-height: 550px;
   }
 
-  .hero--acting
-  .hero-visual img {
-    object-position:
-      50% 10% !important;
+  .actor-hero-photo img {
+    object-position: 50% 6% !important;
+  }
+
+  .casting-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .casting-strip > div {
+    min-height: 110px;
+
+    padding: 20px;
   }
 
   .content-section {
-    padding:
-      76px 7%;
+    padding: 76px 7%;
   }
 
   .section-heading {
-    margin-bottom:
-      42px;
+    margin-bottom: 42px;
   }
 
   .section-heading h2,
   .section-heading--compact h2 {
-    font-size:
-      clamp(
-        38px,
-        9vw,
-        62px
-      );
-  }
-
-  .intro-grid,
-  .role-grid {
-    grid-template-columns:
-      1fr;
-
-    gap:
-      25px;
-  }
-
-  .role-card {
-    min-height:
-      auto;
-
-    padding:
-      32px;
+    font-size: clamp(38px, 9vw, 62px);
   }
 
   .video-grid,
+  .selected-credits,
+  .actor-about-grid,
+  .role-grid,
   .offer-grid,
-  .contact-grid {
-    grid-template-columns:
-      1fr;
+  .contact-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 
-  .film-year-head {
-    padding:
-      22px 20px;
+  .selected-credit {
+    min-height: 260px;
   }
 
-  .film-year-number {
-    font-size:
-      42px;
-  }
-
-  .film-table {
-    min-width:
-      620px;
-  }
-
-  .film-table th {
-    padding:
-      14px 17px;
-  }
-
-  .film-table td {
-    padding:
-      18px 17px;
-  }
-
-  .film-title {
-    font-size:
-      16px !important;
+  .selected-credit > span {
+    margin-top: 35px;
   }
 
   .gallery-grid--acting {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(
-          0,
-          1fr
-        )
-      );
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    gap:
-      10px;
+    gap: 8px;
   }
 
   .gallery-grid--improv {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(
-          0,
-          1fr
-        )
-      );
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    gap:
-      6px;
+    gap: 6px;
+  }
+
+  .film-year-head {
+    padding: 22px 20px;
+  }
+
+  .film-year-number {
+    font-size: 42px;
+  }
+
+  .film-table {
+    min-width: 620px;
+  }
+
+  .film-table th {
+    padding: 14px 17px;
+  }
+
+  .film-table td {
+    padding: 18px 17px;
+  }
+
+  .film-title {
+    font-size: 16px !important;
+  }
+
+  .actor-improv-teaser {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 75px 7%;
+  }
+
+  .actor-improv-teaser h2 {
+    font-size: clamp(46px, 13vw, 75px);
   }
 
   .stats-grid {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
   }
 
   .stat-card {
-    min-height:
-      150px;
+    min-height: 150px;
   }
 
-  /*
-   * NA TELEFONIE NIE POTRZEBUJEMY
-   * SZTYWNEJ WYSOKOŚCI TYTUŁÓW,
-   * BO KAFELKI SĄ JEDEN POD DRUGIM.
-   */
+  .role-card {
+    min-height: auto;
+
+    padding: 32px;
+  }
 
   .offer-card {
     grid-template-rows:
@@ -2654,124 +2100,97 @@ strong.stat-word {
       auto
       auto;
 
-    min-height:
-      0;
+    min-height: 0;
   }
 
   .offer-card h3 {
-    padding-top:
-      48px;
+    padding-top: 48px;
+    padding-bottom: 28px;
 
-    padding-bottom:
-      28px;
-
-    font-size:
-      clamp(
-        34px,
-        9vw,
-        48px
-      );
+    font-size: clamp(34px, 9vw, 48px);
   }
 
   .booking-cta {
-    padding:
-      30px;
+    flex-direction: column;
 
-    margin-top:
-      32px;
+    align-items: flex-start;
+
+    padding: 30px;
+
+    margin-top: 32px;
   }
 
   .social-icons {
-    display:
-      grid;
+    display: grid;
 
-    grid-template-columns:
-      repeat(
-        2,
-        1fr
-      );
+    grid-template-columns: repeat(2, 1fr);
 
-    justify-items:
-      center;
+    justify-items: center;
 
-    gap:
-      30px 12px;
+    gap: 30px 12px;
   }
 
   .social-link {
-    width:
-      100%;
+    width: 100%;
   }
 
   .social-symbol {
-    width:
-      100px;
-
-    height:
-      100px;
+    width: 100px;
+    height: 100px;
   }
 
   .portfolio-footer {
-    padding:
-      40px 7%;
+    padding: 40px 7%;
 
-    align-items:
-      flex-start;
+    align-items: flex-start;
   }
 }
 
-/* =====================================
-   MAŁY TELEFON
-===================================== */
+/* =========================================================
+   BARDZO MAŁY TELEFON
+========================================================= */
 
-@media
-(max-width: 380px) {
-
-  .hero h1 {
-    font-size:
-      51px;
-  }
-
+@media (max-width: 380px) {
   .gallery-grid--acting,
   .gallery-grid--improv {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
-    max-width:
-      300px;
+    max-width: 300px;
+  }
+
+  .casting-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .casting-strip > div {
+    border-right: 0;
+
+    border-bottom: 1px solid rgba(37, 35, 30, 0.3);
   }
 
   .navigation {
-    font-size:
-      8px;
+    font-size: 8px;
   }
 
   .back-button {
-    font-size:
-      8px;
+    padding: 11px 9px;
 
-    padding:
-      11px 9px;
+    font-size: 8px;
   }
 }
 
-/* =====================================
+/* =========================================================
    REDUCED MOTION
-===================================== */
+========================================================= */
 
-@media
-(prefers-reduced-motion: reduce) {
-
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    scroll-behavior:
-      auto !important;
+    scroll-behavior: auto !important;
 
-    transition-duration:
-      0.01ms !important;
+    transition-duration: 0.01ms !important;
 
-    animation-duration:
-      0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
