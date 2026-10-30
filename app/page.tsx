@@ -132,9 +132,9 @@ const improvGallery: Photo[] = [
     position: "52% 42%",
   },
   {
-    src: "/images/TOTO-85.jpg",
-    alt: "Hubert Sycz z zespołem TOTO IMPRO",
-    position: "57% 40%",
+    src: "/images/Srodkowe - strona.jpg",
+    alt: "Hubert Sycz z zespołem TOTO IMPRO po spektaklu",
+    position: "50% 50%",
   },
   {
     src: "/images/669587663_1500092202115847_7734198665696874300_n.jpg",
@@ -419,10 +419,12 @@ function PhotoImage({
   src,
   alt,
   position = "50% 50%",
+  fill = false,
 }: {
   src: string;
   alt: string;
   position?: string;
+  fill?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
 
@@ -440,7 +442,17 @@ function PhotoImage({
       src={src}
       alt={alt}
       loading="lazy"
-      style={{ objectPosition: position }}
+      style={{
+        objectPosition: position,
+        ...(fill
+          ? {
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }
+          : {}),
+      }}
       onError={() => setFailed(true)}
     />
   );
@@ -536,36 +548,72 @@ function VideoCard({ id, label }: { id: string; label: string }) {
 ========================================================= */
 
 function FilmYearTable({ group }: { group: FilmYear }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <details className="film-year-card film-year-accordion">
-      <summary className="film-year-head film-year-summary">
+    <article className="film-year-card film-year-accordion">
+      <button
+        type="button"
+        className="film-year-head film-year-summary"
+        onClick={() => setOpen((current) => !current)}
+        aria-expanded={open}
+        style={{
+          width: "100%",
+          border: 0,
+          background: "transparent",
+          color: "inherit",
+          textAlign: "left",
+          justifyContent: "space-between",
+        }}
+      >
         <strong className="film-year-number">{group.year}</strong>
-        <span className="film-year-toggle" aria-hidden="true">
+        <span
+          className="film-year-toggle"
+          aria-hidden="true"
+          style={{
+            fontSize: "30px",
+            lineHeight: 1,
+            transform: open ? "rotate(45deg)" : "rotate(0deg)",
+            transition: "transform 520ms cubic-bezier(0.22, 1, 0.36, 1)",
+          }}
+        >
           +
         </span>
-      </summary>
+      </button>
 
-      <div className="film-table-wrap film-table-wrap--accordion">
-        <table className="film-table">
-          <thead>
-            <tr>
-              <th>PRODUKCJA</th>
-              <th>RODZAJ</th>
-              <th>ROLA</th>
-            </tr>
-          </thead>
-          <tbody>
-            {group.credits.map((credit, index) => (
-              <tr key={`${group.year}-${credit.title}-${index}`}>
-                <td className="film-title">{credit.title}</td>
-                <td>{credit.category}</td>
-                <td>{credit.role || "—"}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateRows: open ? "1fr" : "0fr",
+          opacity: open ? 1 : 0,
+          transition:
+            "grid-template-rows 620ms cubic-bezier(0.22, 1, 0.36, 1), opacity 420ms ease",
+        }}
+      >
+        <div style={{ minHeight: 0, overflow: "hidden" }}>
+          <div className="film-table-wrap film-table-wrap--accordion">
+            <table className="film-table">
+              <thead>
+                <tr>
+                  <th>PRODUKCJA</th>
+                  <th>RODZAJ</th>
+                  <th>ROLA</th>
+                </tr>
+              </thead>
+              <tbody>
+                {group.credits.map((credit, index) => (
+                  <tr key={`${group.year}-${credit.title}-${index}`}>
+                    <td className="film-title">{credit.title}</td>
+                    <td>{credit.category}</td>
+                    <td>{credit.role || "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-    </details>
+    </article>
   );
 }
 
@@ -1519,61 +1567,82 @@ export default function HomePage() {
             />
 
             <div className="offer-grid">
-              <article className="offer-card offer-card--visual">
+              <article
+                className="offer-card offer-card--visual"
+                style={{
+                  display: "grid",
+                  gridTemplateRows: "120px 285px 205px",
+                  minHeight: "610px",
+                  overflow: "hidden",
+                }}
+              >
                 <h3 className="offer-main-heading">SPEKTAKL</h3>
-                <div className="offer-photo">
+                <div
+                  className="offer-photo"
+                  style={{ width: "100%", height: "100%", overflow: "hidden" }}
+                >
                   <PhotoImage
                     src="/images/Spektakl - strona.jpg"
                     alt="TOTO IMPRO podczas spektaklu"
                     position="50% 50%"
+                    fill
                   />
                 </div>
                 <div className="offer-title">
                   <h3>WASZA SCENA, NASZA HISTORIA</h3>
                 </div>
-                <p>
-                  Możemy zagrać pełny spektakl improwizowany w instytucji kultury,
-                  teatrze, klubie, domu kultury albo innym miejscu z publicznością.
-                </p>
               </article>
 
-              <article className="offer-card offer-card--visual">
-                <h3 className="offer-main-heading">EVENT DLA FIRMY</h3>
-                <div className="offer-photo">
-                  <PhotoImage
-                    src="/images/Event - strona.jpg"
-                    alt="Hubert Sycz podczas wydarzenia dla firmy"
-                    position="50% 50%"
-                  />
-                </div>
-                <div className="offer-title">
-                  <h3>WIECZÓR, KTÓREGO NIE DA SIĘ POWTÓRZYĆ</h3>
-                </div>
-                <p>
-                  Przygotujemy improwizowany występ na event firmowy, integrację
-                  albo wydarzenie specjalne — z formatem dopasowanym do Waszej
-                  grupy.
-                </p>
-              </article>
-
-              <article className="offer-card offer-card--visual">
+              <article
+                className="offer-card offer-card--visual"
+                style={{
+                  display: "grid",
+                  gridTemplateRows: "120px 285px 205px",
+                  minHeight: "610px",
+                  overflow: "hidden",
+                }}
+              >
                 <h3 className="offer-main-heading">WARSZTATY</h3>
-                <div className="offer-photo">
+                <div
+                  className="offer-photo"
+                  style={{ width: "100%", height: "100%", overflow: "hidden" }}
+                >
                   <PhotoImage
                     src="/images/Warsztaty-strona.jpg"
                     alt="Warsztaty improwizacji prowadzone przez Huberta Sycza"
                     position="50% 50%"
+                    fill
                   />
                 </div>
                 <div className="offer-title">
                   <h3>IMPROWIZACJI MOŻE SPRÓBOWAĆ KAŻDY</h3>
                 </div>
-                <p>
-                  Prowadzę warsztaty dla osób w każdym wieku, niezależnie od płci
-                  i poziomu doświadczenia. Pracuję zarówno z osobami
-                  początkującymi, jak i z młodzieżą, dorosłymi oraz zespołami
-                  firmowymi.
-                </p>
+              </article>
+
+              <article
+                className="offer-card offer-card--visual"
+                style={{
+                  display: "grid",
+                  gridTemplateRows: "120px 285px 205px",
+                  minHeight: "610px",
+                  overflow: "hidden",
+                }}
+              >
+                <h3 className="offer-main-heading">EVENT DLA FIRMY</h3>
+                <div
+                  className="offer-photo"
+                  style={{ width: "100%", height: "100%", overflow: "hidden" }}
+                >
+                  <PhotoImage
+                    src="/images/Event - strona.jpg"
+                    alt="Hubert Sycz podczas wydarzenia dla firmy"
+                    position="50% 50%"
+                    fill
+                  />
+                </div>
+                <div className="offer-title">
+                  <h3>WIECZÓR, KTÓREGO NIE DA SIĘ POWTÓRZYĆ</h3>
+                </div>
               </article>
             </div>
 
