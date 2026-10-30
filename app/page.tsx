@@ -1477,7 +1477,7 @@ export default function HomePage() {
             <SectionHeader title="ZOBACZ MNIE W AKCJI" />
 
             <div className="video-grid">
-              <VideoCard id="-v35sackaag" label="SHOWREEL" playOverlay />
+              <VideoCard id="-v35sackaag" label="SHOWREEL" />
               <VideoCard id="iZn3et4MSko" label="WIZYTÓWKA" />
             </div>
           </section>
