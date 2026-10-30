@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 
 type World = "acting" | "home" | "improv";
@@ -526,20 +526,116 @@ function Gallery({
    WIDEO AKTORSKIE
 ========================================================= */
 
-function VideoCard({ id, label }: { id: string; label: string }) {
+function VideoCard({
+  id,
+  label,
+  playOverlay = false,
+}: {
+  id: string;
+  label: string;
+  playOverlay?: boolean;
+}) {
+  const [playing, setPlaying] = useState(false);
+  const shouldAutoplay = playOverlay && playing;
+
   return (
     <article className="video-card">
       <h3 className="video-card-title">{label}</h3>
-      <div className="video-frame">
+      <div className={`video-frame${playOverlay ? " video-frame--playable" : ""}`}>
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${id}`}
+          src={`https://www.youtube-nocookie.com/embed/${id}?rel=0${
+            shouldAutoplay ? "&autoplay=1" : ""
+          }`}
           title={label}
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         />
+
+        {playOverlay && !playing && (
+          <button
+            type="button"
+            className="video-play-overlay"
+            onClick={() => setPlaying(true)}
+            aria-label="Odtwórz showreel"
+          >
+            <span>PLAY</span>
+            <span className="video-play-icon" aria-hidden="true">
+              ▶
+            </span>
+          </button>
+        )}
       </div>
     </article>
+  );
+}
+
+function AnimatedStat({
+  end,
+  suffix = "",
+  label,
+  breakLabel = true,
+}: {
+  end: number;
+  suffix?: string;
+  label: string;
+  breakLabel?: boolean;
+}) {
+  const [value, setValue] = useState(0);
+  const ref = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setValue(end);
+      return;
+    }
+
+    let frame = 0;
+    let started = false;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry?.isIntersecting || started) return;
+
+        started = true;
+        const start = performance.now();
+        const duration = 1050;
+
+        const tick = (now: number) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          setValue(Math.round(end * eased));
+
+          if (progress < 1) {
+            frame = requestAnimationFrame(tick);
+          }
+        };
+
+        frame = requestAnimationFrame(tick);
+        observer.disconnect();
+      },
+      { threshold: 0.45 }
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [end]);
+
+  return (
+    <strong ref={ref}>
+      {value}
+      {suffix}
+      {breakLabel ? <br /> : " "}
+      {label}
+    </strong>
   );
 }
 
@@ -908,6 +1004,54 @@ export default function HomePage() {
     }
   }, [world]);
 
+  useEffect(() => {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const elements = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        [
+          ".content-section",
+          ".casting-strip",
+          ".actor-improv-teaser",
+          ".selected-credit",
+          ".theatre-card",
+          ".role-card",
+          ".experience-card",
+          ".gallery-item",
+          ".offer-card",
+          ".booking-cta",
+          ".social-link",
+        ].join(",")
+      )
+    );
+
+    elements.forEach((element, index) => {
+      element.classList.add("reveal-on-scroll");
+      element.style.setProperty("--reveal-delay", `${(index % 4) * 55}ms`);
+    });
+
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+      elements.forEach((element) => element.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          (entry.target as HTMLElement).classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -7% 0px" }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="website">
       <style>{`
@@ -1022,6 +1166,180 @@ export default function HomePage() {
           letter-spacing: 1.5px;
         }
 
+        /* PŁYNNIEJSZE PRZEJŚCIE MIĘDZY ŚWIATAMI */
+        .track {
+          transition: transform 1150ms cubic-bezier(0.76, 0, 0.24, 1) !important;
+          will-change: transform;
+          backface-visibility: hidden;
+        }
+
+        /* SUBTELNE WEJŚCIA PRZY SCROLLOWANIU */
+        .reveal-on-scroll {
+          opacity: 0;
+          transform: translate3d(0, 22px, 0);
+          transition:
+            opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
+            transform 820ms cubic-bezier(0.22, 1, 0.36, 1);
+          transition-delay: var(--reveal-delay, 0ms);
+        }
+
+        .reveal-on-scroll.is-visible {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+
+        /* GALERIA — SUBTELNY HOVER */
+        .gallery-item {
+          overflow: hidden;
+          position: relative;
+        }
+
+        .gallery-item img {
+          transition:
+            transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+            filter 700ms ease;
+          will-change: transform;
+        }
+
+        .gallery-item::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: rgba(0, 0, 0, 0);
+          transition: background 500ms ease;
+        }
+
+        /* SHOWREEL — PLAY */
+        .video-frame--playable {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .video-play-overlay {
+          position: absolute;
+          inset: 0;
+          z-index: 3;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 14px;
+          width: 100%;
+          border: 0;
+          background: rgba(0, 0, 0, 0.42);
+          color: #fff;
+          cursor: pointer;
+          font: inherit;
+          font-size: clamp(18px, 1.6vw, 25px);
+          font-weight: 800;
+          letter-spacing: 0.16em;
+          transition: background 350ms ease;
+        }
+
+        .video-play-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 46px;
+          height: 46px;
+          border: 1px solid currentColor;
+          border-radius: 50%;
+          padding-left: 3px;
+          font-size: 15px;
+          transition:
+            transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+            background 350ms ease,
+            color 350ms ease;
+        }
+
+        /* ZRÓBMY COŚ RAZEM — RUCH */
+        .offer-card--visual {
+          transition:
+            transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+            border-color 350ms ease;
+        }
+
+        .offer-card--visual .offer-photo img {
+          transition: transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .offer-card--visual .offer-title h3 {
+          transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* STAŁY KONTAKT */
+        .floating-contact {
+          position: fixed;
+          right: clamp(18px, 2.2vw, 34px);
+          bottom: clamp(18px, 2.2vw, 34px);
+          z-index: 100;
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          min-height: 48px;
+          padding: 0 20px;
+          border: 1px solid currentColor;
+          border-radius: 999px;
+          text-decoration: none;
+          font-size: 11px;
+          font-weight: 800;
+          letter-spacing: 0.16em;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+          transition:
+            transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+            background 260ms ease,
+            color 260ms ease,
+            opacity 260ms ease;
+        }
+
+        .floating-contact--acting {
+          background: #111;
+          color: #fff;
+        }
+
+        .floating-contact--improv {
+          background: var(--canary);
+          color: #080808;
+          border-color: var(--canary);
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+          .gallery-item:hover img {
+            transform: scale(1.035);
+            filter: contrast(1.025) saturate(1.04);
+          }
+
+          .gallery-item:hover::after {
+            background: rgba(0, 0, 0, 0.055);
+          }
+
+          .video-play-overlay:hover {
+            background: rgba(0, 0, 0, 0.56);
+          }
+
+          .video-play-overlay:hover .video-play-icon {
+            transform: scale(1.09);
+            background: #fff;
+            color: #111;
+          }
+
+          .offer-card--visual:hover {
+            transform: translateY(-7px);
+          }
+
+          .offer-card--visual:hover .offer-photo img {
+            transform: scale(1.045);
+          }
+
+          .offer-card--visual:hover .offer-title h3 {
+            transform: translateY(-4px);
+          }
+
+          .floating-contact:hover {
+            transform: translateY(-4px);
+          }
+        }
+
         @media (max-width: 900px) {
           .film-year-summary {
             min-height: 76px;
@@ -1039,8 +1357,41 @@ export default function HomePage() {
           .offer-card--visual > p {
             padding: 18px 22px 26px;
           }
+
+          .floating-contact {
+            right: 14px;
+            bottom: 14px;
+            min-height: 44px;
+            padding: 0 16px;
+            font-size: 10px;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .track,
+          .reveal-on-scroll,
+          .gallery-item img,
+          .offer-card--visual,
+          .offer-card--visual .offer-photo img,
+          .video-play-icon {
+            transition-duration: 1ms !important;
+          }
+
+          .reveal-on-scroll {
+            opacity: 1 !important;
+            transform: none !important;
+          }
         }
       `}</style>
+
+      {world !== "home" && (
+        <a
+          href={world === "acting" ? LINKS.email : LINKS.totoEmail}
+          className={`floating-contact floating-contact--${world}`}
+        >
+          KONTAKT <span aria-hidden="true">↗</span>
+        </a>
+      )}
 
       <main
         className="track"
@@ -1126,7 +1477,7 @@ export default function HomePage() {
             <SectionHeader title="ZOBACZ MNIE W AKCJI" />
 
             <div className="video-grid">
-              <VideoCard id="-v35sackaag" label="SHOWREEL" />
+              <VideoCard id="-v35sackaag" label="SHOWREEL" playOverlay />
               <VideoCard id="iZn3et4MSko" label="WIZYTÓWKA" />
             </div>
           </section>
@@ -1507,29 +1858,21 @@ export default function HomePage() {
 
             <div className="experience-grid">
               <article className="experience-card">
-                <strong>3 LATA</strong>
+                <AnimatedStat end={3} label="LATA" breakLabel={false} />
                 <div className="experience-icon">
                   <YearsIcon />
                 </div>
               </article>
 
               <article className="experience-card">
-                <strong>
-                  200+
-                  <br />
-                  SPEKTAKLI
-                </strong>
+                <AnimatedStat end={200} suffix="+" label="SPEKTAKLI" />
                 <div className="experience-icon">
                   <ShowsIcon />
                 </div>
               </article>
 
               <article className="experience-card">
-                <strong>
-                  60+
-                  <br />
-                  SCEN
-                </strong>
+                <AnimatedStat end={60} suffix="+" label="SCEN" />
                 <div className="experience-icon">
                   <StagesIcon />
                 </div>
