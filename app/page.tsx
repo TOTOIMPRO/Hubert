@@ -957,20 +957,8 @@ export default function HomePage() {
           transition: transform 220ms ease, background 220ms ease, color 220ms ease;
         }
 
-        .film-year-accordion[open] .film-year-toggle {
-          transform: rotate(45deg);
-        }
-
         .film-table-wrap--accordion {
           border-top: 1px solid rgba(255,255,255,0.18);
-        }
-
-        .film-year-accordion:not([open]) .film-table-wrap--accordion {
-          display: none;
-        }
-
-        .film-year-accordion:not([open]) .film-year-summary {
-          border-bottom: 0;
         }
 
         .offer-card--visual {
@@ -1641,7 +1629,7 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="offer-title">
-                  <h3>WIECZÓR, KTÓREGO NIE DA SIĘ POWTÓRZYĆ</h3>
+                  <h3>WIECZÓR, KTÓRY ŁĄCZY LUDZI</h3>
                 </div>
               </article>
             </div>
