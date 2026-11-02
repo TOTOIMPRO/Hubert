@@ -1367,6 +1367,324 @@ export default function HomePage() {
           }
         }
 
+
+        /* =====================================================
+           MOBILE POLISH — TYLKO TELEFONY
+           Desktop i tablet pozostają bez zmian.
+        ===================================================== */
+        @media (max-width: 768px) {
+          /* Nawigacja — lżejsza i mniej dominująca */
+          .navigation {
+            min-height: 68px;
+            padding: 14px 6%;
+            gap: 12px;
+          }
+
+          .navigation > span {
+            max-width: 46%;
+            line-height: 1.35;
+          }
+
+          .back-button {
+            padding: 11px 14px;
+            font-size: 8px;
+            letter-spacing: .04em;
+          }
+
+          /* AKTORSTWO — pierwszy ekran */
+          .actor-hero {
+            min-height: 0;
+          }
+
+          .actor-hero-copy {
+            padding: 44px 6% 48px;
+          }
+
+          .actor-hero-copy .eyebrow {
+            font-size: 9px;
+            letter-spacing: 2.2px;
+          }
+
+          .actor-hero-copy h1 {
+            margin: 20px 0 24px;
+            font-size: clamp(62px, 17.5vw, 78px);
+            line-height: .84;
+            letter-spacing: -.075em;
+          }
+
+          .actor-hero-description {
+            margin-bottom: 24px;
+            font-size: 18px;
+            line-height: 1.5;
+          }
+
+          .actor-representation {
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-bottom: 26px;
+          }
+
+          .actor-hero .hero-actions {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+          }
+
+          .actor-hero .hero-actions .main-button,
+          .actor-hero .hero-actions .outline-button {
+            min-width: 0;
+            width: 100%;
+            padding: 14px 10px;
+            white-space: nowrap;
+          }
+
+          .actor-hero .hero-actions > :last-child {
+            grid-column: 1 / -1;
+            width: fit-content;
+            min-width: 150px;
+          }
+
+          .actor-hero-photo {
+            min-height: 470px;
+          }
+
+          /* IMPRO — hero na telefonie bez ciasnego split screena */
+          .hero--improv {
+            grid-template-columns: 1fr !important;
+            min-height: 0;
+          }
+
+          .hero--improv .hero-content {
+            padding: 48px 6% 42px;
+          }
+
+          .hero--improv .eyebrow {
+            font-size: 9px;
+            letter-spacing: 2.3px;
+          }
+
+          .hero--improv h1 {
+            margin: 22px 0 26px;
+            font-size: clamp(58px, 18vw, 82px);
+            line-height: .83;
+            letter-spacing: -.075em;
+            overflow-wrap: normal;
+            word-break: normal;
+          }
+
+          .hero--improv .hero-lead {
+            margin-bottom: 26px;
+            max-width: 100%;
+            font-size: 18px;
+            line-height: 1.5;
+          }
+
+          .hero--improv .hero-actions {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+          }
+
+          .hero--improv .hero-actions .main-button,
+          .hero--improv .hero-actions .outline-button {
+            width: 100%;
+            min-width: 0;
+            padding: 14px 10px;
+            font-size: 9px;
+          }
+
+          .hero--improv .hero-visual {
+            min-height: min(70dvh, 610px);
+          }
+
+          .hero--improv .hero-visual img {
+            object-position: 50% 22% !important;
+          }
+
+          /* Sekcje — trochę więcej oddechu, ale mniej pustej przestrzeni */
+          .content-section {
+            padding: 66px 6%;
+          }
+
+          .section-heading {
+            margin-bottom: 34px;
+          }
+
+          .section-heading h2,
+          .section-heading--compact h2 {
+            font-size: clamp(34px, 9.5vw, 44px);
+            line-height: .96;
+            overflow-wrap: normal;
+            word-break: normal;
+          }
+
+          .section-description {
+            font-size: 16px;
+            line-height: 1.55;
+          }
+
+          /* Demo i filmy */
+          .actor-showreel-section {
+            padding-top: 66px;
+          }
+
+          .video-grid {
+            gap: 30px;
+          }
+
+          .video-card-title {
+            font-size: 18px;
+          }
+
+          /* Galeria — dwa równe kafle bez przypadkowego rozciągania */
+          .gallery-grid--acting,
+          .gallery-grid--improv {
+            width: 100%;
+            max-width: none;
+          }
+
+          /* Żółty teaser — najważniejszy fix ze screena */
+          .actor-improv-teaser {
+            gap: 34px;
+            padding: 64px 6% 72px;
+            overflow: hidden;
+          }
+
+          .actor-improv-teaser-inner {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+          }
+
+          .actor-improv-teaser span {
+            margin-bottom: 18px;
+            font-size: 18px;
+            line-height: 1.05;
+          }
+
+          .actor-improv-teaser h2 {
+            width: 100%;
+            margin-bottom: 24px;
+            font-size: clamp(38px, 11.5vw, 50px);
+            line-height: .9;
+            letter-spacing: -.065em;
+            overflow-wrap: normal;
+            word-break: normal;
+            white-space: nowrap;
+          }
+
+          .actor-improv-teaser p {
+            max-width: 100%;
+            font-size: 16px;
+            line-height: 1.62;
+          }
+
+          .actor-improv-button {
+            padding: 17px 24px;
+          }
+
+          /* Karty współpracy — telefoniczna wersja plakatów */
+          .offer-grid {
+            gap: 18px;
+          }
+
+          .offer-card--visual {
+            display: grid !important;
+            grid-template-rows: auto auto auto !important;
+            min-height: 0 !important;
+          }
+
+          .offer-card--visual > .offer-main-heading {
+            padding: 22px 20px 18px !important;
+            font-size: clamp(31px, 9vw, 40px) !important;
+            line-height: .95;
+          }
+
+          .offer-card--visual .offer-photo {
+            height: auto !important;
+            aspect-ratio: 16 / 10;
+          }
+
+          .offer-card--visual .offer-title {
+            padding: 22px 20px 24px;
+          }
+
+          .offer-card--visual .offer-title h3 {
+            font-size: clamp(26px, 7.8vw, 34px);
+            line-height: .98;
+          }
+
+          .booking-cta {
+            padding: 24px;
+          }
+
+          .booking-cta h3 {
+            font-size: clamp(28px, 8.5vw, 38px);
+          }
+
+          /* Liczby — bardziej zwarte na telefonie */
+          .experience-card {
+            min-height: 220px;
+            padding: 26px;
+          }
+
+          .experience-card strong {
+            font-size: clamp(38px, 12vw, 52px);
+          }
+
+          .experience-icon {
+            width: 100px;
+            margin-top: 34px;
+          }
+
+          /* Stały kontakt — mniejszy i bez nachodzenia na treść */
+          .floating-contact {
+            right: 10px;
+            bottom: calc(10px + env(safe-area-inset-bottom));
+            min-height: 40px;
+            padding: 0 13px;
+            gap: 8px;
+            font-size: 9px;
+            letter-spacing: .12em;
+            box-shadow: 0 8px 24px rgba(0,0,0,.22);
+          }
+
+          /* Stopka */
+          .portfolio-footer {
+            gap: 18px;
+            padding: 34px 6% 84px;
+          }
+
+          .portfolio-footer strong {
+            font-size: 20px;
+          }
+        }
+
+        @media (max-width: 390px) {
+          .actor-hero-copy h1 {
+            font-size: 16.5vw;
+          }
+
+          .hero--improv h1 {
+            font-size: 17vw;
+          }
+
+          .actor-improv-teaser h2 {
+            font-size: 10.8vw;
+          }
+
+          .navigation > span {
+            font-size: 8px;
+          }
+
+          .back-button {
+            font-size: 7.5px;
+          }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .track,
           .reveal-on-scroll,
