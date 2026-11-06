@@ -1849,7 +1849,7 @@ export default function HomePage() {
           {/* GALERIA */}
           <section className="content-section section-alt">
             <SectionHeader
-              title="RÓŻNE OBLICZA JEDEN AKTOR"
+              title="GALERIA TWARZY"
               description="Aktualne zdjęcia portretowe i castingowe."
             />
 
