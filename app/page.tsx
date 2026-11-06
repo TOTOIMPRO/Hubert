@@ -2,6 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
+import { Bebas_Neue } from "next/font/google";
+
+const bebasNeue = Bebas_Neue({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 type World = "acting" | "home" | "improv";
 
@@ -2001,7 +2007,7 @@ export default function HomePage() {
 
           <div className="home-heading">
             <span>DWIE STRONY JEDNEJ HISTORII</span>
-            <h1>HUBERT SYCZ</h1>
+            <h1 className={bebasNeue.className}>HUBERT SYCZ</h1>
             <p>AKTOR / IMPROWIZATOR / MENADŻER</p>
           </div>
 
