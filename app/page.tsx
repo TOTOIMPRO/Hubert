@@ -2011,9 +2011,9 @@ export default function HomePage() {
             <p>AKTOR / IMPROWIZATOR / MENADŻER</p>
           </div>
 
-          <div className="choices">
-            <button className="choice choice--acting" onClick={() => move("acting")}>
-              <div className="choice-image" style={{ aspectRatio: "1 / 1", height: "auto" }}>
+          <div className="choices" style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>
+            <button className="choice choice--acting" style={{ width: "100%", minWidth: 0 }} onClick={() => move("acting")}>
+              <div className="choice-image" style={{ width: "100%", aspectRatio: "1 / 1", height: "auto", overflow: "hidden" }}>
                 <PhotoImage
                   src={PHOTO.acting}
                   alt="Hubert Sycz – aktorstwo"
@@ -2030,8 +2030,8 @@ export default function HomePage() {
               </div>
             </button>
 
-            <button className="choice choice--improv" onClick={() => move("improv")}>
-              <div className="choice-image" style={{ aspectRatio: "1 / 1", height: "auto" }}>
+            <button className="choice choice--improv" style={{ width: "100%", minWidth: 0 }} onClick={() => move("improv")}>
+              <div className="choice-image" style={{ width: "100%", aspectRatio: "1 / 1", height: "auto", overflow: "hidden" }}>
                 <PhotoImage
                   src={PHOTO.improv}
                   alt="Hubert Sycz – improwizacja"
