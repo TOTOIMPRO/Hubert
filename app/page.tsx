@@ -2013,11 +2013,12 @@ export default function HomePage() {
 
           <div className="choices">
             <button className="choice choice--acting" onClick={() => move("acting")}>
-              <div className="choice-image">
+              <div className="choice-image" style={{ aspectRatio: "1 / 1", height: "auto" }}>
                 <PhotoImage
                   src={PHOTO.acting}
                   alt="Hubert Sycz – aktorstwo"
                   position="50% 12%"
+                  fill
                 />
               </div>
               <div className="choice-bottom">
@@ -2030,11 +2031,12 @@ export default function HomePage() {
             </button>
 
             <button className="choice choice--improv" onClick={() => move("improv")}>
-              <div className="choice-image">
+              <div className="choice-image" style={{ aspectRatio: "1 / 1", height: "auto" }}>
                 <PhotoImage
                   src={PHOTO.improv}
                   alt="Hubert Sycz – improwizacja"
                   position="50% 24%"
+                  fill
                 />
               </div>
               <div className="choice-bottom">
