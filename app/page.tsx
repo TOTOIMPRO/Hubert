@@ -62,7 +62,7 @@ const LINKS = {
 
 const PHOTO = {
   acting: "/images/HUBERT  fot Zimakiewicz (20).jpg",
-  improv: "/images/improwizacja.jpg",
+  improv: "/images/TOTO-145.jpg",
 };
 
 /* =========================================================
