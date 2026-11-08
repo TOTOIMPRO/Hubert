@@ -1441,7 +1441,7 @@ export default function HomePage() {
           */
           .choice--improv .choice-image img {
             object-position: 0% 0% !important;
-            transform: scale(1.36);
+            transform: scale(1.09);
             transform-origin: 0% 0%;
           }
 
