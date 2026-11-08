@@ -1445,6 +1445,13 @@ export default function HomePage() {
             transform-origin: 0% 0%;
           }
 
+          /* Hero Impro na desktopie — dokładnie ten sam kadr co kafel główny */
+          .hero--improv .hero-visual img {
+            object-position: 0% 0% !important;
+            transform: scale(1.09);
+            transform-origin: 0% 0%;
+          }
+
           .choice-bottom {
             min-height: 110px;
           }
