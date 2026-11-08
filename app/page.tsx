@@ -1374,6 +1374,100 @@ export default function HomePage() {
         }
 
 
+
+        /* =====================================================
+           EKRAN WYBORU — PEŁNE KAFLE OD RAZU W VIEWPORCIE
+        ===================================================== */
+        .choice-bottom--acting,
+        .choice-bottom--improv {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 24px;
+        }
+
+        .choice-title {
+          min-width: 0;
+          flex: 1;
+        }
+
+        .choice-title h2 {
+          margin: 0;
+        }
+
+        .choice-bottom--acting .choice-title {
+          text-align: right;
+        }
+
+        .choice-bottom--improv .choice-title {
+          text-align: left;
+        }
+
+        .choice-bottom--acting .choice-arrow,
+        .choice-bottom--improv .choice-arrow {
+          flex: 0 0 auto;
+        }
+
+        @media (min-width: 769px) {
+          .world--home {
+            height: 100dvh;
+            min-height: 100dvh;
+            overflow: hidden !important;
+            display: flex;
+            flex-direction: column;
+          }
+
+          .home-top {
+            flex: 0 0 auto;
+          }
+
+          .home-heading {
+            flex: 0 0 auto;
+            margin-top: clamp(16px, 2.2vh, 28px) !important;
+            margin-bottom: clamp(18px, 2.6vh, 32px) !important;
+          }
+
+          .home-heading h1 {
+            margin-top: clamp(8px, 1.2vh, 14px) !important;
+            margin-bottom: clamp(8px, 1.2vh, 14px) !important;
+          }
+
+          .choices {
+            flex: 0 0 auto;
+            align-items: stretch;
+            min-height: 0;
+          }
+
+          .choice {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+          }
+
+          .choice-image {
+            width: 100% !important;
+            height: clamp(300px, 43vh, 500px) !important;
+            aspect-ratio: auto !important;
+            flex: 0 0 auto;
+          }
+
+          .choice-bottom {
+            min-height: clamp(92px, 12vh, 120px);
+          }
+
+          .choice-bottom--acting,
+          .choice-bottom--improv {
+            padding-left: clamp(24px, 2.4vw, 38px);
+            padding-right: clamp(24px, 2.4vw, 38px);
+          }
+
+          .home-footer {
+            margin-top: auto;
+            padding-top: clamp(12px, 1.6vh, 20px);
+            padding-bottom: clamp(12px, 1.6vh, 20px);
+          }
+        }
+
         /* =====================================================
            MOBILE POLISH — TYLKO TELEFONY
            Desktop i tablet pozostają bez zmian.
@@ -2021,12 +2115,11 @@ export default function HomePage() {
                   fill
                 />
               </div>
-              <div className="choice-bottom">
-                <div>
-                  <span>01 / ODKRYJ</span>
+              <div className="choice-bottom choice-bottom--acting">
+                <span className="choice-arrow">←</span>
+                <div className="choice-title">
                   <h2>AKTORSTWO</h2>
                 </div>
-                <span className="choice-arrow">←</span>
               </div>
             </button>
 
@@ -2039,9 +2132,8 @@ export default function HomePage() {
                   fill
                 />
               </div>
-              <div className="choice-bottom">
-                <div>
-                  <span>02 / ODKRYJ</span>
+              <div className="choice-bottom choice-bottom--improv">
+                <div className="choice-title">
                   <h2>IMPROWIZACJA</h2>
                 </div>
                 <span className="choice-arrow">→</span>
