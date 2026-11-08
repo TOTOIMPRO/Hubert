@@ -2108,7 +2108,7 @@ export default function HomePage() {
                 <PhotoImage
                   src={PHOTO.improv}
                   alt="Hubert Sycz – improwizacja"
-                  position="50% 24%"
+                  position="35% 24%"
                   fill
                 />
               </div>
@@ -2170,7 +2170,7 @@ export default function HomePage() {
               <PhotoImage
                 src={PHOTO.improv}
                 alt="Hubert Sycz podczas spektaklu improwizowanego"
-                position="50% 24%"
+                position="35% 24%"
               />
             </div>
           </header>
