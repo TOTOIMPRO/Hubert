@@ -62,7 +62,7 @@ const LINKS = {
 
 const PHOTO = {
   acting: "/images/HUBERT  fot Zimakiewicz (20).jpg",
-  improv: "/images/TOTO-145.jpg",
+  improv: "/images/IMG_0283.jpg",
 };
 
 /* =========================================================
@@ -128,9 +128,9 @@ const improvGallery: Photo[] = [
     position: "50% 43%",
   },
   {
-    src: "/images/IMG_0283.jpg",
+    src: "/images/TOTO-145.jpg",
     alt: "Hubert Sycz podczas spektaklu improwizowanego",
-    position: "36% 40%",
+    position: "50% 40%",
   },
   {
     src: "/images/TOTO-69.jpg",
