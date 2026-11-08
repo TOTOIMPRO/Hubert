@@ -1433,6 +1433,18 @@ export default function HomePage() {
             flex: 0 0 auto;
           }
 
+          /*
+             GŁÓWNY KAFEL IMPRO — prawdziwy crop, nie samo object-position.
+             Oryginał ma dużo pustej przestrzeni po prawej, więc przybliżamy
+             zdjęcie od lewego górnego rogu. Dzięki temu twarz wypada prawie
+             dokładnie na środku kwadratowego kafla.
+          */
+          .choice--improv .choice-image img {
+            object-position: 0% 0% !important;
+            transform: scale(1.36);
+            transform-origin: 0% 0%;
+          }
+
           .choice-bottom {
             min-height: 110px;
           }
