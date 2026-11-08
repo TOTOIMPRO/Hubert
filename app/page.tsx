@@ -1410,32 +1410,14 @@ export default function HomePage() {
 
         @media (min-width: 769px) {
           .world--home {
-            height: 100dvh;
+            height: auto;
             min-height: 100dvh;
-            overflow: hidden !important;
-            display: flex;
-            flex-direction: column;
-          }
-
-          .home-top {
-            flex: 0 0 auto;
-          }
-
-          .home-heading {
-            flex: 0 0 auto;
-            margin-top: clamp(16px, 2.2vh, 28px) !important;
-            margin-bottom: clamp(18px, 2.6vh, 32px) !important;
-          }
-
-          .home-heading h1 {
-            margin-top: clamp(8px, 1.2vh, 14px) !important;
-            margin-bottom: clamp(8px, 1.2vh, 14px) !important;
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
           }
 
           .choices {
-            flex: 0 0 auto;
             align-items: stretch;
-            min-height: 0;
           }
 
           .choice {
@@ -1446,13 +1428,13 @@ export default function HomePage() {
 
           .choice-image {
             width: 100% !important;
-            height: clamp(300px, 43vh, 500px) !important;
-            aspect-ratio: auto !important;
+            aspect-ratio: 1 / 1 !important;
+            height: auto !important;
             flex: 0 0 auto;
           }
 
           .choice-bottom {
-            min-height: clamp(92px, 12vh, 120px);
+            min-height: 110px;
           }
 
           .choice-bottom--acting,
@@ -1462,9 +1444,7 @@ export default function HomePage() {
           }
 
           .home-footer {
-            margin-top: auto;
-            padding-top: clamp(12px, 1.6vh, 20px);
-            padding-bottom: clamp(12px, 1.6vh, 20px);
+            margin-top: 28px;
           }
         }
 
