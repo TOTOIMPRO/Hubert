@@ -61,7 +61,7 @@ const LINKS = {
 ========================================================= */
 
 const PHOTO = {
-  acting: "/images/HUBERT  fot Zimakiewicz (20).jpg",
+  acting: "/images/_DSC8675.jpg",
   improv: "/images/IMG_0283.jpg",
 };
 
@@ -71,44 +71,24 @@ const PHOTO = {
 
 const actingGallery: Photo[] = [
   {
-    src: "/images/HUBERT  fot Zimakiewicz (20).jpg",
-    alt: "Hubert Sycz w białej koszuli",
-    position: "50% 14%",
+    src: "/images/_DSC7765.jpg",
+    alt: "Hubert Sycz - portret na niebieskim tle",
+    position: "50% 36%",
   },
   {
-    src: "/images/IMG_0074-01-kopia.jpeg",
-    alt: "Hubert Sycz w brązowej kurtce",
-    position: "50% 18%",
+    src: "/images/_DSC8336.jpg",
+    alt: "Hubert Sycz w bordowym golfie na czerwonym tle",
+    position: "50% 34%",
   },
   {
-    src: "/images/HUBERT  fot Zimakiewicz (24)-2.jpg",
-    alt: "Hubert Sycz - portret aktorski",
-    position: "50% 18%",
+    src: "/images/_DSC8675.jpg",
+    alt: "Hubert Sycz - zbliżenie na czerwonym tle",
+    position: "50% 34%",
   },
   {
-    src: "/images/_MG_8581-2-kopia.jpg",
-    alt: "Hubert Sycz - portret",
-    position: "50% 18%",
-  },
-  {
-    src: "/images/_MG_8790.jpg",
-    alt: "Hubert Sycz na brązowym tle",
-    position: "50% 18%",
-  },
-  {
-    src: "/images/HUBERT  fot Zimakiewicz (37)-2.jpg",
-    alt: "Hubert Sycz w czarnym golfie",
-    position: "50% 16%",
-  },
-  {
-    src: "/images/HUBERT  fot Zimakiewicz (29).jpg",
-    alt: "Hubert Sycz - portret w jasnym wnętrzu",
-    position: "50% 18%",
-  },
-  {
-    src: "/images/HUBERT  fot Zimakiewicz (4).jpg",
-    alt: "Hubert Sycz - zdjęcie aktorskie",
-    position: "50% 18%",
+    src: "/images/_DSC8684.jpg",
+    alt: "Hubert Sycz w czarnym topie na czerwonym tle",
+    position: "50% 32%",
   },
 ];
 
@@ -1863,7 +1843,7 @@ export default function HomePage() {
               <PhotoImage
                 src={PHOTO.acting}
                 alt="Hubert Sycz"
-                position="50% 12%"
+                position="50% 34%"
               />
             </div>
           </header>
@@ -2110,7 +2090,7 @@ export default function HomePage() {
                 <PhotoImage
                   src={PHOTO.acting}
                   alt="Hubert Sycz – aktorstwo"
-                  position="50% 12%"
+                  position="50% 34%"
                   fill
                 />
               </div>
