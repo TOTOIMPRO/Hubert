@@ -101,9 +101,9 @@ const actingGallery: Photo[] = [
     position: "50% 34%",
   },
   {
-    src: "/images/_DSC8684.jpg",
-    alt: "Hubert Sycz w czarnym topie na czerwonym tle",
-    position: "50% 30%",
+    src: "/images/_DSC7933.jpg",
+    alt: "Hubert Sycz w czarnej koszuli na jasnym tle",
+    position: "50% 32%",
   },
   {
     src: "/images/HUBERT  fot Zimakiewicz (4).jpg",
@@ -1065,6 +1065,13 @@ export default function HomePage() {
            DODATKI 30.10.2026
            Filmografia rozwijana + nowe kafelki współpracy
         ===================================================== */
+        /* Główne zdjęcie aktorskie ma zachować oryginalne kolory */
+        #panel-home .choice--acting .choice-image img,
+        .actor-hero-photo img {
+          filter: none !important;
+          -webkit-filter: none !important;
+        }
+
 
         .film-years--accordion {
           display: flex !important;
