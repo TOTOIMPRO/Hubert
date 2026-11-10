@@ -1769,6 +1769,165 @@ export default function HomePage() {
           }
         }
 
+
+        /* =====================================================
+           MOBILE FIX 10.11.2026 — tylko telefon
+           Czytelny ekran wyboru + zwarte hero Impro
+        ===================================================== */
+        @media (max-width: 768px) {
+          /* Ekran wyboru: dwa kafle nadal obok siebie, ale bez ucinania napisów */
+          .world--home {
+            overflow-x: hidden !important;
+          }
+
+          .home-top {
+            padding-left: 5.5%;
+            padding-right: 5.5%;
+            gap: 12px;
+          }
+
+          .home-top span {
+            font-size: 8px;
+            letter-spacing: .13em;
+            white-space: nowrap;
+          }
+
+          .home-heading {
+            padding-left: 5.5%;
+            padding-right: 5.5%;
+          }
+
+          .home-heading > span {
+            font-size: 9px;
+            letter-spacing: .28em;
+          }
+
+          .home-heading h1 {
+            font-size: clamp(48px, 14.5vw, 66px) !important;
+            line-height: .92;
+            letter-spacing: -.055em;
+            white-space: nowrap;
+          }
+
+          .home-heading p {
+            font-size: 9px;
+            letter-spacing: .22em;
+          }
+
+          .choices {
+            width: 89%;
+            gap: 10px !important;
+          }
+
+          .choice {
+            min-width: 0 !important;
+            overflow: hidden;
+          }
+
+          .choice-image {
+            width: 100% !important;
+            aspect-ratio: 1 / 1 !important;
+            height: auto !important;
+          }
+
+          .choice-bottom {
+            min-height: 76px !important;
+            padding: 12px 10px !important;
+            gap: 7px !important;
+            overflow: hidden;
+          }
+
+          .choice-title {
+            min-width: 0;
+            overflow: hidden;
+          }
+
+          .choice-title h2 {
+            max-width: 100%;
+            font-size: clamp(15px, 4.15vw, 19px) !important;
+            line-height: .92 !important;
+            letter-spacing: -.045em !important;
+            white-space: nowrap;
+          }
+
+          .choice-arrow {
+            font-size: 24px !important;
+            line-height: 1;
+          }
+
+          .home-footer {
+            width: 89%;
+            gap: 12px;
+          }
+
+          .home-footer span {
+            font-size: 8px;
+            letter-spacing: .13em;
+            white-space: nowrap;
+          }
+
+          /* Hero Impro: mniej wysokości, pełny nagłówek i użyteczny kadr */
+          .hero--improv .hero-content {
+            padding: 42px 6% 34px !important;
+          }
+
+          .hero--improv h1 {
+            margin: 18px 0 22px !important;
+            font-size: clamp(50px, 15.3vw, 68px) !important;
+            line-height: .84 !important;
+            letter-spacing: -.065em !important;
+          }
+
+          .hero--improv .hero-lead {
+            margin-bottom: 22px !important;
+            font-size: 17px !important;
+            line-height: 1.48 !important;
+          }
+
+          .hero--improv .hero-actions {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 8px !important;
+          }
+
+          .hero--improv .hero-actions .main-button,
+          .hero--improv .hero-actions .outline-button {
+            min-height: 54px;
+            padding: 12px 8px !important;
+            font-size: 8px !important;
+            line-height: 1.25;
+          }
+
+          .hero--improv .hero-visual {
+            min-height: 0 !important;
+            height: auto !important;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+          }
+
+          .hero--improv .hero-visual img {
+            object-position: 22% 38% !important;
+            transform: none !important;
+          }
+
+          /* Pływający kontakt nad dolnym paskiem Safari */
+          .floating-contact {
+            right: 12px !important;
+            bottom: calc(82px + env(safe-area-inset-bottom)) !important;
+            min-height: 38px !important;
+            padding: 0 13px !important;
+            font-size: 8px !important;
+            z-index: 80;
+          }
+
+          /* Nagłówki kolejnych sekcji nie mogą wypadać poza ekran */
+          .section-heading h2,
+          .section-heading--compact h2 {
+            max-width: 100%;
+            font-size: clamp(32px, 9vw, 42px) !important;
+            overflow-wrap: break-word;
+          }
+        }
+
         @media (max-width: 390px) {
           .actor-hero-copy h1 {
             font-size: 16.5vw;
